@@ -319,4 +319,7 @@
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
   </PropertyGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /d &quot;$(ProjectDir)Binaries\&quot; &quot;$(OutDir)\utils\&quot;" />
+  </Target>
 </Project>
