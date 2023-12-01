@@ -1,5 +1,6 @@
 ﻿using ProtoBuf;
 using Quasar.Common.Messages;
+using Quasar.Common.Streams;
 using System;
 using System.IO;
 

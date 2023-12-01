@@ -44,7 +44,7 @@ namespace Quasar.Server.Forms
             this.btnHide = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
             this.toolTipButtons = new System.Windows.Forms.ToolTip(this.components);
-            this.picDesktop = new RapidPictureBox();
+            this.picDesktop = new Quasar.Server.Controls.RapidPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.barQuality)).BeginInit();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDesktop)).BeginInit();
@@ -52,34 +52,37 @@ namespace Quasar.Server.Forms
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(15, 5);
+            this.btnStart.Location = new System.Drawing.Point(30, 10);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(68, 23);
+            this.btnStart.Size = new System.Drawing.Size(136, 46);
             this.btnStart.TabIndex = 1;
             this.btnStart.TabStop = false;
-            this.btnStart.Text = "Start";
+            this.btnStart.Text = "启动";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnStop
             // 
             this.btnStop.Enabled = false;
-            this.btnStop.Location = new System.Drawing.Point(96, 5);
+            this.btnStop.Location = new System.Drawing.Point(192, 10);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(68, 23);
+            this.btnStop.Size = new System.Drawing.Size(136, 46);
             this.btnStop.TabIndex = 2;
             this.btnStop.TabStop = false;
-            this.btnStop.Text = "Stop";
+            this.btnStop.Text = "停止";
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // barQuality
             // 
-            this.barQuality.Location = new System.Drawing.Point(206, -1);
+            this.barQuality.Location = new System.Drawing.Point(412, -2);
+            this.barQuality.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.barQuality.Maximum = 100;
             this.barQuality.Minimum = 1;
             this.barQuality.Name = "barQuality";
-            this.barQuality.Size = new System.Drawing.Size(76, 45);
+            this.barQuality.Size = new System.Drawing.Size(152, 90);
             this.barQuality.TabIndex = 3;
             this.barQuality.TabStop = false;
             this.barQuality.Value = 75;
@@ -88,27 +91,30 @@ namespace Quasar.Server.Forms
             // lblQuality
             // 
             this.lblQuality.AutoSize = true;
-            this.lblQuality.Location = new System.Drawing.Point(167, 5);
+            this.lblQuality.Location = new System.Drawing.Point(334, 10);
+            this.lblQuality.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblQuality.Name = "lblQuality";
-            this.lblQuality.Size = new System.Drawing.Size(46, 13);
+            this.lblQuality.Size = new System.Drawing.Size(86, 30);
             this.lblQuality.TabIndex = 4;
             this.lblQuality.Text = "Quality:";
             // 
             // lblQualityShow
             // 
             this.lblQualityShow.AutoSize = true;
-            this.lblQualityShow.Location = new System.Drawing.Point(220, 26);
+            this.lblQualityShow.Location = new System.Drawing.Point(440, 52);
+            this.lblQualityShow.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblQualityShow.Name = "lblQualityShow";
-            this.lblQualityShow.Size = new System.Drawing.Size(52, 13);
+            this.lblQualityShow.Size = new System.Drawing.Size(106, 30);
             this.lblQualityShow.TabIndex = 5;
-            this.lblQualityShow.Text = "75 (high)";
+            this.lblQualityShow.Text = "75（高）";
             // 
             // btnMouse
             // 
             this.btnMouse.Image = global::Quasar.Server.Properties.Resources.mouse_delete;
-            this.btnMouse.Location = new System.Drawing.Point(302, 5);
+            this.btnMouse.Location = new System.Drawing.Point(604, 10);
+            this.btnMouse.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnMouse.Name = "btnMouse";
-            this.btnMouse.Size = new System.Drawing.Size(28, 28);
+            this.btnMouse.Size = new System.Drawing.Size(56, 56);
             this.btnMouse.TabIndex = 6;
             this.btnMouse.TabStop = false;
             this.toolTipButtons.SetToolTip(this.btnMouse, "Enable mouse input.");
@@ -127,17 +133,19 @@ namespace Quasar.Server.Forms
             this.panelTop.Controls.Add(this.btnStop);
             this.panelTop.Controls.Add(this.lblQuality);
             this.panelTop.Controls.Add(this.barQuality);
-            this.panelTop.Location = new System.Drawing.Point(189, -1);
+            this.panelTop.Location = new System.Drawing.Point(378, -2);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(384, 57);
+            this.panelTop.Size = new System.Drawing.Size(766, 112);
             this.panelTop.TabIndex = 7;
             // 
             // btnKeyboard
             // 
             this.btnKeyboard.Image = global::Quasar.Server.Properties.Resources.keyboard_delete;
-            this.btnKeyboard.Location = new System.Drawing.Point(336, 5);
+            this.btnKeyboard.Location = new System.Drawing.Point(672, 10);
+            this.btnKeyboard.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnKeyboard.Name = "btnKeyboard";
-            this.btnKeyboard.Size = new System.Drawing.Size(28, 28);
+            this.btnKeyboard.Size = new System.Drawing.Size(56, 56);
             this.btnKeyboard.TabIndex = 9;
             this.btnKeyboard.TabStop = false;
             this.toolTipButtons.SetToolTip(this.btnKeyboard, "Enable keyboard input.");
@@ -148,31 +156,34 @@ namespace Quasar.Server.Forms
             // 
             this.cbMonitors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonitors.FormattingEnabled = true;
-            this.cbMonitors.Location = new System.Drawing.Point(15, 30);
+            this.cbMonitors.Location = new System.Drawing.Point(30, 60);
+            this.cbMonitors.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbMonitors.Name = "cbMonitors";
-            this.cbMonitors.Size = new System.Drawing.Size(149, 21);
+            this.cbMonitors.Size = new System.Drawing.Size(294, 38);
             this.cbMonitors.TabIndex = 8;
             this.cbMonitors.TabStop = false;
             // 
             // btnHide
             // 
-            this.btnHide.Location = new System.Drawing.Point(170, 37);
+            this.btnHide.Location = new System.Drawing.Point(340, 74);
+            this.btnHide.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(54, 19);
+            this.btnHide.Size = new System.Drawing.Size(108, 38);
             this.btnHide.TabIndex = 7;
             this.btnHide.TabStop = false;
-            this.btnHide.Text = "Hide";
+            this.btnHide.Text = "隐藏";
             this.btnHide.UseVisualStyleBackColor = true;
             this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
             // 
             // btnShow
             // 
             this.btnShow.Location = new System.Drawing.Point(0, 0);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(54, 19);
+            this.btnShow.Size = new System.Drawing.Size(108, 38);
             this.btnShow.TabIndex = 8;
             this.btnShow.TabStop = false;
-            this.btnShow.Text = "Show";
+            this.btnShow.Text = "显示";
             this.btnShow.UseVisualStyleBackColor = true;
             this.btnShow.Visible = false;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
@@ -185,9 +196,10 @@ namespace Quasar.Server.Forms
             this.picDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picDesktop.GetImageSafe = null;
             this.picDesktop.Location = new System.Drawing.Point(0, 0);
+            this.picDesktop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.picDesktop.Name = "picDesktop";
             this.picDesktop.Running = false;
-            this.picDesktop.Size = new System.Drawing.Size(784, 562);
+            this.picDesktop.Size = new System.Drawing.Size(1568, 1124);
             this.picDesktop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picDesktop.TabIndex = 0;
             this.picDesktop.TabStop = false;
@@ -197,19 +209,20 @@ namespace Quasar.Server.Forms
             // 
             // FrmRemoteDesktop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(1568, 1124);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.picDesktop);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(640, 480);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MinimumSize = new System.Drawing.Size(1254, 889);
             this.Name = "FrmRemoteDesktop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Remote Desktop []";
+            this.Text = "远程桌面 []";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmRemoteDesktop_FormClosing);
             this.Load += new System.EventHandler(this.FrmRemoteDesktop_Load);
             this.Resize += new System.EventHandler(this.FrmRemoteDesktop_Resize);

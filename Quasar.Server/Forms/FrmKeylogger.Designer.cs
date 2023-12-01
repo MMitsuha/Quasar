@@ -32,9 +32,9 @@
             this.lstLogs = new System.Windows.Forms.ListView();
             this.hLogs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.stripLblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnGetLogs = new System.Windows.Forms.Button();
             this.wLogViewer = new System.Windows.Forms.WebBrowser();
-            this.stripLblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,9 +47,11 @@
             this.lstLogs.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.lstLogs.FullRowSelect = true;
             this.lstLogs.GridLines = true;
-            this.lstLogs.Location = new System.Drawing.Point(0, 31);
+            this.lstLogs.HideSelection = false;
+            this.lstLogs.Location = new System.Drawing.Point(0, 62);
+            this.lstLogs.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstLogs.Name = "lstLogs";
-            this.lstLogs.Size = new System.Drawing.Size(153, 431);
+            this.lstLogs.Size = new System.Drawing.Size(302, 858);
             this.lstLogs.TabIndex = 0;
             this.lstLogs.UseCompatibleStateImageBehavior = false;
             this.lstLogs.View = System.Windows.Forms.View.Details;
@@ -57,26 +59,35 @@
             // 
             // hLogs
             // 
-            this.hLogs.Text = "Logs";
+            this.hLogs.Text = "记录";
             this.hLogs.Width = 149;
             // 
             // statusStrip
             // 
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stripLblStatus});
-            this.statusStrip.Location = new System.Drawing.Point(0, 460);
+            this.statusStrip.Location = new System.Drawing.Point(0, 923);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(862, 22);
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
+            this.statusStrip.Size = new System.Drawing.Size(1724, 41);
             this.statusStrip.TabIndex = 6;
             this.statusStrip.Text = "statusStrip1";
             // 
+            // stripLblStatus
+            // 
+            this.stripLblStatus.Name = "stripLblStatus";
+            this.stripLblStatus.Size = new System.Drawing.Size(182, 31);
+            this.stripLblStatus.Text = "状态：准备就绪";
+            // 
             // btnGetLogs
             // 
-            this.btnGetLogs.Location = new System.Drawing.Point(2, 3);
+            this.btnGetLogs.Location = new System.Drawing.Point(4, 6);
+            this.btnGetLogs.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnGetLogs.Name = "btnGetLogs";
-            this.btnGetLogs.Size = new System.Drawing.Size(149, 23);
+            this.btnGetLogs.Size = new System.Drawing.Size(298, 46);
             this.btnGetLogs.TabIndex = 7;
-            this.btnGetLogs.Text = "Get Logs";
+            this.btnGetLogs.Text = "获取记录";
             this.btnGetLogs.UseVisualStyleBackColor = true;
             this.btnGetLogs.Click += new System.EventHandler(this.btnGetLogs_Click);
             // 
@@ -85,34 +96,30 @@
             this.wLogViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.wLogViewer.Location = new System.Drawing.Point(154, 50);
-            this.wLogViewer.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wLogViewer.Location = new System.Drawing.Point(308, 100);
+            this.wLogViewer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.wLogViewer.MinimumSize = new System.Drawing.Size(40, 40);
             this.wLogViewer.Name = "wLogViewer";
             this.wLogViewer.ScriptErrorsSuppressed = true;
-            this.wLogViewer.Size = new System.Drawing.Size(708, 409);
+            this.wLogViewer.Size = new System.Drawing.Size(1416, 818);
             this.wLogViewer.TabIndex = 8;
-            // 
-            // stripLblStatus
-            // 
-            this.stripLblStatus.Name = "stripLblStatus";
-            this.stripLblStatus.Size = new System.Drawing.Size(77, 17);
-            this.stripLblStatus.Text = "Status: Ready";
             // 
             // FrmKeylogger
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(862, 482);
+            this.ClientSize = new System.Drawing.Size(1724, 964);
             this.Controls.Add(this.wLogViewer);
             this.Controls.Add(this.btnGetLogs);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.lstLogs);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(630, 465);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MinimumSize = new System.Drawing.Size(1234, 859);
             this.Name = "FrmKeylogger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Keylogger []";
+            this.Text = "键盘记录器 []";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmKeylogger_FormClosing);
             this.Load += new System.EventHandler(this.FrmKeylogger_Load);
             this.statusStrip.ResumeLayout(false);

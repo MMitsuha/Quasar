@@ -63,13 +63,13 @@ namespace Quasar.Server.Forms
             _titleUpdateRunning = true;
             try
             {
-                this.Invoke((MethodInvoker) delegate
+                this.Invoke((MethodInvoker)delegate
                 {
                     int selected = lstClients.SelectedItems.Count;
                     this.Text = (selected > 0)
-                        ? string.Format("Quasar - Connected: {0} [Selected: {1}]", ListenServer.ConnectedClients.Length,
+                        ? string.Format("Quasar - 已连接：{0} [已选择：{1}]", ListenServer.ConnectedClients.Length,
                             selected)
-                        : string.Format("Quasar - Connected: {0}", ListenServer.ConnectedClients.Length);
+                        : string.Format("Quasar - 已连接：{0}", ListenServer.ConnectedClients.Length);
                 });
             }
             catch (Exception)
@@ -122,11 +122,11 @@ namespace Quasar.Server.Forms
             {
                 if (ex.ErrorCode == 10048)
                 {
-                    MessageBox.Show(this, "The port is already in use.", "Socket Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "这个端口已经被使用。", "套接字错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show(this, $"An unexpected socket error occurred: {ex.Message}\n\nError Code: {ex.ErrorCode}\n\n", "Unexpected Socket Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, $"出现意外的套接字错误：{ex.Message}\n\n错误代码：{ex.ErrorCode}\n\n", "意外的套接字错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 ListenServer.Disconnect();
             }
@@ -172,11 +172,11 @@ namespace Quasar.Server.Forms
         {
             try
             {
-                this.Invoke((MethodInvoker) delegate
+                this.Invoke((MethodInvoker)delegate
                 {
                     if (!listening)
                         lstClients.Items.Clear();
-                    listenToolStripStatusLabel.Text = listening ? string.Format("Listening on port {0}.", port) : "Not listening.";
+                    listenToolStripStatusLabel.Text = listening ? string.Format("正在监听端口 {0}。", port) : "未监听。";
                 });
                 UpdateWindowTitle();
             }
@@ -254,6 +254,7 @@ namespace Quasar.Server.Forms
                             if (Settings.ShowPopup)
                                 ShowPopup(client.Key);
                             break;
+
                         case false:
                             RemoveClientFromListview(client.Key);
                             break;
@@ -273,7 +274,7 @@ namespace Quasar.Server.Forms
 
             try
             {
-                lstClients.Invoke((MethodInvoker) delegate
+                lstClients.Invoke((MethodInvoker)delegate
                 {
                     var item = GetListViewItemByClient(client);
                     if (item != null)
@@ -299,11 +300,12 @@ namespace Quasar.Server.Forms
                 ListViewItem lvi = new ListViewItem(new string[]
                 {
                     " " + client.EndPoint.Address, client.Value.Tag,
-                    client.Value.UserAtPc, client.Value.Version, "Connected", "Active", client.Value.CountryWithCode,
+                    client.Value.UserAtPc, client.Value.Version, "已连接", "活动的", client.Value.CountryWithCode,
                     client.Value.OperatingSystem, client.Value.AccountType
-                }) { Tag = client, ImageIndex = client.Value.ImageIndex };
+                })
+                { Tag = client, ImageIndex = client.Value.ImageIndex };
 
-                lstClients.Invoke((MethodInvoker) delegate
+                lstClients.Invoke((MethodInvoker)delegate
                 {
                     lock (_lockClients)
                     {
@@ -328,7 +330,7 @@ namespace Quasar.Server.Forms
 
             try
             {
-                lstClients.Invoke((MethodInvoker) delegate
+                lstClients.Invoke((MethodInvoker)delegate
                 {
                     lock (_lockClients)
                     {
@@ -371,11 +373,10 @@ namespace Quasar.Server.Forms
             var item = GetListViewItemByClient(client);
             if (item != null)
                 item.SubItems[USERSTATUS_ID].Text = userStatus.ToString();
-
         }
 
         /// <summary>
-        /// Gets the Listview item which belongs to the client. 
+        /// Gets the Listview item which belongs to the client.
         /// </summary>
         /// <param name="client">The client to get the Listview item of.</param>
         /// <returns>Listview item of the client.</returns>
@@ -385,7 +386,7 @@ namespace Quasar.Server.Forms
 
             ListViewItem itemClient = null;
 
-            lstClients.Invoke((MethodInvoker) delegate
+            lstClients.Invoke((MethodInvoker)delegate
             {
                 itemClient = lstClients.Items.Cast<ListViewItem>()
                     .FirstOrDefault(lvi => lvi != null && client.Equals(lvi.Tag));
@@ -437,9 +438,9 @@ namespace Quasar.Server.Forms
                 this.Invoke((MethodInvoker)delegate
                 {
                     if (c == null || c.Value == null) return;
-                    
-                    notifyIcon.ShowBalloonTip(4000, string.Format("Client connected from {0}!", c.Value.Country),
-                        string.Format("IP Address: {0}\nOperating System: {1}", c.EndPoint.Address.ToString(),
+
+                    notifyIcon.ShowBalloonTip(4000, string.Format("客户端已从 {0} 连接！", c.Value.Country),
+                        string.Format("IP地址：{0}\n操作系统：{1}", c.EndPoint.Address.ToString(),
                         c.Value.OperatingSystem), ToolTipIcon.Info);
                 });
             }
@@ -492,8 +493,8 @@ namespace Quasar.Server.Forms
             if (
                 MessageBox.Show(
                     string.Format(
-                        "Are you sure you want to uninstall the client on {0} computer\\s?",
-                        lstClients.SelectedItems.Count), "Uninstall Confirmation", MessageBoxButtons.YesNo,
+                        "是否确实要卸载 {0} 上的客户端？",
+                        lstClients.SelectedItems.Count), "卸载确认", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 foreach (Client c in GetSelectedClients())
@@ -503,7 +504,7 @@ namespace Quasar.Server.Forms
             }
         }
 
-        #endregion
+        #endregion "Client Management"
 
         #region "Administration"
 
@@ -614,7 +615,7 @@ namespace Quasar.Server.Forms
         {
             foreach (Client c in GetSelectedClients())
             {
-                c.Send(new DoShutdownAction {Action = ShutdownAction.Shutdown});
+                c.Send(new DoShutdownAction { Action = ShutdownAction.Shutdown });
             }
         }
 
@@ -622,7 +623,7 @@ namespace Quasar.Server.Forms
         {
             foreach (Client c in GetSelectedClients())
             {
-                c.Send(new DoShutdownAction {Action = ShutdownAction.Restart});
+                c.Send(new DoShutdownAction { Action = ShutdownAction.Restart });
             }
         }
 
@@ -630,11 +631,11 @@ namespace Quasar.Server.Forms
         {
             foreach (Client c in GetSelectedClients())
             {
-                c.Send(new DoShutdownAction {Action = ShutdownAction.Standby});
+                c.Send(new DoShutdownAction { Action = ShutdownAction.Standby });
             }
         }
 
-        #endregion
+        #endregion "Administration"
 
         #region "Monitoring"
 
@@ -668,7 +669,7 @@ namespace Quasar.Server.Forms
             }
         }
 
-        #endregion
+        #endregion "Monitoring"
 
         #region "User Support"
 
@@ -716,14 +717,14 @@ namespace Quasar.Server.Forms
             }
         }
 
-        #endregion
+        #endregion "User Support"
 
         private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             lstClients.SelectAllItems();
         }
 
-        #endregion
+        #endregion "ContextMenuStrip"
 
         #region "MenuStrip"
 
@@ -760,7 +761,7 @@ namespace Quasar.Server.Forms
             }
         }
 
-        #endregion
+        #endregion "MenuStrip"
 
         #region "NotifyIcon"
 
@@ -772,6 +773,6 @@ namespace Quasar.Server.Forms
             this.ShowInTaskbar = (this.WindowState == FormWindowState.Normal);
         }
 
-        #endregion
+        #endregion "NotifyIcon"
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Quasar.Common.Extensions;
 using Quasar.Common.Messages;
+using Quasar.Common.Streams;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -205,7 +206,7 @@ namespace Quasar.Server.Networking
         private readonly object _clientsLock = new object();
 
         /// <summary>
-        /// Determines if the server is currently processing Disconnect method. 
+        /// Determines if the server is currently processing Disconnect method.
         /// </summary>
         protected bool ProcessingDisconnect { get; set; }
 
@@ -280,17 +281,19 @@ namespace Quasar.Server.Networking
                                 sslStream = new SslStream(new NetworkStream(clientSocket, true), false);
                                 // the SslStream owns the socket and on disposing also disposes the NetworkStream and Socket
                                 sslStream.BeginAuthenticateAsServer(ServerCertificate, false, SslProtocols.Tls12, false, EndAuthenticateClient,
-                                    new PendingClient {Stream = sslStream, EndPoint = (IPEndPoint) clientSocket.RemoteEndPoint});
+                                    new PendingClient { Stream = sslStream, EndPoint = (IPEndPoint)clientSocket.RemoteEndPoint });
                             }
                             catch (Exception)
                             {
                                 sslStream?.Close();
                             }
                             break;
+
                         case SocketError.ConnectionReset:
                             break;
+
                         default:
-                            throw new SocketException((int) e.SocketError);
+                            throw new SocketException((int)e.SocketError);
                     }
 
                     e.AcceptSocket = null; // enable reuse
@@ -317,12 +320,12 @@ namespace Quasar.Server.Networking
         /// <param name="ar">The status of the asynchronous operation.</param>
         private void EndAuthenticateClient(IAsyncResult ar)
         {
-            var con = (PendingClient) ar.AsyncState;
+            var con = (PendingClient)ar.AsyncState;
             try
             {
                 con.Stream.EndAuthenticateAsServer(ar);
 
-                Client client = new Client(_bufferPool, con.Stream, con.EndPoint);
+                Client client = new Client(_bufferPool, new XorSslStream(con.Stream), con.EndPoint);
                 AddClient(client);
                 OnClientState(client, true);
             }

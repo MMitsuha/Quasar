@@ -60,6 +60,7 @@ namespace Quasar.Server.Forms
             txtOriginalFilename.Text = profile.OriginalFilename;
             txtProductVersion.Text = profile.ProductVersion;
             txtFileVersion.Text = profile.FileVersion;
+            chkGenerateShellcode.Checked = profile.GenerateShellcode;
 
             _profileLoaded = true;
         }
@@ -70,7 +71,7 @@ namespace Quasar.Server.Forms
 
             profile.Tag = txtTag.Text;
             profile.Hosts = _hostsConverter.ListToRawHosts(_hosts);
-            profile.Delay = (int) numericUpDownDelay.Value;
+            profile.Delay = (int)numericUpDownDelay.Value;
             profile.Mutex = txtMutex.Text;
             profile.UnattendedMode = chkUnattendedMode.Checked;
             profile.InstallClient = chkInstall.Checked;
@@ -95,6 +96,7 @@ namespace Quasar.Server.Forms
             profile.OriginalFilename = txtOriginalFilename.Text;
             profile.ProductVersion = txtProductVersion.Text;
             profile.FileVersion = txtFileVersion.Text;
+            profile.GenerateShellcode = chkGenerateShellcode.Checked;
         }
 
         private void FrmBuilder_Load(object sender, EventArgs e)
@@ -114,7 +116,7 @@ namespace Quasar.Server.Forms
         private void FrmBuilder_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (_changed &&
-                MessageBox.Show(this, "Do you want to save your current settings?", "Changes detected",
+                MessageBox.Show(this, "是否保存当前设置？", "检测到更改",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 SaveProfile("Default");
@@ -128,13 +130,14 @@ namespace Quasar.Server.Forms
             HasChanged();
 
             var host = txtHost.Text;
-            ushort port = (ushort) numericUpDownPort.Value;
+            ushort port = (ushort)numericUpDownPort.Value;
 
-            _hosts.Add(new Host {Hostname = host, Port = port});
+            _hosts.Add(new Host { Hostname = host, Port = port });
             txtHost.Text = "";
         }
 
         #region "Context Menu"
+
         private void removeHostToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HasChanged();
@@ -160,9 +163,11 @@ namespace Quasar.Server.Forms
 
             _hosts.Clear();
         }
-        #endregion
+
+        #endregion "Context Menu"
 
         #region "Misc"
+
         private void txtInstallname_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = ((e.KeyChar == '\\' || FileHelper.HasIllegalCharacters(e.KeyChar.ToString())) &&
@@ -220,8 +225,8 @@ namespace Quasar.Server.Forms
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Title = "Choose Icon";
-                ofd.Filter = "Icons *.ico|*.ico";
+                ofd.Title = "选择图标";
+                ofd.Filter = "图标 *.ico|*.ico";
                 ofd.Multiselect = false;
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -237,12 +242,13 @@ namespace Quasar.Server.Forms
 
             UpdateIconControlStates();
         }
-        #endregion
+
+        #endregion "Misc"
 
         private bool CheckForEmptyInput()
         {
             return (!string.IsNullOrWhiteSpace(txtTag.Text) && !string.IsNullOrWhiteSpace(txtMutex.Text) && // General Settings
-                 _hosts.Count > 0  && // Connection
+                 _hosts.Count > 0 && // Connection
                  (!chkInstall.Checked || (chkInstall.Checked && !string.IsNullOrWhiteSpace(txtInstallName.Text))) && // Installation
                  (!chkStartup.Checked || (chkStartup.Checked && !string.IsNullOrWhiteSpace(txtRegistryKeyName.Text)))); // Installation
         }
@@ -252,14 +258,14 @@ namespace Quasar.Server.Forms
             BuildOptions options = new BuildOptions();
             if (!CheckForEmptyInput())
             {
-                throw new Exception("Please fill out all required fields!");
+                throw new Exception("请填写所有必填字段！");
             }
 
             options.Tag = txtTag.Text;
             options.Mutex = txtMutex.Text;
             options.UnattendedMode = chkUnattendedMode.Checked;
             options.RawHosts = _hostsConverter.ListToRawHosts(_hosts);
-            options.Delay = (int) numericUpDownDelay.Value;
+            options.Delay = (int)numericUpDownDelay.Value;
             options.IconPath = txtIconPath.Text;
             options.Version = Application.ProductVersion;
             options.InstallPath = GetInstallPath();
@@ -273,22 +279,23 @@ namespace Quasar.Server.Forms
             options.Keylogger = chkKeylogger.Checked;
             options.LogDirectoryName = txtLogDirectoryName.Text;
             options.HideLogDirectory = chkHideLogDirectory.Checked;
+            options.GenerateShellcode = chkGenerateShellcode.Checked;
 
             if (!File.Exists("client.bin"))
             {
-                throw new Exception("Could not locate \"client.bin\" file. It should be in the same directory as Quasar.");
+                throw new Exception("无法定位 \"client.bin\" 文件。它应该与Quasar在同一目录中。");
             }
 
             if (options.RawHosts.Length < 2)
             {
-                throw new Exception("Please enter a valid host to connect to.");
+                throw new Exception("请输入要连接的有效主机。");
             }
 
             if (chkChangeIcon.Checked)
             {
                 if (string.IsNullOrWhiteSpace(options.IconPath) || !File.Exists(options.IconPath))
                 {
-                    throw new Exception("Please choose a valid icon path.");
+                    throw new Exception("请选择一个有效的图标路径。");
                 }
             }
             else
@@ -298,12 +305,12 @@ namespace Quasar.Server.Forms
             {
                 if (!IsValidVersionNumber(txtProductVersion.Text))
                 {
-                    throw new Exception("Please enter a valid product version number!\nExample: 1.2.3.4");
+                    throw new Exception("请输入有效的产品版本号！\n例如：1.2.3.4");
                 }
 
                 if (!IsValidVersionNumber(txtFileVersion.Text))
                 {
-                    throw new Exception("Please enter a valid file version number!\nExample: 1.2.3.4");
+                    throw new Exception("请输入有效的文件版本号！\n例如：1.2.3.4");
                 }
 
                 options.AssemblyInformation = new string[8];
@@ -317,22 +324,35 @@ namespace Quasar.Server.Forms
                 options.AssemblyInformation[7] = txtFileVersion.Text;
             }
 
+            string filter;
+            string filename;
+            if (options.GenerateShellcode)
+            {
+                filter = "二进制文件 *.bin|*.bin";
+                filename = "Client-built.bin";
+            }
+            else
+            {
+                filter = "可执行文件 *.exe|*.exe";
+                filename = "Client-built.exe";
+            }
+
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                sfd.Title = "Save Client as";
-                sfd.Filter = "Executables *.exe|*.exe";
+                sfd.Title = "保存客户端";
+                sfd.Filter = filter;
                 sfd.RestoreDirectory = true;
-                sfd.FileName = "Client-built.exe";
+                sfd.FileName = filename;
                 if (sfd.ShowDialog() != DialogResult.OK)
                 {
-                    throw new Exception("Please choose a valid output path.");
+                    throw new Exception("请选择一个有效的输出路径。");
                 }
                 options.OutputPath = sfd.FileName;
             }
 
             if (string.IsNullOrEmpty(options.OutputPath))
             {
-                throw new Exception("Please choose a valid output path.");
+                throw new Exception("请选择一个有效的输出路径。");
             }
 
             return options;
@@ -352,7 +372,7 @@ namespace Quasar.Server.Forms
             }
 
             SetBuildState(false);
-            
+
             Thread t = new Thread(BuildClient);
             t.Start(options);
         }
@@ -376,7 +396,7 @@ namespace Quasar.Server.Forms
         {
             try
             {
-                BuildOptions options = (BuildOptions) o;
+                BuildOptions options = (BuildOptions)o;
 
                 var builder = new ClientBuilder(options, "client.bin");
 
@@ -384,11 +404,11 @@ namespace Quasar.Server.Forms
 
                 try
                 {
-                    this.Invoke((MethodInvoker) delegate
+                    this.Invoke((MethodInvoker)delegate
                     {
                         MessageBox.Show(this,
-                            $"Successfully built client! Saved to:\\{options.OutputPath}",
-                            "Build Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            $"生成客户端成功！文件已保存到：\\{options.OutputPath}",
+                            "生成成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     });
                 }
                 catch (Exception)
@@ -402,7 +422,7 @@ namespace Quasar.Server.Forms
                     this.Invoke((MethodInvoker)delegate
                     {
                         MessageBox.Show(this,
-                            $"An error occurred!\n\nError Message: {ex.Message}\nStack Trace:\n{ex.StackTrace}", "Build failed",
+                            $"发生错误！\n\n错误信息：{ex.Message}\n调用堆栈：\n{ex.StackTrace}", "生成失败",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     });
                 }
@@ -455,10 +475,13 @@ namespace Quasar.Server.Forms
             {
                 case 1:
                     return rbAppdata;
+
                 case 2:
                     return rbProgramFiles;
+
                 case 3:
                     return rbSystem;
+
                 default:
                     throw new ArgumentException("InstallPath");
             }

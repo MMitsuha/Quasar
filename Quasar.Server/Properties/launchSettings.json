@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Quasar.Server": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -7,10 +7,10 @@ using System.Windows.Forms;
 
 namespace Quasar.Client
 {
-    internal static class Program
+    public static class Program
     {
         [STAThread]
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // enable TLS 1.2
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;

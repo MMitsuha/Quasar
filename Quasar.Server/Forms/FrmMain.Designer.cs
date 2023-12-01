@@ -32,6 +32,7 @@ namespace Quasar.Server.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            Quasar.Server.Utilities.ListViewColumnSorter listViewColumnSorter2 = new Quasar.Server.Utilities.ListViewColumnSorter();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,6 +96,7 @@ namespace Quasar.Server.Forms
             // 
             // contextMenuStrip
             // 
+            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.systemToolStripMenuItem,
             this.surveillanceToolStripMenuItem,
@@ -103,7 +105,7 @@ namespace Quasar.Server.Forms
             this.lineToolStripMenuItem,
             this.selectAllToolStripMenuItem});
             this.contextMenuStrip.Name = "ctxtMenu";
-            this.contextMenuStrip.Size = new System.Drawing.Size(181, 142);
+            this.contextMenuStrip.Size = new System.Drawing.Size(331, 210);
             // 
             // systemToolStripMenuItem
             // 
@@ -121,14 +123,14 @@ namespace Quasar.Server.Forms
             this.actionsToolStripMenuItem});
             this.systemToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.cog;
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            this.systemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(330, 40);
             this.systemToolStripMenuItem.Text = "Administration";
             // 
             // systemInformationToolStripMenuItem
             // 
             this.systemInformationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("systemInformationToolStripMenuItem.Image")));
             this.systemInformationToolStripMenuItem.Name = "systemInformationToolStripMenuItem";
-            this.systemInformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.systemInformationToolStripMenuItem.Size = new System.Drawing.Size(371, 44);
             this.systemInformationToolStripMenuItem.Text = "System Information";
             this.systemInformationToolStripMenuItem.Click += new System.EventHandler(this.systemInformationToolStripMenuItem_Click);
             // 
@@ -136,7 +138,7 @@ namespace Quasar.Server.Forms
             // 
             this.fileManagerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileManagerToolStripMenuItem.Image")));
             this.fileManagerToolStripMenuItem.Name = "fileManagerToolStripMenuItem";
-            this.fileManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fileManagerToolStripMenuItem.Size = new System.Drawing.Size(371, 44);
             this.fileManagerToolStripMenuItem.Text = "File Manager";
             this.fileManagerToolStripMenuItem.Click += new System.EventHandler(this.fileManagerToolStripMenuItem_Click);
             // 
@@ -144,7 +146,7 @@ namespace Quasar.Server.Forms
             // 
             this.startupManagerToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.application_edit;
             this.startupManagerToolStripMenuItem.Name = "startupManagerToolStripMenuItem";
-            this.startupManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.startupManagerToolStripMenuItem.Size = new System.Drawing.Size(371, 44);
             this.startupManagerToolStripMenuItem.Text = "Startup Manager";
             this.startupManagerToolStripMenuItem.Click += new System.EventHandler(this.startupManagerToolStripMenuItem_Click);
             // 
@@ -152,7 +154,7 @@ namespace Quasar.Server.Forms
             // 
             this.taskManagerToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.application_cascade;
             this.taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
-            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(371, 44);
             this.taskManagerToolStripMenuItem.Text = "Task Manager";
             this.taskManagerToolStripMenuItem.Click += new System.EventHandler(this.taskManagerToolStripMenuItem_Click);
             // 
@@ -160,7 +162,7 @@ namespace Quasar.Server.Forms
             // 
             this.remoteShellToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("remoteShellToolStripMenuItem.Image")));
             this.remoteShellToolStripMenuItem.Name = "remoteShellToolStripMenuItem";
-            this.remoteShellToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.remoteShellToolStripMenuItem.Size = new System.Drawing.Size(371, 44);
             this.remoteShellToolStripMenuItem.Text = "Remote Shell";
             this.remoteShellToolStripMenuItem.Click += new System.EventHandler(this.remoteShellToolStripMenuItem_Click);
             // 
@@ -168,7 +170,7 @@ namespace Quasar.Server.Forms
             // 
             this.connectionsToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.transmit_blue;
             this.connectionsToolStripMenuItem.Name = "connectionsToolStripMenuItem";
-            this.connectionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.connectionsToolStripMenuItem.Size = new System.Drawing.Size(371, 44);
             this.connectionsToolStripMenuItem.Text = "TCP Connections";
             this.connectionsToolStripMenuItem.Click += new System.EventHandler(this.connectionsToolStripMenuItem_Click);
             // 
@@ -176,7 +178,7 @@ namespace Quasar.Server.Forms
             // 
             this.reverseProxyToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.server_link;
             this.reverseProxyToolStripMenuItem.Name = "reverseProxyToolStripMenuItem";
-            this.reverseProxyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reverseProxyToolStripMenuItem.Size = new System.Drawing.Size(371, 44);
             this.reverseProxyToolStripMenuItem.Text = "Reverse Proxy";
             this.reverseProxyToolStripMenuItem.Click += new System.EventHandler(this.reverseProxyToolStripMenuItem_Click);
             // 
@@ -184,7 +186,7 @@ namespace Quasar.Server.Forms
             // 
             this.registryEditorToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.registry;
             this.registryEditorToolStripMenuItem.Name = "registryEditorToolStripMenuItem";
-            this.registryEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registryEditorToolStripMenuItem.Size = new System.Drawing.Size(371, 44);
             this.registryEditorToolStripMenuItem.Text = "Registry Editor";
             this.registryEditorToolStripMenuItem.Click += new System.EventHandler(this.registryEditorToolStripMenuItem_Click);
             // 
@@ -195,14 +197,14 @@ namespace Quasar.Server.Forms
             this.webFileToolStripMenuItem});
             this.remoteExecuteToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.lightning;
             this.remoteExecuteToolStripMenuItem.Name = "remoteExecuteToolStripMenuItem";
-            this.remoteExecuteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.remoteExecuteToolStripMenuItem.Size = new System.Drawing.Size(371, 44);
             this.remoteExecuteToolStripMenuItem.Text = "Remote Execute";
             // 
             // localFileToolStripMenuItem
             // 
             this.localFileToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.drive_go;
             this.localFileToolStripMenuItem.Name = "localFileToolStripMenuItem";
-            this.localFileToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.localFileToolStripMenuItem.Size = new System.Drawing.Size(269, 44);
             this.localFileToolStripMenuItem.Text = "Local File...";
             this.localFileToolStripMenuItem.Click += new System.EventHandler(this.localFileToolStripMenuItem_Click);
             // 
@@ -210,14 +212,14 @@ namespace Quasar.Server.Forms
             // 
             this.webFileToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.world_go;
             this.webFileToolStripMenuItem.Name = "webFileToolStripMenuItem";
-            this.webFileToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.webFileToolStripMenuItem.Size = new System.Drawing.Size(269, 44);
             this.webFileToolStripMenuItem.Text = "Web File...";
             this.webFileToolStripMenuItem.Click += new System.EventHandler(this.webFileToolStripMenuItem_Click);
             // 
             // ctxtLine
             // 
             this.ctxtLine.Name = "ctxtLine";
-            this.ctxtLine.Size = new System.Drawing.Size(177, 6);
+            this.ctxtLine.Size = new System.Drawing.Size(368, 6);
             // 
             // actionsToolStripMenuItem
             // 
@@ -227,14 +229,14 @@ namespace Quasar.Server.Forms
             this.standbyToolStripMenuItem});
             this.actionsToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.actions;
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(371, 44);
             this.actionsToolStripMenuItem.Text = "Actions";
             // 
             // shutdownToolStripMenuItem
             // 
             this.shutdownToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.shutdown;
             this.shutdownToolStripMenuItem.Name = "shutdownToolStripMenuItem";
-            this.shutdownToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.shutdownToolStripMenuItem.Size = new System.Drawing.Size(264, 44);
             this.shutdownToolStripMenuItem.Text = "Shutdown";
             this.shutdownToolStripMenuItem.Click += new System.EventHandler(this.shutdownToolStripMenuItem_Click);
             // 
@@ -242,7 +244,7 @@ namespace Quasar.Server.Forms
             // 
             this.restartToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.restart;
             this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(264, 44);
             this.restartToolStripMenuItem.Text = "Restart";
             this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
             // 
@@ -250,7 +252,7 @@ namespace Quasar.Server.Forms
             // 
             this.standbyToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.standby;
             this.standbyToolStripMenuItem.Name = "standbyToolStripMenuItem";
-            this.standbyToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.standbyToolStripMenuItem.Size = new System.Drawing.Size(264, 44);
             this.standbyToolStripMenuItem.Text = "Standby";
             this.standbyToolStripMenuItem.Click += new System.EventHandler(this.standbyToolStripMenuItem_Click);
             // 
@@ -262,14 +264,14 @@ namespace Quasar.Server.Forms
             this.remoteDesktopToolStripMenuItem2});
             this.surveillanceToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.monitoring;
             this.surveillanceToolStripMenuItem.Name = "surveillanceToolStripMenuItem";
-            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(330, 40);
             this.surveillanceToolStripMenuItem.Text = "Monitoring";
             // 
             // passwordRecoveryToolStripMenuItem
             // 
             this.passwordRecoveryToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("passwordRecoveryToolStripMenuItem.Image")));
             this.passwordRecoveryToolStripMenuItem.Name = "passwordRecoveryToolStripMenuItem";
-            this.passwordRecoveryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.passwordRecoveryToolStripMenuItem.Size = new System.Drawing.Size(368, 44);
             this.passwordRecoveryToolStripMenuItem.Text = "Password Recovery";
             this.passwordRecoveryToolStripMenuItem.Click += new System.EventHandler(this.passwordRecoveryToolStripMenuItem_Click);
             // 
@@ -277,7 +279,7 @@ namespace Quasar.Server.Forms
             // 
             this.keyloggerToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.keyboard_magnify;
             this.keyloggerToolStripMenuItem.Name = "keyloggerToolStripMenuItem";
-            this.keyloggerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.keyloggerToolStripMenuItem.Size = new System.Drawing.Size(368, 44);
             this.keyloggerToolStripMenuItem.Text = "Keylogger";
             this.keyloggerToolStripMenuItem.Click += new System.EventHandler(this.keyloggerToolStripMenuItem_Click);
             // 
@@ -285,7 +287,7 @@ namespace Quasar.Server.Forms
             // 
             this.remoteDesktopToolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("remoteDesktopToolStripMenuItem2.Image")));
             this.remoteDesktopToolStripMenuItem2.Name = "remoteDesktopToolStripMenuItem2";
-            this.remoteDesktopToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.remoteDesktopToolStripMenuItem2.Size = new System.Drawing.Size(368, 44);
             this.remoteDesktopToolStripMenuItem2.Text = "Remote Desktop";
             this.remoteDesktopToolStripMenuItem2.Click += new System.EventHandler(this.remoteDesktopToolStripMenuItem_Click);
             // 
@@ -297,14 +299,14 @@ namespace Quasar.Server.Forms
             this.visitWebsiteToolStripMenuItem});
             this.userSupportToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.user;
             this.userSupportToolStripMenuItem.Name = "userSupportToolStripMenuItem";
-            this.userSupportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userSupportToolStripMenuItem.Size = new System.Drawing.Size(330, 40);
             this.userSupportToolStripMenuItem.Text = "User Support";
             // 
             // showMessageboxToolStripMenuItem
             // 
             this.showMessageboxToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showMessageboxToolStripMenuItem.Image")));
             this.showMessageboxToolStripMenuItem.Name = "showMessageboxToolStripMenuItem";
-            this.showMessageboxToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.showMessageboxToolStripMenuItem.Size = new System.Drawing.Size(360, 44);
             this.showMessageboxToolStripMenuItem.Text = "Show Messagebox";
             this.showMessageboxToolStripMenuItem.Click += new System.EventHandler(this.showMessageboxToolStripMenuItem_Click);
             // 
@@ -312,7 +314,7 @@ namespace Quasar.Server.Forms
             // 
             this.remoteDesktopToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("remoteDesktopToolStripMenuItem.Image")));
             this.remoteDesktopToolStripMenuItem.Name = "remoteDesktopToolStripMenuItem";
-            this.remoteDesktopToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.remoteDesktopToolStripMenuItem.Size = new System.Drawing.Size(360, 44);
             this.remoteDesktopToolStripMenuItem.Text = "Remote Desktop";
             this.remoteDesktopToolStripMenuItem.Click += new System.EventHandler(this.remoteDesktopToolStripMenuItem_Click);
             // 
@@ -320,7 +322,7 @@ namespace Quasar.Server.Forms
             // 
             this.visitWebsiteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("visitWebsiteToolStripMenuItem.Image")));
             this.visitWebsiteToolStripMenuItem.Name = "visitWebsiteToolStripMenuItem";
-            this.visitWebsiteToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.visitWebsiteToolStripMenuItem.Size = new System.Drawing.Size(360, 44);
             this.visitWebsiteToolStripMenuItem.Text = "Send to Website";
             this.visitWebsiteToolStripMenuItem.Click += new System.EventHandler(this.visitWebsiteToolStripMenuItem_Click);
             // 
@@ -334,14 +336,14 @@ namespace Quasar.Server.Forms
             this.uninstallToolStripMenuItem});
             this.connectionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("connectionToolStripMenuItem.Image")));
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(330, 40);
             this.connectionToolStripMenuItem.Text = "Client Management";
             // 
             // elevateClientPermissionsToolStripMenuItem
             // 
             this.elevateClientPermissionsToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.uac_shield;
             this.elevateClientPermissionsToolStripMenuItem.Name = "elevateClientPermissionsToolStripMenuItem";
-            this.elevateClientPermissionsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.elevateClientPermissionsToolStripMenuItem.Size = new System.Drawing.Size(444, 44);
             this.elevateClientPermissionsToolStripMenuItem.Text = "Elevate Client Permissions";
             this.elevateClientPermissionsToolStripMenuItem.Click += new System.EventHandler(this.elevateClientPermissionsToolStripMenuItem_Click);
             // 
@@ -349,7 +351,7 @@ namespace Quasar.Server.Forms
             // 
             this.updateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("updateToolStripMenuItem.Image")));
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(444, 44);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
@@ -357,7 +359,7 @@ namespace Quasar.Server.Forms
             // 
             this.reconnectToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reconnectToolStripMenuItem.Image")));
             this.reconnectToolStripMenuItem.Name = "reconnectToolStripMenuItem";
-            this.reconnectToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.reconnectToolStripMenuItem.Size = new System.Drawing.Size(444, 44);
             this.reconnectToolStripMenuItem.Text = "Reconnect";
             this.reconnectToolStripMenuItem.Click += new System.EventHandler(this.reconnectToolStripMenuItem_Click);
             // 
@@ -365,7 +367,7 @@ namespace Quasar.Server.Forms
             // 
             this.disconnectToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("disconnectToolStripMenuItem.Image")));
             this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(444, 44);
             this.disconnectToolStripMenuItem.Text = "Disconnect";
             this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click);
             // 
@@ -373,19 +375,19 @@ namespace Quasar.Server.Forms
             // 
             this.uninstallToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("uninstallToolStripMenuItem.Image")));
             this.uninstallToolStripMenuItem.Name = "uninstallToolStripMenuItem";
-            this.uninstallToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.uninstallToolStripMenuItem.Size = new System.Drawing.Size(444, 44);
             this.uninstallToolStripMenuItem.Text = "Uninstall";
             this.uninstallToolStripMenuItem.Click += new System.EventHandler(this.uninstallToolStripMenuItem_Click);
             // 
             // lineToolStripMenuItem
             // 
             this.lineToolStripMenuItem.Name = "lineToolStripMenuItem";
-            this.lineToolStripMenuItem.Size = new System.Drawing.Size(177, 6);
+            this.lineToolStripMenuItem.Size = new System.Drawing.Size(327, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(330, 40);
             this.selectAllToolStripMenuItem.Text = "Select All";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
@@ -659,12 +661,13 @@ namespace Quasar.Server.Forms
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 3;
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(1022, 458);
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(2044, 916);
             this.tableLayoutPanel.TabIndex = 6;
             // 
             // statusStrip
@@ -673,17 +676,18 @@ namespace Quasar.Server.Forms
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listenToolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 436);
+            this.statusStrip.Location = new System.Drawing.Point(0, 872);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1022, 22);
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
+            this.statusStrip.Size = new System.Drawing.Size(2044, 44);
             this.statusStrip.TabIndex = 3;
             this.statusStrip.Text = "statusStrip1";
             // 
             // listenToolStripStatusLabel
             // 
             this.listenToolStripStatusLabel.Name = "listenToolStripStatusLabel";
-            this.listenToolStripStatusLabel.Size = new System.Drawing.Size(87, 17);
-            this.listenToolStripStatusLabel.Text = "Listening: False";
+            this.listenToolStripStatusLabel.Size = new System.Drawing.Size(206, 34);
+            this.listenToolStripStatusLabel.Text = "监听状态：未监听";
             // 
             // lstClients
             // 
@@ -701,10 +705,16 @@ namespace Quasar.Server.Forms
             this.lstClients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstClients.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstClients.FullRowSelect = true;
-            this.lstClients.Location = new System.Drawing.Point(3, 28);
+            this.lstClients.HideSelection = false;
+            this.lstClients.Location = new System.Drawing.Point(6, 56);
+            listViewColumnSorter2.NeedNumberCompare = false;
+            listViewColumnSorter2.Order = System.Windows.Forms.SortOrder.None;
+            listViewColumnSorter2.SortColumn = 0;
+            this.lstClients.LvwColumnSorter = listViewColumnSorter2;
+            this.lstClients.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstClients.Name = "lstClients";
             this.lstClients.ShowItemToolTips = true;
-            this.lstClients.Size = new System.Drawing.Size(1016, 405);
+            this.lstClients.Size = new System.Drawing.Size(2032, 810);
             this.lstClients.SmallImageList = this.imgFlags;
             this.lstClients.TabIndex = 1;
             this.lstClients.UseCompatibleStateImageBehavior = false;
@@ -759,6 +769,7 @@ namespace Quasar.Server.Forms
             // 
             this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fIleToolStripMenuItem,
@@ -767,7 +778,7 @@ namespace Quasar.Server.Forms
             this.aboutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(216, 25);
+            this.menuStrip.Size = new System.Drawing.Size(380, 48);
             this.menuStrip.TabIndex = 2;
             // 
             // fIleToolStripMenuItem
@@ -776,50 +787,51 @@ namespace Quasar.Server.Forms
             this.closeToolStripMenuItem});
             this.fIleToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fIleToolStripMenuItem.Name = "fIleToolStripMenuItem";
-            this.fIleToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
-            this.fIleToolStripMenuItem.Text = "File";
+            this.fIleToolStripMenuItem.Size = new System.Drawing.Size(89, 40);
+            this.fIleToolStripMenuItem.Text = "文件";
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(211, 44);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 21);
-            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(84, 40);
+            this.settingsToolStripMenuItem.Text = "设置";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // builderToolStripMenuItem
             // 
             this.builderToolStripMenuItem.Name = "builderToolStripMenuItem";
-            this.builderToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
-            this.builderToolStripMenuItem.Text = "Builder";
+            this.builderToolStripMenuItem.Size = new System.Drawing.Size(109, 40);
+            this.builderToolStripMenuItem.Text = "生成器";
             this.builderToolStripMenuItem.Click += new System.EventHandler(this.builderToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(84, 40);
+            this.aboutToolStripMenuItem.Text = "关于";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1022, 458);
+            this.ClientSize = new System.Drawing.Size(2044, 916);
             this.Controls.Add(this.tableLayoutPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(680, 415);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MinimumSize = new System.Drawing.Size(1334, 759);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quasar - Connected: 0";
+            this.Text = "Quasar - 已连接：0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.contextMenuStrip.ResumeLayout(false);

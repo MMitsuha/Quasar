@@ -41,10 +41,11 @@
             this.valueNameTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.valueNameTxtBox.Location = new System.Drawing.Point(15, 25);
+            this.valueNameTxtBox.Location = new System.Drawing.Point(30, 50);
+            this.valueNameTxtBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.valueNameTxtBox.Name = "valueNameTxtBox";
             this.valueNameTxtBox.ReadOnly = true;
-            this.valueNameTxtBox.Size = new System.Drawing.Size(346, 20);
+            this.valueNameTxtBox.Size = new System.Drawing.Size(688, 35);
             this.valueNameTxtBox.TabIndex = 3;
             // 
             // label1
@@ -53,10 +54,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(24, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.Text = "Value name:";
+            this.label1.Size = new System.Drawing.Size(106, 24);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "值名称：";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
@@ -65,19 +68,22 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 53);
+            this.label2.Location = new System.Drawing.Point(24, 106);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.Text = "Value data:";
+            this.label2.Size = new System.Drawing.Size(106, 24);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "值数据：";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(286, 330);
+            this.cancelButton.Location = new System.Drawing.Point(572, 660);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.Size = new System.Drawing.Size(150, 46);
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -85,9 +91,10 @@
             // okButton
             // 
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(205, 330);
+            this.okButton.Location = new System.Drawing.Point(410, 660);
+            this.okButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.Size = new System.Drawing.Size(150, 46);
             this.okButton.TabIndex = 1;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
@@ -96,21 +103,22 @@
             // valueDataTxtBox
             // 
             this.valueDataTxtBox.AcceptsReturn = true;
-            this.valueDataTxtBox.Location = new System.Drawing.Point(15, 72);
+            this.valueDataTxtBox.Location = new System.Drawing.Point(30, 144);
+            this.valueDataTxtBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.valueDataTxtBox.Multiline = true;
             this.valueDataTxtBox.Name = "valueDataTxtBox";
             this.valueDataTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.valueDataTxtBox.Size = new System.Drawing.Size(346, 252);
+            this.valueDataTxtBox.Size = new System.Drawing.Size(688, 500);
             this.valueDataTxtBox.TabIndex = 0;
             this.valueDataTxtBox.WordWrap = false;
             // 
             // FrmRegValueEditMultiString
             // 
             this.AcceptButton = this.okButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(373, 365);
+            this.ClientSize = new System.Drawing.Size(746, 730);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.valueDataTxtBox);
             this.Controls.Add(this.okButton);
@@ -118,11 +126,12 @@
             this.Controls.Add(this.valueNameTxtBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmRegValueEditMultiString";
             this.ShowIcon = false;
-            this.Text = "Edit Multi-String";
+            this.Text = "编辑多字符串";
             this.ResumeLayout(false);
             this.PerformLayout();
 

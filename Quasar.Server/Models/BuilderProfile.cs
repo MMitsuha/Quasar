@@ -334,6 +334,18 @@ namespace Quasar.Server.Models
             }
         }
 
+        public bool GenerateShellcode
+        {
+            get
+            {
+                return bool.Parse(ReadValueSafe("GenerateShellcode", "False"));
+            }
+            set
+            {
+                WriteValue("GenerateShellcode", value.ToString());
+            }
+        }
+
         public BuilderProfile(string profileName)
         {
             if (string.IsNullOrEmpty(profileName)) throw new ArgumentException("Invalid Profile Path");
@@ -389,7 +401,7 @@ namespace Quasar.Server.Models
                     }
                     doc.AppendChild(doc.CreateElement("settings"));
                 }
-                
+
                 XmlElement root = doc.DocumentElement;
                 XmlNode oldNode = root.SelectSingleNode(@"/settings/" + pstrValueToRead);
                 if (oldNode == null) // create if not exist
