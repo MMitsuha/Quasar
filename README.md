@@ -1,6 +1,6 @@
 # Quasar Enhanced
 
-[![Github CI Badge](https://github.com/WINKILLERS/Musubi/actions/workflows/msbuild.yml/badge.svg)](https://github.com/MMitsuha/Quasar/actions/workflows/msbuild.yml)
+[![Github CI Badge](https://github.com/MMitsuha/Quasar/actions/workflows/msbuild.yml/badge.svg)](https://github.com/MMitsuha/Quasar/actions/workflows/msbuild.yml)
 [![Downloads](https://img.shields.io/github/downloads/MMitsuha/Quasar/total.svg)](https://github.com/MMitsuha/Quasar/releases)
 [![License](https://img.shields.io/github/license/MMitsuha/Quasar.svg)](LICENSE)
 
