@@ -102,11 +102,11 @@ namespace Quasar.Server.Forms
             foreach (var process in processes)
             {
                 ListViewItem lvi =
-                    new ListViewItem(new[] {process.Name, process.Id.ToString(), process.MainWindowTitle});
+                    new ListViewItem(new[] { process.Name, process.Id.ToString(), process.MainWindowTitle });
                 lstTasks.Items.Add(lvi);
             }
 
-            processesToolStripStatusLabel.Text = $"Processes: {processes.Length}";
+            processesToolStripStatusLabel.Text = $"进程数：{processes.Length}";
         }
 
         private void ProcessActionPerformed(object sender, ProcessAction action, bool result)
@@ -115,10 +115,11 @@ namespace Quasar.Server.Forms
             switch (action)
             {
                 case ProcessAction.Start:
-                    text = result ? "Process started successfully" : "Failed to start process";
+                    text = result ? "启动进程成功" : "启动进程失败";
                     break;
+
                 case ProcessAction.End:
-                    text = result ? "Process ended successfully" : "Failed to end process";
+                    text = result ? "进程结束成功" : "进程结束失败";
                     break;
             }
 
@@ -127,7 +128,7 @@ namespace Quasar.Server.Forms
 
         private void FrmTaskManager_Load(object sender, EventArgs e)
         {
-            this.Text = WindowHelper.GetWindowTitle("Task Manager", _connectClient);
+            this.Text = WindowHelper.GetWindowTitle("任务管理器", _connectClient);
             _taskManagerHandler.RefreshProcesses();
         }
 
@@ -147,7 +148,7 @@ namespace Quasar.Server.Forms
         private void startProcessToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string processName = string.Empty;
-            if (InputBox.Show("Process name", "Enter Process name:", ref processName) == DialogResult.OK)
+            if (InputBox.Show("进程名", "输入进程名：", ref processName) == DialogResult.OK)
             {
                 _taskManagerHandler.StartProcess(processName);
             }

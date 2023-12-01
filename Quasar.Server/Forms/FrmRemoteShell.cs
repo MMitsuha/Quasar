@@ -57,7 +57,7 @@ namespace Quasar.Server.Forms
             RegisterMessageHandler();
             InitializeComponent();
 
-            txtConsoleOutput.AppendText(">> Type 'exit' to close this session" + Environment.NewLine);
+            txtConsoleOutput.AppendText(">> 键入“exit”以关闭此会话" + Environment.NewLine);
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace Quasar.Server.Forms
         private void FrmRemoteShell_Load(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
-            this.Text = WindowHelper.GetWindowTitle("Remote Shell", _connectClient);
+            this.Text = WindowHelper.GetWindowTitle("远程终端", _connectClient);
         }
 
         private void FrmRemoteShell_FormClosing(object sender, FormClosingEventArgs e)
@@ -161,6 +161,7 @@ namespace Quasar.Server.Forms
                         case "cls":
                             txtConsoleOutput.Text = string.Empty;
                             break;
+
                         default:
                             RemoteShellHandler.SendCommand(input);
                             break;
@@ -174,7 +175,7 @@ namespace Quasar.Server.Forms
 
         private void txtConsoleOutput_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != (char) 2)
+            if (e.KeyChar != (char)2)
             {
                 txtConsoleInput.Text += e.KeyChar.ToString();
                 txtConsoleInput.Focus();

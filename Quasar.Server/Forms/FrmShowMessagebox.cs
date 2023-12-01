@@ -22,7 +22,7 @@ namespace Quasar.Server.Forms
 
         private void FrmShowMessagebox_Load(object sender, EventArgs e)
         {
-            this.Text = WindowHelper.GetWindowTitle("Show Messagebox", _selectedClients);
+            this.Text = WindowHelper.GetWindowTitle("显示对话框", _selectedClients);
 
             cmbMsgButtons.Items.AddRange(new string[]
             {"AbortRetryIgnore", "OK", "OKCancel", "RetryCancel", "YesNo", "YesNoCancel"});
@@ -36,8 +36,8 @@ namespace Quasar.Server.Forms
         {
             MessageBox.Show(null, txtText.Text, txtCaption.Text,
                 (MessageBoxButtons)
-                    Enum.Parse(typeof (MessageBoxButtons), GetMessageBoxButton(cmbMsgButtons.SelectedIndex)),
-                (MessageBoxIcon) Enum.Parse(typeof (MessageBoxIcon), GetMessageBoxIcon(cmbMsgIcon.SelectedIndex)));
+                    Enum.Parse(typeof(MessageBoxButtons), GetMessageBoxButton(cmbMsgButtons.SelectedIndex)),
+                (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), GetMessageBoxIcon(cmbMsgIcon.SelectedIndex)));
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -57,16 +57,22 @@ namespace Quasar.Server.Forms
             {
                 case 0:
                     return "AbortRetryIgnore";
+
                 case 1:
                     return "OK";
+
                 case 2:
                     return "OKCancel";
+
                 case 3:
                     return "RetryCancel";
+
                 case 4:
                     return "YesNo";
+
                 case 5:
                     return "YesNoCancel";
+
                 default:
                     return "OK";
             }
@@ -78,20 +84,28 @@ namespace Quasar.Server.Forms
             {
                 case 0:
                     return "None";
+
                 case 1:
                     return "Error";
+
                 case 2:
                     return "Hand";
+
                 case 3:
                     return "Question";
+
                 case 4:
                     return "Exclamation";
+
                 case 5:
                     return "Warning";
+
                 case 6:
                     return "Information";
+
                 case 7:
                     return "Asterisk";
+
                 default:
                     return "None";
             }

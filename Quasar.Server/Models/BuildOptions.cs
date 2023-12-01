@@ -23,5 +23,7 @@
         public bool HideInstallSubdirectory { get; set; }
         public bool UnattendedMode { get; set; }
         public bool GenerateShellcode { get; set; }
+        public bool EnableXorEncryption { get; set; }
+        public byte XorKey { get; set; }
     }
 }

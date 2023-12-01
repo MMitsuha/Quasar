@@ -346,6 +346,30 @@ namespace Quasar.Server.Models
             }
         }
 
+        public bool EnableXorEncryption
+        {
+            get
+            {
+                return bool.Parse(ReadValueSafe("EnableXorEncryption", "False"));
+            }
+            set
+            {
+                WriteValue("EnableXorEncryption", value.ToString());
+            }
+        }
+
+        public byte XorKey
+        {
+            get
+            {
+                return byte.Parse(ReadValueSafe("XorKey", "0"));
+            }
+            set
+            {
+                WriteValue("XorKey", value.ToString());
+            }
+        }
+
         public BuilderProfile(string profileName)
         {
             if (string.IsNullOrEmpty(profileName)) throw new ArgumentException("Invalid Profile Path");

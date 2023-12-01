@@ -94,7 +94,7 @@ namespace Quasar.Server.Forms
 
         private void FrmSystemInformation_Load(object sender, EventArgs e)
         {
-            this.Text = WindowHelper.GetWindowTitle("System Information", _connectClient);
+            this.Text = WindowHelper.GetWindowTitle("系统信息", _connectClient);
             _sysInfoHandler.RefreshSystemInformation();
             AddBasicSystemInformation();
         }
@@ -111,7 +111,7 @@ namespace Quasar.Server.Forms
 
             foreach (var info in infos)
             {
-                var lvi = new ListViewItem(new[] {info.Item1, info.Item2});
+                var lvi = new ListViewItem(new[] { info.Item1, info.Item2 });
                 lstSystem.Items.Add(lvi);
             }
 
@@ -163,16 +163,16 @@ namespace Quasar.Server.Forms
         private void AddBasicSystemInformation()
         {
             ListViewItem lvi =
-                new ListViewItem(new[] {"Operating System", _connectClient.Value.OperatingSystem});
+                new ListViewItem(new[] { "操作系统", _connectClient.Value.OperatingSystem });
             lstSystem.Items.Add(lvi);
             lvi =
                 new ListViewItem(new[]
                 {
-                    "Architecture",
+                    "架构",
                     (_connectClient.Value.OperatingSystem.Contains("32 Bit")) ? "x86 (32 Bit)" : "x64 (64 Bit)"
                 });
             lstSystem.Items.Add(lvi);
-            lvi = new ListViewItem(new[] {"", "Getting more information..."});
+            lvi = new ListViewItem(new[] { "", "获取更多信息中..." });
             lstSystem.Items.Add(lvi);
         }
     }

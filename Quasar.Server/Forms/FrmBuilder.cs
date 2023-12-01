@@ -280,6 +280,8 @@ namespace Quasar.Server.Forms
             options.LogDirectoryName = txtLogDirectoryName.Text;
             options.HideLogDirectory = chkHideLogDirectory.Checked;
             options.GenerateShellcode = chkGenerateShellcode.Checked;
+            options.EnableXorEncryption = chkEnableXor.Checked;
+            options.XorKey = (byte)numericUpDownKey.Value;
 
             if (!File.Exists("client.bin"))
             {
@@ -383,7 +385,7 @@ namespace Quasar.Server.Forms
             {
                 this.Invoke((MethodInvoker)delegate
                 {
-                    btnBuild.Text = (state) ? "Build" : "Building...";
+                    btnBuild.Text = (state) ? "生成" : "生成中...";
                     btnBuild.Enabled = state;
                 });
             }
@@ -549,6 +551,17 @@ namespace Quasar.Server.Forms
             HasChanged();
 
             RefreshPreviewPath();
+        }
+
+        private void chkEnableXor_CheckedChanged(object sender, EventArgs e)
+        {
+            numericUpDownKey.Enabled = chkEnableXor.Checked;
+        }
+
+        private void chkGenerateShellcode_CheckedChanged(object sender, EventArgs e)
+        {
+            chkEnableXor.Enabled = chkGenerateShellcode.Checked;
+            numericUpDownKey.Enabled = chkEnableXor.Checked && chkGenerateShellcode.Checked;
         }
     }
 }

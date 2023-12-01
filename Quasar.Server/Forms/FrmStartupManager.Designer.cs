@@ -31,11 +31,12 @@ namespace Quasar.Server.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Quasar.Server.Utilities.ListViewColumnSorter listViewColumnSorter1 = new Quasar.Server.Utilities.ListViewColumnSorter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStartupManager));
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lstStartupItems = new AeroListView();
+            this.lstStartupItems = new Quasar.Server.Controls.AeroListView();
             this.hName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip.SuspendLayout();
@@ -43,17 +44,18 @@ namespace Quasar.Server.Forms
             // 
             // contextMenuStrip
             // 
+            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addEntryToolStripMenuItem,
             this.removeEntryToolStripMenuItem});
             this.contextMenuStrip.Name = "ctxtMenu";
-            this.contextMenuStrip.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip.Size = new System.Drawing.Size(265, 84);
             // 
             // addEntryToolStripMenuItem
             // 
             this.addEntryToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.application_add;
             this.addEntryToolStripMenuItem.Name = "addEntryToolStripMenuItem";
-            this.addEntryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addEntryToolStripMenuItem.Size = new System.Drawing.Size(264, 40);
             this.addEntryToolStripMenuItem.Text = "Add Entry";
             this.addEntryToolStripMenuItem.Click += new System.EventHandler(this.addEntryToolStripMenuItem_Click);
             // 
@@ -61,7 +63,7 @@ namespace Quasar.Server.Forms
             // 
             this.removeEntryToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.application_delete;
             this.removeEntryToolStripMenuItem.Name = "removeEntryToolStripMenuItem";
-            this.removeEntryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeEntryToolStripMenuItem.Size = new System.Drawing.Size(264, 40);
             this.removeEntryToolStripMenuItem.Text = "Remove Entry";
             this.removeEntryToolStripMenuItem.Click += new System.EventHandler(this.removeEntryToolStripMenuItem_Click);
             // 
@@ -76,9 +78,15 @@ namespace Quasar.Server.Forms
             this.lstStartupItems.ContextMenuStrip = this.contextMenuStrip;
             this.lstStartupItems.FullRowSelect = true;
             this.lstStartupItems.GridLines = true;
-            this.lstStartupItems.Location = new System.Drawing.Point(12, 12);
+            this.lstStartupItems.HideSelection = false;
+            this.lstStartupItems.Location = new System.Drawing.Point(24, 24);
+            listViewColumnSorter1.NeedNumberCompare = false;
+            listViewColumnSorter1.Order = System.Windows.Forms.SortOrder.None;
+            listViewColumnSorter1.SortColumn = 0;
+            this.lstStartupItems.LvwColumnSorter = listViewColumnSorter1;
+            this.lstStartupItems.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstStartupItems.Name = "lstStartupItems";
-            this.lstStartupItems.Size = new System.Drawing.Size(653, 349);
+            this.lstStartupItems.Size = new System.Drawing.Size(1302, 694);
             this.lstStartupItems.TabIndex = 0;
             this.lstStartupItems.UseCompatibleStateImageBehavior = false;
             this.lstStartupItems.View = System.Windows.Forms.View.Details;
@@ -95,16 +103,17 @@ namespace Quasar.Server.Forms
             // 
             // FrmStartupManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(677, 373);
+            this.ClientSize = new System.Drawing.Size(1354, 746);
             this.Controls.Add(this.lstStartupItems);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(650, 400);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MinimumSize = new System.Drawing.Size(1274, 729);
             this.Name = "FrmStartupManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Startup Manager []";
+            this.Text = "自启动管理器 []";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmStartupManager_FormClosing);
             this.Load += new System.EventHandler(this.FrmStartupManager_Load);
             this.contextMenuStrip.ResumeLayout(false);

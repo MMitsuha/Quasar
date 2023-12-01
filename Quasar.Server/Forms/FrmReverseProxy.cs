@@ -80,13 +80,13 @@ namespace Quasar.Server.Forms
         {
             if (_clients.Length > 1)
             {
-                this.Text = "Reverse Proxy [Load-Balancer is active]";
-                lblLoadBalance.Text = "The Load Balancer is active, " + _clients.Length + " clients will be used as proxy\r\nKeep refreshing at www.ipchicken.com to see if your ip address will keep changing, if so, it works";
+                this.Text = "反向代理 [负载平衡器处于活动状态]";
+                lblLoadBalance.Text = "负载平衡器已激活，" + _clients.Length + "个客户端将被用作代理\r\n请在www.ipchicken.com上继续刷新，看看您的ip地址是否会继续更改，如果会，它已经起作用了";
             }
             else if (_clients.Length == 1)
             {
-                this.Text = WindowHelper.GetWindowTitle("Reverse Proxy", _clients[0]);
-                lblLoadBalance.Text = "The Load Balancer is not active, only 1 client is used, select multiple clients to activate the load balancer";
+                this.Text = WindowHelper.GetWindowTitle("反向代理", _clients[0]);
+                lblLoadBalance.Text = "负载平衡器未激活，仅使用一个客户端，请选择多个客户端来激活负载平衡器";
             }
             nudServerPort.Value = Settings.ReverseProxyPort;
         }
@@ -117,7 +117,7 @@ namespace Quasar.Server.Forms
 
                 if (port == 0)
                 {
-                    MessageBox.Show("Please enter a valid port > 0.", "Please enter a valid port", MessageBoxButtons.OK,
+                    MessageBox.Show("请输入一个有效的端口>0。", "请输入一个有效的端口", MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
                     return;
                 }
@@ -129,17 +129,17 @@ namespace Quasar.Server.Forms
             {
                 if (ex.ErrorCode == 10048)
                 {
-                    MessageBox.Show("The port is already in use.", "Listen Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("端口已在使用中。", "侦听错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show($"An unexpected socket error occurred: {ex.Message}\n\nError Code: {ex.ErrorCode}",
-                        "Unexpected Listen Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"出现意外的套接字错误：{ex.Message}\n\n错误代码：{ex.ErrorCode}",
+                        "意外的侦听错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Unexpected Listen Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"出现意外错误：{ex.Message}", "意外的侦听错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -172,7 +172,7 @@ namespace Quasar.Server.Forms
 
         private void nudServerPort_ValueChanged(object sender, EventArgs e)
         {
-            lblProxyInfo.Text = string.Format("Connect to this SOCKS5 Proxy: 127.0.0.1:{0} (no user/pass)", nudServerPort.Value);
+            lblProxyInfo.Text = string.Format("连接到此SOCKS5代理：127.0.0.1:{0}（无用户/密码）", nudServerPort.Value);
         }
 
         private void LvConnections_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e)
@@ -192,7 +192,8 @@ namespace Quasar.Server.Forms
                         StringHelper.GetHumanReadableFileSize(connection.LengthReceived),
                         StringHelper.GetHumanReadableFileSize(connection.LengthSent),
                         connection.Type.ToString()
-                    }) { Tag = connection };
+                    })
+                    { Tag = connection };
                 }
             }
         }

@@ -43,6 +43,12 @@ namespace Quasar.Server.Forms
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.builderTabs = new Quasar.Server.Controls.DotNetBarTabControl();
             this.generalPage = new System.Windows.Forms.TabPage();
+            this.numericUpDownKey = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.chkEnableXor = new System.Windows.Forms.CheckBox();
+            this.chkGenerateShellcode = new System.Windows.Forms.CheckBox();
+            this.line11 = new Quasar.Server.Controls.Line();
+            this.label15 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.chkUnattendedMode = new System.Windows.Forms.CheckBox();
             this.line2 = new Quasar.Server.Controls.Line();
@@ -125,12 +131,12 @@ namespace Quasar.Server.Forms
             this.line10 = new Quasar.Server.Controls.Line();
             this.label14 = new System.Windows.Forms.Label();
             this.chkKeylogger = new System.Windows.Forms.CheckBox();
-            this.chkGenerateShellcode = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picUAC2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUAC1)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
             this.builderTabs.SuspendLayout();
             this.generalPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKey)).BeginInit();
             this.connectionPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDelay)).BeginInit();
@@ -250,6 +256,12 @@ namespace Quasar.Server.Forms
             // generalPage
             // 
             this.generalPage.BackColor = System.Drawing.SystemColors.Control;
+            this.generalPage.Controls.Add(this.numericUpDownKey);
+            this.generalPage.Controls.Add(this.label13);
+            this.generalPage.Controls.Add(this.chkEnableXor);
+            this.generalPage.Controls.Add(this.chkGenerateShellcode);
+            this.generalPage.Controls.Add(this.line11);
+            this.generalPage.Controls.Add(this.label15);
             this.generalPage.Controls.Add(this.label3);
             this.generalPage.Controls.Add(this.chkUnattendedMode);
             this.generalPage.Controls.Add(this.line2);
@@ -272,6 +284,73 @@ namespace Quasar.Server.Forms
             this.generalPage.Size = new System.Drawing.Size(926, 760);
             this.generalPage.TabIndex = 4;
             this.generalPage.Text = "基本设置";
+            // 
+            // numericUpDownKey
+            // 
+            this.numericUpDownKey.Enabled = false;
+            this.numericUpDownKey.Location = new System.Drawing.Point(392, 664);
+            this.numericUpDownKey.Margin = new System.Windows.Forms.Padding(6);
+            this.numericUpDownKey.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDownKey.Name = "numericUpDownKey";
+            this.numericUpDownKey.Size = new System.Drawing.Size(258, 37);
+            this.numericUpDownKey.TabIndex = 30;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(255, 666);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(128, 30);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "加密密钥：";
+            // 
+            // chkEnableXor
+            // 
+            this.chkEnableXor.AutoSize = true;
+            this.chkEnableXor.Enabled = false;
+            this.chkEnableXor.Location = new System.Drawing.Point(39, 665);
+            this.chkEnableXor.Name = "chkEnableXor";
+            this.chkEnableXor.Size = new System.Drawing.Size(183, 34);
+            this.chkEnableXor.TabIndex = 28;
+            this.chkEnableXor.Text = "启用异或加密";
+            this.chkEnableXor.UseVisualStyleBackColor = true;
+            this.chkEnableXor.CheckedChanged += new System.EventHandler(this.chkEnableXor_CheckedChanged);
+            // 
+            // chkGenerateShellcode
+            // 
+            this.chkGenerateShellcode.AutoSize = true;
+            this.chkGenerateShellcode.Location = new System.Drawing.Point(39, 621);
+            this.chkGenerateShellcode.Margin = new System.Windows.Forms.Padding(6);
+            this.chkGenerateShellcode.Name = "chkGenerateShellcode";
+            this.chkGenerateShellcode.Size = new System.Drawing.Size(191, 34);
+            this.chkGenerateShellcode.TabIndex = 27;
+            this.chkGenerateShellcode.Text = "生成 Shellcode";
+            this.chkGenerateShellcode.UseVisualStyleBackColor = true;
+            this.chkGenerateShellcode.CheckedChanged += new System.EventHandler(this.chkGenerateShellcode_CheckedChanged);
+            // 
+            // line11
+            // 
+            this.line11.LineAlignment = Quasar.Server.Controls.Line.Alignment.Horizontal;
+            this.line11.Location = new System.Drawing.Point(226, 573);
+            this.line11.Margin = new System.Windows.Forms.Padding(6);
+            this.line11.Name = "line11";
+            this.line11.Size = new System.Drawing.Size(540, 26);
+            this.line11.TabIndex = 26;
+            this.line11.TabStop = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(12, 573);
+            this.label15.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(105, 30);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "生成类型";
             // 
             // label3
             // 
@@ -1196,23 +1275,12 @@ namespace Quasar.Server.Forms
             this.chkKeylogger.UseVisualStyleBackColor = true;
             this.chkKeylogger.CheckedChanged += new System.EventHandler(this.chkKeylogger_CheckedChanged);
             // 
-            // chkGenerateShellcode
-            // 
-            this.chkGenerateShellcode.AutoSize = true;
-            this.chkGenerateShellcode.Location = new System.Drawing.Point(559, 787);
-            this.chkGenerateShellcode.Name = "chkGenerateShellcode";
-            this.chkGenerateShellcode.Size = new System.Drawing.Size(191, 34);
-            this.chkGenerateShellcode.TabIndex = 2;
-            this.chkGenerateShellcode.Text = "生成 Shellcode";
-            this.chkGenerateShellcode.UseVisualStyleBackColor = true;
-            // 
             // FrmBuilder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1070, 848);
-            this.Controls.Add(this.chkGenerateShellcode);
             this.Controls.Add(this.builderTabs);
             this.Controls.Add(this.btnBuild);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1232,6 +1300,7 @@ namespace Quasar.Server.Forms
             this.builderTabs.ResumeLayout(false);
             this.generalPage.ResumeLayout(false);
             this.generalPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKey)).EndInit();
             this.connectionPage.ResumeLayout(false);
             this.connectionPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).EndInit();
@@ -1244,7 +1313,6 @@ namespace Quasar.Server.Forms
             this.monitoringTab.ResumeLayout(false);
             this.monitoringTab.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1343,5 +1411,10 @@ namespace Quasar.Server.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox chkGenerateShellcode;
+        private Line line11;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.CheckBox chkEnableXor;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown numericUpDownKey;
     }
 }

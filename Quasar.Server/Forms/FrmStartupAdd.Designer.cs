@@ -51,74 +51,83 @@
             this.groupAutostartItem.Controls.Add(this.txtName);
             this.groupAutostartItem.Controls.Add(this.lblPath);
             this.groupAutostartItem.Controls.Add(this.lblName);
-            this.groupAutostartItem.Location = new System.Drawing.Point(12, 12);
+            this.groupAutostartItem.Location = new System.Drawing.Point(24, 24);
+            this.groupAutostartItem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupAutostartItem.Name = "groupAutostartItem";
-            this.groupAutostartItem.Size = new System.Drawing.Size(653, 105);
+            this.groupAutostartItem.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupAutostartItem.Size = new System.Drawing.Size(1306, 210);
             this.groupAutostartItem.TabIndex = 0;
             this.groupAutostartItem.TabStop = false;
-            this.groupAutostartItem.Text = "Autostart Item";
+            this.groupAutostartItem.Text = "自动启动项目";
             // 
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(35, 74);
+            this.lblType.Location = new System.Drawing.Point(70, 148);
+            this.lblType.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(33, 13);
+            this.lblType.Size = new System.Drawing.Size(82, 30);
             this.lblType.TabIndex = 4;
-            this.lblType.Text = "Type:";
+            this.lblType.Text = "类型：";
             // 
             // cmbType
             // 
             this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(74, 71);
+            this.cmbType.Location = new System.Drawing.Point(148, 142);
+            this.cmbType.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(573, 21);
+            this.cmbType.Size = new System.Drawing.Size(1142, 38);
             this.cmbType.TabIndex = 5;
             this.toolTip1.SetToolTip(this.cmbType, "Remote Type of Autostart Item.");
             // 
             // txtPath
             // 
-            this.txtPath.Location = new System.Drawing.Point(74, 43);
+            this.txtPath.Location = new System.Drawing.Point(148, 86);
+            this.txtPath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(573, 22);
+            this.txtPath.Size = new System.Drawing.Size(1142, 37);
             this.txtPath.TabIndex = 3;
             this.toolTip1.SetToolTip(this.txtPath, "Remote Path to Autostart Item.");
             this.txtPath.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPath_KeyPress);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(74, 15);
+            this.txtName.Location = new System.Drawing.Point(148, 30);
+            this.txtName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtName.MaxLength = 64;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(573, 22);
+            this.txtName.Size = new System.Drawing.Size(1142, 37);
             this.txtName.TabIndex = 1;
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // lblPath
             // 
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(35, 46);
+            this.lblPath.Location = new System.Drawing.Point(70, 92);
+            this.lblPath.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(33, 13);
+            this.lblPath.Size = new System.Drawing.Size(82, 30);
             this.lblPath.TabIndex = 2;
-            this.lblPath.Text = "Path:";
+            this.lblPath.Text = "路径：";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(29, 18);
+            this.lblName.Location = new System.Drawing.Point(58, 36);
+            this.lblName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(39, 13);
+            this.lblName.Size = new System.Drawing.Size(82, 30);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name:";
+            this.lblName.Text = "名称：";
             // 
             // btnAdd
             // 
             this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAdd.Location = new System.Drawing.Point(576, 123);
+            this.btnAdd.Location = new System.Drawing.Point(1152, 246);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(89, 23);
+            this.btnAdd.Size = new System.Drawing.Size(178, 46);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -127,32 +136,34 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(449, 123);
+            this.btnCancel.Location = new System.Drawing.Point(898, 246);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(89, 23);
+            this.btnCancel.Size = new System.Drawing.Size(178, 46);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // FrmAddToAutostart
+            // FrmStartupAdd
             // 
             this.AcceptButton = this.btnAdd;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(677, 158);
+            this.ClientSize = new System.Drawing.Size(1354, 316);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupAutostartItem);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmAddToAutostart";
+            this.Name = "FrmStartupAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add to Autostart";
+            this.Text = "添加到自动启动";
             this.groupAutostartItem.ResumeLayout(false);
             this.groupAutostartItem.PerformLayout();
             this.ResumeLayout(false);

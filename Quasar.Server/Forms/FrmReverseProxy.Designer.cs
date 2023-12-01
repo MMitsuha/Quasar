@@ -31,19 +31,14 @@ namespace Quasar.Server.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Quasar.Server.Utilities.ListViewColumnSorter listViewColumnSorter1 = new Quasar.Server.Utilities.ListViewColumnSorter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReverseProxy));
             this.btnStart = new System.Windows.Forms.Button();
             this.lblLocalServerPort = new System.Windows.Forms.Label();
             this.nudServerPort = new System.Windows.Forms.NumericUpDown();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.killConnectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnStop = new System.Windows.Forms.Button();
-            this.lblProxyInfo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblLoadBalance = new System.Windows.Forms.Label();
-            this.lstConnections = new AeroListView();
+            this.lstConnections = new Quasar.Server.Controls.AeroListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -51,6 +46,12 @@ namespace Quasar.Server.Forms
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.killConnectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.lblProxyInfo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblLoadBalance = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudServerPort)).BeginInit();
             this.tabCtrl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -59,26 +60,29 @@ namespace Quasar.Server.Forms
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(243, 12);
+            this.btnStart.Location = new System.Drawing.Point(486, 24);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(114, 23);
+            this.btnStart.Size = new System.Drawing.Size(228, 46);
             this.btnStart.TabIndex = 0;
-            this.btnStart.Text = "Start Listening";
+            this.btnStart.Text = "开始侦听";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // lblLocalServerPort
             // 
             this.lblLocalServerPort.AutoSize = true;
-            this.lblLocalServerPort.Location = new System.Drawing.Point(22, 17);
+            this.lblLocalServerPort.Location = new System.Drawing.Point(44, 34);
+            this.lblLocalServerPort.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblLocalServerPort.Name = "lblLocalServerPort";
-            this.lblLocalServerPort.Size = new System.Drawing.Size(91, 13);
+            this.lblLocalServerPort.Size = new System.Drawing.Size(174, 30);
             this.lblLocalServerPort.TabIndex = 1;
-            this.lblLocalServerPort.Text = "Local Server Port";
+            this.lblLocalServerPort.Text = "本地服务器端口";
             // 
             // nudServerPort
             // 
-            this.nudServerPort.Location = new System.Drawing.Point(117, 15);
+            this.nudServerPort.Location = new System.Drawing.Point(234, 30);
+            this.nudServerPort.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.nudServerPort.Maximum = new decimal(new int[] {
             65534,
             0,
@@ -90,7 +94,7 @@ namespace Quasar.Server.Forms
             0,
             0});
             this.nudServerPort.Name = "nudServerPort";
-            this.nudServerPort.Size = new System.Drawing.Size(120, 22);
+            this.nudServerPort.Size = new System.Drawing.Size(240, 37);
             this.nudServerPort.TabIndex = 2;
             this.nudServerPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudServerPort.Value = new decimal(new int[] {
@@ -106,74 +110,24 @@ namespace Quasar.Server.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabCtrl.Controls.Add(this.tabPage1);
-            this.tabCtrl.Location = new System.Drawing.Point(26, 115);
+            this.tabCtrl.Location = new System.Drawing.Point(52, 230);
+            this.tabCtrl.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
-            this.tabCtrl.Size = new System.Drawing.Size(736, 274);
+            this.tabCtrl.Size = new System.Drawing.Size(1472, 548);
             this.tabCtrl.TabIndex = 3;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.lstConnections);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(8, 44);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(728, 248);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage1.Size = new System.Drawing.Size(1456, 496);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Open Connections";
+            this.tabPage1.Text = "打开的连接";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // contextMenuStrip
-            // 
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.killConnectionToolStripMenuItem});
-            this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(156, 26);
-            // 
-            // killConnectionToolStripMenuItem
-            // 
-            this.killConnectionToolStripMenuItem.Name = "killConnectionToolStripMenuItem";
-            this.killConnectionToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.killConnectionToolStripMenuItem.Text = "Kill Connection";
-            this.killConnectionToolStripMenuItem.Click += new System.EventHandler(this.killConnectionToolStripMenuItem_Click);
-            // 
-            // btnStop
-            // 
-            this.btnStop.Enabled = false;
-            this.btnStop.Location = new System.Drawing.Point(363, 12);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(114, 23);
-            this.btnStop.TabIndex = 4;
-            this.btnStop.Text = "Stop Listening";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // lblProxyInfo
-            // 
-            this.lblProxyInfo.AutoSize = true;
-            this.lblProxyInfo.Location = new System.Drawing.Point(23, 51);
-            this.lblProxyInfo.Name = "lblProxyInfo";
-            this.lblProxyInfo.Size = new System.Drawing.Size(312, 13);
-            this.lblProxyInfo.TabIndex = 5;
-            this.lblProxyInfo.Text = "Connect to this SOCKS5 Proxy: 127.0.0.1:3128 (no user/pass)";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(405, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "All the DNS Queries will be executed at the remote client to reduce DNS Leaks";
-            // 
-            // lblLoadBalance
-            // 
-            this.lblLoadBalance.AutoSize = true;
-            this.lblLoadBalance.Location = new System.Drawing.Point(23, 84);
-            this.lblLoadBalance.Name = "lblLoadBalance";
-            this.lblLoadBalance.Size = new System.Drawing.Size(105, 13);
-            this.lblLoadBalance.TabIndex = 7;
-            this.lblLoadBalance.Text = "[Load Balance Info]";
             // 
             // lstConnections
             // 
@@ -189,9 +143,15 @@ namespace Quasar.Server.Forms
             this.lstConnections.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstConnections.FullRowSelect = true;
             this.lstConnections.GridLines = true;
-            this.lstConnections.Location = new System.Drawing.Point(3, 3);
+            this.lstConnections.HideSelection = false;
+            this.lstConnections.Location = new System.Drawing.Point(6, 6);
+            listViewColumnSorter1.NeedNumberCompare = false;
+            listViewColumnSorter1.Order = System.Windows.Forms.SortOrder.None;
+            listViewColumnSorter1.SortColumn = 0;
+            this.lstConnections.LvwColumnSorter = listViewColumnSorter1;
+            this.lstConnections.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lstConnections.Name = "lstConnections";
-            this.lstConnections.Size = new System.Drawing.Size(722, 242);
+            this.lstConnections.Size = new System.Drawing.Size(1444, 484);
             this.lstConnections.TabIndex = 0;
             this.lstConnections.UseCompatibleStateImageBehavior = false;
             this.lstConnections.View = System.Windows.Forms.View.Details;
@@ -233,11 +193,68 @@ namespace Quasar.Server.Forms
             this.columnHeader5.Text = "Proxy Type";
             this.columnHeader5.Width = 90;
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.killConnectionToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip1";
+            this.contextMenuStrip.Size = new System.Drawing.Size(261, 42);
+            // 
+            // killConnectionToolStripMenuItem
+            // 
+            this.killConnectionToolStripMenuItem.Name = "killConnectionToolStripMenuItem";
+            this.killConnectionToolStripMenuItem.Size = new System.Drawing.Size(260, 38);
+            this.killConnectionToolStripMenuItem.Text = "Kill Connection";
+            this.killConnectionToolStripMenuItem.Click += new System.EventHandler(this.killConnectionToolStripMenuItem_Click);
+            // 
+            // btnStop
+            // 
+            this.btnStop.Enabled = false;
+            this.btnStop.Location = new System.Drawing.Point(726, 24);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(228, 46);
+            this.btnStop.TabIndex = 4;
+            this.btnStop.Text = "停止侦听";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // lblProxyInfo
+            // 
+            this.lblProxyInfo.AutoSize = true;
+            this.lblProxyInfo.Location = new System.Drawing.Point(46, 102);
+            this.lblProxyInfo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblProxyInfo.Name = "lblProxyInfo";
+            this.lblProxyInfo.Size = new System.Drawing.Size(564, 30);
+            this.lblProxyInfo.TabIndex = 5;
+            this.lblProxyInfo.Text = "连接到此SOCKS5代理：127.0.0.1:3128（无用户/密码）";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(46, 134);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(582, 30);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "所有DNS查询都将在远程客户端上执行，以减少DNS泄漏";
+            // 
+            // lblLoadBalance
+            // 
+            this.lblLoadBalance.AutoSize = true;
+            this.lblLoadBalance.Location = new System.Drawing.Point(46, 168);
+            this.lblLoadBalance.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblLoadBalance.Name = "lblLoadBalance";
+            this.lblLoadBalance.Size = new System.Drawing.Size(165, 30);
+            this.lblLoadBalance.TabIndex = 7;
+            this.lblLoadBalance.Text = "[负载平衡信息]";
+            // 
             // FrmReverseProxy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(777, 402);
+            this.ClientSize = new System.Drawing.Size(1554, 804);
             this.Controls.Add(this.lblLoadBalance);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblProxyInfo);
@@ -248,6 +265,7 @@ namespace Quasar.Server.Forms
             this.Controls.Add(this.btnStart);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "FrmReverseProxy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reverse Proxy []";

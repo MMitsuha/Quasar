@@ -50,16 +50,16 @@ namespace Quasar.Server.Forms
 
             if (port == 0)
             {
-                MessageBox.Show("Please enter a valid port > 0.", "Please enter a valid port", MessageBoxButtons.OK,
+                MessageBox.Show("请输入一个有效的端口>0。", "请输入一个有效的端口", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 return;
             }
 
-            if (btnListen.Text == "Start listening" && !_listenServer.Listening)
+            if (btnListen.Text == "开始侦听" && !_listenServer.Listening)
             {
                 try
                 {
-                    if(chkNoIPIntegration.Checked)
+                    if (chkNoIPIntegration.Checked)
                         NoIpUpdater.Start();
                     _listenServer.Listen(port, chkIPv6Support.Checked, chkUseUpnp.Checked);
                     ToggleListenerSettings(false);
@@ -68,7 +68,7 @@ namespace Quasar.Server.Forms
                 {
                     if (ex.ErrorCode == 10048)
                     {
-                        MessageBox.Show(this, "The port is already in use.", "Socket Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(this, "端口已在使用中。", "套接字错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -81,7 +81,7 @@ namespace Quasar.Server.Forms
                     _listenServer.Disconnect();
                 }
             }
-            else if (btnListen.Text == "Stop listening" && _listenServer.Listening)
+            else if (btnListen.Text == "停止侦听" && _listenServer.Listening)
             {
                 _listenServer.Disconnect();
                 ToggleListenerSettings(true);
@@ -94,7 +94,7 @@ namespace Quasar.Server.Forms
 
             if (port == 0)
             {
-                MessageBox.Show("Please enter a valid port > 0.", "Please enter a valid port", MessageBoxButtons.OK,
+                MessageBox.Show("请输入一个有效的端口>0。", "请输入一个有效的端口", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 return;
             }
@@ -114,7 +114,7 @@ namespace Quasar.Server.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Discard your changes?", "Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+            if (MessageBox.Show("是否放弃更改？", "取消", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                 DialogResult.Yes)
                 this.Close();
         }
@@ -126,7 +126,7 @@ namespace Quasar.Server.Forms
 
         private void ToggleListenerSettings(bool enabled)
         {
-            btnListen.Text = enabled ? "Start listening" : "Stop listening";
+            btnListen.Text = enabled ? "开始侦听" : "停止侦听";
             ncPort.Enabled = enabled;
             chkIPv6Support.Enabled = enabled;
             chkUseUpnp.Enabled = enabled;
