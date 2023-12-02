@@ -129,11 +129,11 @@ namespace Quasar.Server.Forms
             if (_connectClient.Value.AccountType != "Admin")
             {
                 MessageBox.Show(
-                    "The client software is not running as administrator and therefore some functionality like Update, Create, Open and Delete may not work properly!",
-                    "Alert!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "客户端软件未以管理员身份运行，因此某些功能（如更新、创建、打开和删除）可能无法正常工作！",
+                    "警告！", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            this.Text = WindowHelper.GetWindowTitle("Registry Editor", _connectClient);
+            this.Text = WindowHelper.GetWindowTitle("注册表编辑器", _connectClient);
 
             // signal client to retrive the root nodes (indicated by null)
             _registryHandler.LoadRegistryKey(null);
@@ -143,10 +143,10 @@ namespace Quasar.Server.Forms
         {
             UnregisterMessageHandler();
         }
-        
+
         private void ShowErrorMessage(object sender, string errorMsg)
         {
-            MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(errorMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         #region TreeView helper functions
@@ -225,7 +225,8 @@ namespace Quasar.Server.Forms
         {
             TreeNode parent = GetTreeNode(rootKey);
 
-            if (parent.Nodes.ContainsKey(subKey)) {
+            if (parent.Nodes.ContainsKey(subKey))
+            {
                 parent.Nodes.RemoveByKey(subKey);
             }
         }
@@ -265,7 +266,7 @@ namespace Quasar.Server.Forms
             return lastNode;
         }
 
-        #endregion
+        #endregion TreeView helper functions
 
         #region ListView helper functions
 
@@ -273,7 +274,7 @@ namespace Quasar.Server.Forms
         {
             TreeNode key = GetTreeNode(keyPath);
 
-            if (key != null )
+            if (key != null)
             {
                 List<RegValueData> valuesFromNode = ((RegValueData[])key.Tag).ToList();
                 valuesFromNode.Add(value);
@@ -312,7 +313,7 @@ namespace Quasar.Server.Forms
                 {
                     var regValue = ((RegValueData[])key.Tag).First(item => item.Name == valueName);
 
-                    if(tvRegistryDirectory.SelectedNode == key)
+                    if (tvRegistryDirectory.SelectedNode == key)
                     {
                         var valueItem = lstRegistryValues.Items.Cast<RegistryValueLstItem>()
                                                      .SingleOrDefault(item => item.Name == valueName);
@@ -337,7 +338,7 @@ namespace Quasar.Server.Forms
                 if (tvRegistryDirectory.SelectedNode == key)
                 {
                     var valueItem = lstRegistryValues.Items.Cast<RegistryValueLstItem>()
-                                                     .SingleOrDefault(item => item.Name == oldName);              
+                                                     .SingleOrDefault(item => item.Name == oldName);
                     if (valueItem != null)
                         valueItem.RegName = newName;
                 }
@@ -403,7 +404,7 @@ namespace Quasar.Server.Forms
             lstRegistryValues.EndUpdate();
         }
 
-        #endregion
+        #endregion ListView helper functions
 
         #region tvRegistryDirectory actions
 
@@ -417,7 +418,7 @@ namespace Quasar.Server.Forms
                 {
                     if (e.Node.Parent.Nodes.ContainsKey(e.Label))
                     {
-                        MessageBox.Show("Invalid label. \nA node with that label already exists.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("标签无效。\n具有该标签的节点已存在。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         e.Node.BeginEdit();
                     }
                     else
@@ -428,7 +429,7 @@ namespace Quasar.Server.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Invalid label. \nThe label cannot be blank.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("标签无效。\n标签不能为空。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     e.Node.BeginEdit();
                 }
             }
@@ -482,7 +483,7 @@ namespace Quasar.Server.Forms
                 deleteRegistryKey_Click(this, e);
         }
 
-        #endregion
+        #endregion tvRegistryDirectory actions
 
         #region ToolStrip and contextmenu helper functions
 
@@ -499,7 +500,7 @@ namespace Quasar.Server.Forms
             this.deleteToolStripMenuItem2.Enabled = GetDeleteState();
         }
 
-        private void  CreateTreeViewMenuStrip()
+        private void CreateTreeViewMenuStrip()
         {
             this.renameToolStripMenuItem.Enabled = tvRegistryDirectory.SelectedNode.Parent != null;
 
@@ -516,7 +517,7 @@ namespace Quasar.Server.Forms
             this.deleteToolStripMenuItem1.Enabled = tvRegistryDirectory.SelectedNode != null && lstRegistryValues.SelectedItems.Count > 0;
         }
 
-        #endregion
+        #endregion ToolStrip and contextmenu helper functions
 
         #region MenuStrip actions
 
@@ -530,12 +531,13 @@ namespace Quasar.Server.Forms
             this.Close();
         }
 
-        private void menuStripDelete_Click(object sender, EventArgs e) {
-            if(tvRegistryDirectory.Focused)
+        private void menuStripDelete_Click(object sender, EventArgs e)
+        {
+            if (tvRegistryDirectory.Focused)
             {
                 deleteRegistryKey_Click(this, e);
             }
-            else if (lstRegistryValues.Focused) 
+            else if (lstRegistryValues.Focused)
             {
                 deleteRegistryValue_Click(this, e);
             }
@@ -553,7 +555,7 @@ namespace Quasar.Server.Forms
             }
         }
 
-        #endregion
+        #endregion MenuStrip actions
 
         #region lstRegistryKeys actions
 
@@ -589,7 +591,7 @@ namespace Quasar.Server.Forms
                 {
                     if (lstRegistryValues.Items.ContainsKey(e.Label))
                     {
-                        MessageBox.Show("Invalid label. \nA node with that label already exists.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("标签无效。\n具有该标签的节点已存在。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         lstRegistryValues.Items[index].BeginEdit();
                         return;
                     }
@@ -600,9 +602,8 @@ namespace Quasar.Server.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Invalid label. \nThe label cannot be blank.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("标签无效。\n标签不能为空。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     lstRegistryValues.Items[index].BeginEdit();
-
                 }
             }
             else
@@ -617,7 +618,7 @@ namespace Quasar.Server.Forms
                 deleteRegistryValue_Click(this, e);
         }
 
-        #endregion
+        #endregion lstRegistryKeys actions
 
         #region ContextMenu
 
@@ -638,8 +639,8 @@ namespace Quasar.Server.Forms
         private void deleteRegistryKey_Click(object sender, EventArgs e)
         {
             // prompt user to confirm delete
-            string msg = "Are you sure you want to permanently delete this key and all of its subkeys?";
-            string caption = "Confirm Key Delete";
+            string msg = "是否确实要永久删除此键及其所有子键？";
+            string caption = "确认删除键";
             var answer = MessageBox.Show(msg, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (answer == DialogResult.Yes)
@@ -718,15 +719,15 @@ namespace Quasar.Server.Forms
             }
         }
 
-        #endregion
+        #endregion New registry value actions
 
         #region Registry value edit actions
 
         private void deleteRegistryValue_Click(object sender, EventArgs e)
         {
             //Prompt user to confirm delete
-            string msg = "Deleting certain registry values could cause system instability. Are you sure you want to permanently delete " + (lstRegistryValues.SelectedItems.Count == 1 ? "this value?": "these values?");
-            string caption = "Confirm Value Delete";
+            string msg = "删除某些注册表值可能会导致系统不稳定。是否确定要永久删除" + (lstRegistryValues.SelectedItems.Count == 1 ? "这个值？" : "这些值？");
+            string caption = "确认值删除";
             var answer = MessageBox.Show(msg, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (answer == DialogResult.Yes)
@@ -735,7 +736,7 @@ namespace Quasar.Server.Forms
                 {
                     if (item.GetType() == typeof(RegistryValueLstItem))
                     {
-                        RegistryValueLstItem registryValue = (RegistryValueLstItem) item;
+                        RegistryValueLstItem registryValue = (RegistryValueLstItem)item;
                         _registryHandler.DeleteRegistryValue(tvRegistryDirectory.SelectedNode.FullPath, registryValue.RegName);
                     }
                 }
@@ -744,8 +745,8 @@ namespace Quasar.Server.Forms
 
         private void renameRegistryValue_Click(object sender, EventArgs e)
         {
-		    lstRegistryValues.LabelEdit = true;
-		    lstRegistryValues.SelectedItems[0].BeginEdit();
+            lstRegistryValues.LabelEdit = true;
+            lstRegistryValues.SelectedItems[0].BeginEdit();
         }
 
         private void modifyRegistryValue_Click(object sender, EventArgs e)
@@ -758,9 +759,9 @@ namespace Quasar.Server.Forms
             CreateEditForm(true);
         }
 
-        #endregion
+        #endregion Registry value edit actions
 
-        #endregion
+        #endregion ContextMenu
 
         private void createRegistryKey_AfterExpand(object sender, TreeViewEventArgs e)
         {
@@ -799,13 +800,17 @@ namespace Quasar.Server.Forms
                 case RegistryValueKind.String:
                 case RegistryValueKind.ExpandString:
                     return new FrmRegValueEditString(value);
+
                 case RegistryValueKind.DWord:
                 case RegistryValueKind.QWord:
                     return new FrmRegValueEditWord(value);
+
                 case RegistryValueKind.MultiString:
                     return new FrmRegValueEditMultiString(value);
+
                 case RegistryValueKind.Binary:
                     return new FrmRegValueEditBinary(value);
+
                 default:
                     return null;
             }
@@ -824,11 +829,11 @@ namespace Quasar.Server.Forms
             {
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    _registryHandler.ChangeRegistryValue(keyPath, (RegValueData) frm.Tag);
+                    _registryHandler.ChangeRegistryValue(keyPath, (RegValueData)frm.Tag);
                 }
             }
         }
 
-        #endregion
+        #endregion helper functions
     }
 }

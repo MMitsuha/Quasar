@@ -30,7 +30,7 @@ namespace Quasar.Server.Forms
         /// </summary>
         private readonly RecoveredAccount _noResultsFound = new RecoveredAccount()
         {
-            Application = "No Results Found",
+            Application = "未找到结果",
             Url = "N/A",
             Username = "N/A",
             Password = "N/A"
@@ -85,7 +85,7 @@ namespace Quasar.Server.Forms
 
         private void FrmPasswordRecovery_Load(object sender, EventArgs e)
         {
-            this.Text = WindowHelper.GetWindowTitle("Password Recovery", _clients.Length);
+            this.Text = WindowHelper.GetWindowTitle("密码恢复", _clients.Length);
             txtFormat.Text = Settings.SaveFormat;
             RecoverPasswords();
         }
@@ -119,7 +119,7 @@ namespace Quasar.Server.Forms
                     if (lvg == null) // create new group
                     {
                         lvg = new ListViewGroup
-                            { Name = _noResultsFound.Application, Header = _noResultsFound.Application };
+                        { Name = _noResultsFound.Application, Header = _noResultsFound.Application };
                         lstPasswords.Groups.Add(lvg); // add the new group
                     }
 
@@ -131,7 +131,7 @@ namespace Quasar.Server.Forms
                 var items = new List<ListViewItem>();
                 foreach (var acc in accounts)
                 {
-                    var lvi = new ListViewItem {Tag = acc, Text = clientIdentifier};
+                    var lvi = new ListViewItem { Tag = acc, Text = clientIdentifier };
 
                     lvi.SubItems.Add(acc.Url); // URL
                     lvi.SubItems.Add(acc.Username); // User
@@ -159,7 +159,7 @@ namespace Quasar.Server.Forms
 
         private void UpdateRecoveryCount()
         {
-            groupBox1.Text = $"Recovered Accounts [ {lstPasswords.Items.Count} ]";
+            groupBox1.Text = $"恢复的帐户 [ {lstPasswords.Items.Count} ]";
         }
 
         private string ConvertToFormat(string format, RecoveredAccount login)
@@ -195,6 +195,7 @@ namespace Quasar.Server.Forms
         }
 
         #region Group Methods
+
         private ListViewGroup GetGroupFromApplication(string app)
         {
             ListViewGroup lvg = null;
@@ -204,14 +205,15 @@ namespace Quasar.Server.Forms
             }
             return lvg;
         }
-        
-        #endregion
+
+        #endregion Group Methods
 
         #region Menu
 
         #region Saving
 
         #region File Saving
+
         private void saveAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StringBuilder sb = GetLoginData();
@@ -235,8 +237,11 @@ namespace Quasar.Server.Forms
                 }
             }
         }
-        #endregion
+
+        #endregion File Saving
+
         #region Clipboard Copying
+
         private void copyAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StringBuilder sb = GetLoginData();
@@ -250,9 +255,10 @@ namespace Quasar.Server.Forms
 
             ClipboardHelper.SetClipboardTextSafe(sb.ToString());
         }
-        #endregion
 
-        #endregion
+        #endregion Clipboard Copying
+
+        #endregion Saving
 
         #region Misc
 
@@ -277,8 +283,8 @@ namespace Quasar.Server.Forms
             }
         }
 
-        #endregion
+        #endregion Misc
 
-        #endregion
+        #endregion Menu
     }
 }

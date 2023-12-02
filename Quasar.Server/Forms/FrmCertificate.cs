@@ -26,7 +26,7 @@ namespace Quasar.Server.Forms
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            SetCertificate(CertificateHelper.CreateCertificateAuthority("Quasar Server CA", 4096));
+            SetCertificate(CertificateHelper.CreateCertificateAuthority("Quasar Enhanced Server CA", 4096));
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace Quasar.Server.Forms
             using (var ofd = new OpenFileDialog())
             {
                 ofd.CheckFileExists = true;
-                ofd.Filter = "*.p12|*.p12";
+                ofd.Filter = "证书文件 *.p12|*.p12";
                 ofd.Multiselect = false;
                 ofd.InitialDirectory = Application.StartupPath;
                 if (ofd.ShowDialog(this) == DialogResult.OK)
@@ -45,7 +45,7 @@ namespace Quasar.Server.Forms
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(this, $"Error importing the certificate:\n{ex.Message}", "Save error",
+                        MessageBox.Show(this, $"导入证书时出错：\n{ex.Message}", "保存错误",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -65,8 +65,8 @@ namespace Quasar.Server.Forms
                 File.WriteAllBytes(Settings.CertificatePath, _certificate.Export(X509ContentType.Pkcs12));
 
                 MessageBox.Show(this,
-                    "Please backup the certificate now. Loss of the certificate results in loosing all clients!",
-                    "Certificate backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    "请立即备份证书。证书丢失会导致失去所有客户端！",
+                    "证书备份", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 string argument = "/select, \"" + Settings.CertificatePath + "\"";
                 Process.Start("explorer.exe", argument);
@@ -75,20 +75,20 @@ namespace Quasar.Server.Forms
             }
             catch (ArgumentNullException)
             {
-                MessageBox.Show(this, "Please create or import a certificate first.", "Save error",
+                MessageBox.Show(this, "请先创建或导入证书。", "保存错误",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (ArgumentException)
             {
                 MessageBox.Show(this,
-                    "The imported certificate has no associated private key. Please import a different certificate.",
-                    "Save error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "导入的证书没有关联的私钥。请导入其他证书。",
+                    "保存错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception)
             {
                 MessageBox.Show(this,
-                    "There was an error saving the certificate, please make sure you have write access to the Quasar directory.",
-                    "Save error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "保存证书时出错，请确保您对Quasar目录具有写访问权限。",
+                    "保存错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

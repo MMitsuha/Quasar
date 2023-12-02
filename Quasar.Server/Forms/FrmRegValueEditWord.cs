@@ -11,8 +11,8 @@ namespace Quasar.Server.Forms
     {
         private readonly RegValueData _value;
 
-        private const string DWORD_WARNING = "The decimal value entered is greater than the maximum value of a DWORD (32-bit number). Should the value be truncated in order to continue?";
-        private const string QWORD_WARNING = "The decimal value entered is greater than the maximum value of a QWORD (64-bit number). Should the value be truncated in order to continue?";
+        private const string DWORD_WARNING = "输入的十进制值大于DWORD（32位数字）的最大值。是否应该截断该值以便继续？";
+        private const string QWORD_WARNING = "输入的十进制值大于QWORD（64位数字）的最大值。是否应该截断该值以便继续？";
 
         public FrmRegValueEditWord(RegValueData value)
         {
@@ -22,15 +22,15 @@ namespace Quasar.Server.Forms
 
             this.valueNameTxtBox.Text = value.Name;
 
-            if (value.Kind == RegistryValueKind.DWord) 
+            if (value.Kind == RegistryValueKind.DWord)
             {
-                this.Text = "Edit DWORD (32-bit) Value";
+                this.Text = "编辑DWORD（32位）值";
                 this.valueDataTxtBox.Type = WordType.DWORD;
                 this.valueDataTxtBox.Text = ByteConverter.ToUInt32(value.Data).ToString("x");
             }
-            else 
+            else
             {
-                this.Text = "Edit QWORD (64-bit) Value";
+                this.Text = "编辑QWORD（64位）值";
                 this.valueDataTxtBox.Type = WordType.QWORD;
                 this.valueDataTxtBox.Text = ByteConverter.ToUInt64(value.Data).ToString("x");
             }
@@ -41,7 +41,7 @@ namespace Quasar.Server.Forms
             if (valueDataTxtBox.IsHexNumber == radioHexa.Checked)
                 return;
 
-            if(valueDataTxtBox.IsConversionValid() || IsOverridePossible())
+            if (valueDataTxtBox.IsConversionValid() || IsOverridePossible())
                 valueDataTxtBox.IsHexNumber = radioHexa.Checked;
             else
                 radioDecimal.Checked = true;
@@ -74,7 +74,7 @@ namespace Quasar.Server.Forms
         {
             string message = _value.Kind == RegistryValueKind.DWord ? DWORD_WARNING : QWORD_WARNING;
 
-            return ShowWarning(message, "Overflow") == DialogResult.Yes;
+            return ShowWarning(message, "溢出") == DialogResult.Yes;
         }
     }
 }

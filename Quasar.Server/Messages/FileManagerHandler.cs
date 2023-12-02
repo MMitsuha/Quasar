@@ -45,7 +45,7 @@ namespace Quasar.Server.Messages
         /// Raised when drives changed.
         /// </summary>
         /// <remarks>
-        /// Handlers registered with this event will be invoked on the 
+        /// Handlers registered with this event will be invoked on the
         /// <see cref="System.Threading.SynchronizationContext"/> chosen when the instance was constructed.
         /// </remarks>
         public event DrivesChangedEventHandler DrivesChanged;
@@ -54,7 +54,7 @@ namespace Quasar.Server.Messages
         /// Raised when a directory changed.
         /// </summary>
         /// <remarks>
-        /// Handlers registered with this event will be invoked on the 
+        /// Handlers registered with this event will be invoked on the
         /// <see cref="System.Threading.SynchronizationContext"/> chosen when the instance was constructed.
         /// </remarks>
         public event DirectoryChangedEventHandler DirectoryChanged;
@@ -63,7 +63,7 @@ namespace Quasar.Server.Messages
         /// Raised when a file transfer updated.
         /// </summary>
         /// <remarks>
-        /// Handlers registered with this event will be invoked on the 
+        /// Handlers registered with this event will be invoked on the
         /// <see cref="System.Threading.SynchronizationContext"/> chosen when the instance was constructed.
         /// </remarks>
         public event FileTransferUpdatedEventHandler FileTransferUpdated;
@@ -168,18 +168,23 @@ namespace Quasar.Server.Messages
                 case FileTransferChunk file:
                     Execute(sender, file);
                     break;
+
                 case FileTransferCancel cancel:
                     Execute(sender, cancel);
                     break;
+
                 case FileTransferComplete complete:
                     Execute(sender, complete);
                     break;
+
                 case GetDrivesResponse drive:
                     Execute(sender, drive);
                     break;
+
                 case GetDirectoryResponse directory:
                     Execute(sender, directory);
                     break;
+
                 case SetStatusFileManager status:
                     Execute(sender, status);
                     break;
@@ -220,7 +225,7 @@ namespace Quasar.Server.Messages
                 Type = TransferType.Download,
                 LocalPath = localPath,
                 RemotePath = remotePath,
-                Status = "Pending...",
+                Status = "未决中...",
                 //Size = fileSize, TODO: Add file size here
                 TransferredSize = 0
             };
@@ -231,7 +236,7 @@ namespace Quasar.Server.Messages
             }
             catch (Exception)
             {
-                transfer.Status = "Error writing file";
+                transfer.Status = "写入文件失败";
                 OnFileTransferUpdated(transfer);
                 return;
             }
@@ -243,7 +248,7 @@ namespace Quasar.Server.Messages
 
             OnFileTransferUpdated(transfer);
 
-            _client.Send(new FileTransferRequest {RemotePath = remotePath, Id = id});
+            _client.Send(new FileTransferRequest { RemotePath = remotePath, Id = id });
         }
 
         /// <summary>
@@ -263,7 +268,7 @@ namespace Quasar.Server.Messages
                     Type = TransferType.Upload,
                     LocalPath = localPath,
                     RemotePath = remotePath,
-                    Status = "Pending...",
+                    Status = "未决中...",
                     TransferredSize = 0
                 };
 
@@ -273,7 +278,7 @@ namespace Quasar.Server.Messages
                 }
                 catch (Exception)
                 {
-                    transfer.Status = "Error reading file";
+                    transfer.Status = "读取文件失败";
                     OnFileTransferUpdated(transfer);
                     return;
                 }
@@ -295,7 +300,7 @@ namespace Quasar.Server.Messages
                     {
                         transfer.TransferredSize += chunk.Data.Length;
                         decimal progress = transfer.Size == 0 ? 100 : Math.Round((decimal)((double)transfer.TransferredSize / (double)transfer.Size * 100.0), 2);
-                        transfer.Status = $"Uploading...({progress}%)";
+                        transfer.Status = $"上传中...({progress}%)";
                         OnFileTransferUpdated(transfer);
 
                         bool transferCanceled;
@@ -306,7 +311,7 @@ namespace Quasar.Server.Messages
 
                         if (transferCanceled)
                         {
-                            transfer.Status = "Canceled";
+                            transfer.Status = "已取消";
                             OnFileTransferUpdated(transfer);
                             _limitThreads.Release();
                             return;
@@ -333,7 +338,7 @@ namespace Quasar.Server.Messages
                             return;
                         }
                     }
-                    transfer.Status = "Error reading file";
+                    transfer.Status = "读取文件失败";
                     OnFileTransferUpdated(transfer);
                     CancelFileTransfer(transfer.Id);
                     _limitThreads.Release();
@@ -350,7 +355,7 @@ namespace Quasar.Server.Messages
         /// <param name="transferId">The id of the file transfer to cancel.</param>
         public void CancelFileTransfer(int transferId)
         {
-            _client.Send(new FileTransferCancel {Id = transferId});
+            _client.Send(new FileTransferCancel { Id = transferId });
         }
 
         /// <summary>
@@ -376,7 +381,7 @@ namespace Quasar.Server.Messages
         /// <param name="type">The type of the file (file or directory).</param>
         public void DeleteFile(string remotePath, FileType type)
         {
-            _client.Send(new DoPathDelete {Path = remotePath, PathType = type});
+            _client.Send(new DoPathDelete { Path = remotePath, PathType = type });
         }
 
         /// <summary>
@@ -394,7 +399,7 @@ namespace Quasar.Server.Messages
         /// <param name="item">The startup item to add.</param>
         public void AddToStartup(StartupItem item)
         {
-            _client.Send(new DoStartupItemAdd {StartupItem = item});
+            _client.Send(new DoStartupItemAdd { StartupItem = item });
         }
 
         /// <summary>
@@ -403,7 +408,7 @@ namespace Quasar.Server.Messages
         /// <param name="remotePath">The remote path of the directory.</param>
         public void GetDirectoryContents(string remotePath)
         {
-            _client.Send(new GetDirectory {RemotePath = remotePath});
+            _client.Send(new GetDirectory { RemotePath = remotePath });
         }
 
         /// <summary>
@@ -434,14 +439,14 @@ namespace Quasar.Server.Messages
             }
             catch (Exception)
             {
-                transfer.Status = "Error writing file";
+                transfer.Status = "写入文件失败";
                 OnFileTransferUpdated(transfer);
                 CancelFileTransfer(transfer.Id);
                 return;
             }
 
-            decimal progress = transfer.Size == 0 ? 100 : Math.Round((decimal) ((double) transfer.TransferredSize / (double) transfer.Size * 100.0), 2);
-            transfer.Status = $"Downloading...({progress}%)";
+            decimal progress = transfer.Size == 0 ? 100 : Math.Round((decimal)((double)transfer.TransferredSize / (double)transfer.Size * 100.0), 2);
+            transfer.Status = $"下载中...({progress}%)";
 
             OnFileTransferUpdated(transfer);
         }
@@ -476,7 +481,7 @@ namespace Quasar.Server.Messages
             if (transfer != null)
             {
                 transfer.RemotePath = message.FilePath; // required for temporary file names generated on the client
-                transfer.Status = "Completed";
+                transfer.Status = "完成";
                 RemoveFileTransfer(transfer.Id);
                 OnFileTransferUpdated(transfer);
             }
@@ -489,7 +494,7 @@ namespace Quasar.Server.Messages
 
             OnDrivesChanged(message.Drives);
         }
-        
+
         private void Execute(ISender client, GetDirectoryResponse message)
         {
             if (message.Items == null)
@@ -507,7 +512,7 @@ namespace Quasar.Server.Messages
         private void ProcessActionPerformed(object sender, ProcessAction action, bool result)
         {
             if (action != ProcessAction.Start) return;
-            OnReport(result ? "Process started successfully" : "Process failed to start");
+            OnReport(result ? "进程启动成功" : "启动进程失败");
         }
 
         /// <summary>
@@ -560,7 +565,7 @@ namespace Quasar.Server.Messages
                 {
                     foreach (var transfer in _activeFileTransfers)
                     {
-                        _client.Send(new FileTransferCancel {Id = transfer.Id});
+                        _client.Send(new FileTransferCancel { Id = transfer.Id });
                         transfer.FileSplit?.Dispose();
                         if (transfer.Type == TransferType.Download)
                             File.Delete(transfer.LocalPath);

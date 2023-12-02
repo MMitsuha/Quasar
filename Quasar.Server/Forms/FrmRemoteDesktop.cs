@@ -236,7 +236,7 @@ namespace Quasar.Server.Forms
         {
             cbMonitors.Items.Clear();
             for (int i = 0; i < displays; i++)
-                cbMonitors.Items.Add($"Display {i + 1}");
+                cbMonitors.Items.Add($"显示器 {i + 1}");
             cbMonitors.SelectedIndex = 0;
         }
 
@@ -252,9 +252,9 @@ namespace Quasar.Server.Forms
 
         private void FrmRemoteDesktop_Load(object sender, EventArgs e)
         {
-            this.Text = WindowHelper.GetWindowTitle("Remote Desktop", _connectClient);
+            this.Text = WindowHelper.GetWindowTitle("远程桌面", _connectClient);
 
-            OnResize(EventArgs.Empty); // trigger resize event to align controls 
+            OnResize(EventArgs.Empty); // trigger resize event to align controls
 
             _remoteDesktopHandler.RefreshDisplays();
         }
@@ -265,7 +265,7 @@ namespace Quasar.Server.Forms
         /// <param name="e">The new frames per second.</param>
         private void frameCounter_FrameUpdated(FrameUpdatedEventArgs e)
         {
-            this.Text = string.Format("{0} - FPS: {1}", WindowHelper.GetWindowTitle("Remote Desktop", _connectClient), e.CurrentFramesPerSecond.ToString("0.00"));
+            this.Text = string.Format("{0} - FPS: {1}", WindowHelper.GetWindowTitle("远程桌面", _connectClient), e.CurrentFramesPerSecond.ToString("0.00"));
         }
 
         private void FrmRemoteDesktop_FormClosing(object sender, FormClosingEventArgs e)
@@ -293,8 +293,8 @@ namespace Quasar.Server.Forms
         {
             if (cbMonitors.Items.Count == 0)
             {
-                MessageBox.Show("No remote display detected.\nPlease wait till the client sends a list with available displays.",
-                    "Starting failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("未检测到远程显示器。\n请等待客户端发送具有可用显示的列表。",
+                    "启动失败", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -399,7 +399,7 @@ namespace Quasar.Server.Forms
                    || ((key & Keys.Scroll) == Keys.Scroll);
         }
 
-        #endregion
+        #endregion Remote Desktop Input
 
         #region Remote Desktop Configuration
 
@@ -409,13 +409,13 @@ namespace Quasar.Server.Forms
             lblQualityShow.Text = value.ToString();
 
             if (value < 25)
-                lblQualityShow.Text += " (low)";
+                lblQualityShow.Text += "（低）";
             else if (value >= 85)
-                lblQualityShow.Text += " (best)";
+                lblQualityShow.Text += "（最好）";
             else if (value >= 75)
-                lblQualityShow.Text += " (high)";
+                lblQualityShow.Text += "（高）";
             else if (value >= 25)
-                lblQualityShow.Text += " (mid)";
+                lblQualityShow.Text += "（中）";
 
             this.ActiveControl = picDesktop;
         }
@@ -426,14 +426,14 @@ namespace Quasar.Server.Forms
             {
                 this.picDesktop.Cursor = Cursors.Default;
                 btnMouse.Image = Properties.Resources.mouse_delete;
-                toolTipButtons.SetToolTip(btnMouse, "Enable mouse input.");
+                toolTipButtons.SetToolTip(btnMouse, "启用鼠标输入。");
                 _enableMouseInput = false;
             }
             else
             {
                 this.picDesktop.Cursor = Cursors.Hand;
                 btnMouse.Image = Properties.Resources.mouse_add;
-                toolTipButtons.SetToolTip(btnMouse, "Disable mouse input.");
+                toolTipButtons.SetToolTip(btnMouse, "禁用鼠标输入。");
                 _enableMouseInput = true;
             }
 
@@ -446,21 +446,21 @@ namespace Quasar.Server.Forms
             {
                 this.picDesktop.Cursor = Cursors.Default;
                 btnKeyboard.Image = Properties.Resources.keyboard_delete;
-                toolTipButtons.SetToolTip(btnKeyboard, "Enable keyboard input.");
+                toolTipButtons.SetToolTip(btnKeyboard, "启用键盘输入。");
                 _enableKeyboardInput = false;
             }
             else
             {
                 this.picDesktop.Cursor = Cursors.Hand;
                 btnKeyboard.Image = Properties.Resources.keyboard_add;
-                toolTipButtons.SetToolTip(btnKeyboard, "Disable keyboard input.");
+                toolTipButtons.SetToolTip(btnKeyboard, "禁用键盘输入。");
                 _enableKeyboardInput = true;
             }
 
             this.ActiveControl = picDesktop;
         }
 
-        #endregion
+        #endregion Remote Desktop Configuration
 
         private void btnHide_Click(object sender, EventArgs e)
         {
