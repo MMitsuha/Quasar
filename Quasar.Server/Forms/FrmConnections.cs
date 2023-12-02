@@ -22,7 +22,7 @@ namespace Quasar.Server.Forms
         private readonly TcpConnectionsHandler _connectionsHandler;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private readonly Dictionary<string, ListViewGroup> _groups = new Dictionary<string, ListViewGroup>();
 
@@ -130,7 +130,7 @@ namespace Quasar.Server.Forms
 
         private void FrmConnections_Load(object sender, EventArgs e)
         {
-            this.Text = WindowHelper.GetWindowTitle("Connections", _connectClient);
+            this.Text = WindowHelper.GetWindowTitle("链接", _connectClient);
             _connectionsHandler.RefreshTcpConnections();
         }
 

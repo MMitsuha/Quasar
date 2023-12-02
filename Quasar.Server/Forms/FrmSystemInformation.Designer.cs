@@ -62,7 +62,7 @@ namespace Quasar.Server.Forms
             listViewColumnSorter1.Order = System.Windows.Forms.SortOrder.None;
             listViewColumnSorter1.SortColumn = 0;
             this.lstSystem.LvwColumnSorter = listViewColumnSorter1;
-            this.lstSystem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lstSystem.Margin = new System.Windows.Forms.Padding(6);
             this.lstSystem.Name = "lstSystem";
             this.lstSystem.Size = new System.Drawing.Size(1068, 618);
             this.lstSystem.TabIndex = 0;
@@ -71,13 +71,13 @@ namespace Quasar.Server.Forms
             // 
             // hComponent
             // 
-            this.hComponent.Text = "Component";
-            this.hComponent.Width = 172;
+            this.hComponent.Text = "组件";
+            this.hComponent.Width = 339;
             // 
             // hValue
             // 
-            this.hValue.Text = "Value";
-            this.hValue.Width = 321;
+            this.hValue.Text = "值";
+            this.hValue.Width = 686;
             // 
             // contextMenuStrip
             // 
@@ -87,7 +87,7 @@ namespace Quasar.Server.Forms
             this.toolStripMenuItem2,
             this.refreshToolStripMenuItem});
             this.contextMenuStrip.Name = "ctxtMenu";
-            this.contextMenuStrip.Size = new System.Drawing.Size(312, 90);
+            this.contextMenuStrip.Size = new System.Drawing.Size(249, 90);
             // 
             // copyToClipboardToolStripMenuItem
             // 
@@ -96,8 +96,8 @@ namespace Quasar.Server.Forms
             this.copySelectedToolStripMenuItem});
             this.copyToClipboardToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.page_copy;
             this.copyToClipboardToolStripMenuItem.Name = "copyToClipboardToolStripMenuItem";
-            this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(311, 40);
-            this.copyToClipboardToolStripMenuItem.Text = "Copy to Clipboard";
+            this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(248, 40);
+            this.copyToClipboardToolStripMenuItem.Text = "复制到剪切板";
             // 
             // copyAllToolStripMenuItem
             // 
@@ -116,14 +116,14 @@ namespace Quasar.Server.Forms
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(308, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(245, 6);
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.refresh;
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(311, 40);
-            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(248, 40);
+            this.refreshToolStripMenuItem.Text = "刷新";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // FrmSystemInformation
@@ -134,7 +134,7 @@ namespace Quasar.Server.Forms
             this.Controls.Add(this.lstSystem);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MinimumSize = new System.Drawing.Size(1126, 675);
             this.Name = "FrmSystemInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

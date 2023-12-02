@@ -43,7 +43,7 @@
             this.txtConsoleOutput.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsoleOutput.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtConsoleOutput.Location = new System.Drawing.Point(6, 6);
-            this.txtConsoleOutput.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtConsoleOutput.Margin = new System.Windows.Forms.Padding(6);
             this.txtConsoleOutput.Name = "txtConsoleOutput";
             this.txtConsoleOutput.ReadOnly = true;
             this.txtConsoleOutput.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
@@ -61,7 +61,7 @@
             this.txtConsoleInput.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsoleInput.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtConsoleInput.Location = new System.Drawing.Point(6, 612);
-            this.txtConsoleInput.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtConsoleInput.Margin = new System.Windows.Forms.Padding(6);
             this.txtConsoleInput.MaxLength = 200;
             this.txtConsoleInput.Name = "txtConsoleInput";
             this.txtConsoleInput.Size = new System.Drawing.Size(1262, 31);
@@ -77,7 +77,7 @@
             this.tableLayoutPanel.Controls.Add(this.txtConsoleInput, 0, 1);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 2;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -93,7 +93,7 @@
             this.Controls.Add(this.tableLayoutPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmRemoteShell";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "远程终端 []";

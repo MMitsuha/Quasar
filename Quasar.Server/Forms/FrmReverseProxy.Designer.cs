@@ -61,7 +61,7 @@ namespace Quasar.Server.Forms
             // btnStart
             // 
             this.btnStart.Location = new System.Drawing.Point(486, 24);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(6);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(228, 46);
             this.btnStart.TabIndex = 0;
@@ -82,7 +82,7 @@ namespace Quasar.Server.Forms
             // nudServerPort
             // 
             this.nudServerPort.Location = new System.Drawing.Point(234, 30);
-            this.nudServerPort.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.nudServerPort.Margin = new System.Windows.Forms.Padding(6);
             this.nudServerPort.Maximum = new decimal(new int[] {
             65534,
             0,
@@ -111,7 +111,7 @@ namespace Quasar.Server.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabCtrl.Controls.Add(this.tabPage1);
             this.tabCtrl.Location = new System.Drawing.Point(52, 230);
-            this.tabCtrl.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabCtrl.Margin = new System.Windows.Forms.Padding(6);
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
             this.tabCtrl.Size = new System.Drawing.Size(1472, 548);
@@ -121,9 +121,9 @@ namespace Quasar.Server.Forms
             // 
             this.tabPage1.Controls.Add(this.lstConnections);
             this.tabPage1.Location = new System.Drawing.Point(8, 44);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(6);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(6);
             this.tabPage1.Size = new System.Drawing.Size(1456, 496);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "打开的连接";
@@ -149,7 +149,7 @@ namespace Quasar.Server.Forms
             listViewColumnSorter1.Order = System.Windows.Forms.SortOrder.None;
             listViewColumnSorter1.SortColumn = 0;
             this.lstConnections.LvwColumnSorter = listViewColumnSorter1;
-            this.lstConnections.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lstConnections.Margin = new System.Windows.Forms.Padding(6);
             this.lstConnections.Name = "lstConnections";
             this.lstConnections.Size = new System.Drawing.Size(1444, 484);
             this.lstConnections.TabIndex = 0;
@@ -160,38 +160,38 @@ namespace Quasar.Server.Forms
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Client IP";
-            this.columnHeader6.Width = 106;
+            this.columnHeader6.Text = "客户端 IP";
+            this.columnHeader6.Width = 246;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Client Country";
-            this.columnHeader7.Width = 106;
+            this.columnHeader7.Text = "客户端国家";
+            this.columnHeader7.Width = 182;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Target Server";
-            this.columnHeader1.Width = 135;
+            this.columnHeader1.Text = "目标服务器";
+            this.columnHeader1.Width = 327;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Target Port";
-            this.columnHeader2.Width = 68;
+            this.columnHeader2.Text = "目标端口";
+            this.columnHeader2.Width = 147;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Total Received";
-            this.columnHeader3.Width = 105;
+            this.columnHeader3.Text = "总接收";
+            this.columnHeader3.Width = 203;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Total Sent";
-            this.columnHeader4.Width = 95;
+            this.columnHeader4.Text = "总发送";
+            this.columnHeader4.Width = 148;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Proxy Type";
-            this.columnHeader5.Width = 90;
+            this.columnHeader5.Text = "代理类型";
+            this.columnHeader5.Width = 156;
             // 
             // contextMenuStrip
             // 
@@ -199,20 +199,20 @@ namespace Quasar.Server.Forms
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.killConnectionToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(261, 42);
+            this.contextMenuStrip.Size = new System.Drawing.Size(185, 42);
             // 
             // killConnectionToolStripMenuItem
             // 
             this.killConnectionToolStripMenuItem.Name = "killConnectionToolStripMenuItem";
-            this.killConnectionToolStripMenuItem.Size = new System.Drawing.Size(260, 38);
-            this.killConnectionToolStripMenuItem.Text = "Kill Connection";
+            this.killConnectionToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
+            this.killConnectionToolStripMenuItem.Text = "关闭连接";
             this.killConnectionToolStripMenuItem.Click += new System.EventHandler(this.killConnectionToolStripMenuItem_Click);
             // 
             // btnStop
             // 
             this.btnStop.Enabled = false;
             this.btnStop.Location = new System.Drawing.Point(726, 24);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(6);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(228, 46);
             this.btnStop.TabIndex = 4;
@@ -265,7 +265,7 @@ namespace Quasar.Server.Forms
             this.Controls.Add(this.btnStart);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmReverseProxy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reverse Proxy []";

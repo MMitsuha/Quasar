@@ -96,86 +96,86 @@ namespace Quasar.Server.Forms
             this.refreshToolStripMenuItem,
             this.openDirectoryInShellToolStripMenuItem});
             this.contextMenuStripDirectory.Name = "ctxtMenu";
-            this.contextMenuStripDirectory.Size = new System.Drawing.Size(468, 342);
+            this.contextMenuStripDirectory.Size = new System.Drawing.Size(345, 342);
             // 
             // downloadToolStripMenuItem
             // 
             this.downloadToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downloadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("downloadToolStripMenuItem.Image")));
             this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
-            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
-            this.downloadToolStripMenuItem.Text = "Download";
+            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(344, 40);
+            this.downloadToolStripMenuItem.Text = "下载";
             this.downloadToolStripMenuItem.Click += new System.EventHandler(this.downloadToolStripMenuItem_Click);
             // 
             // uploadToolStripMenuItem
             // 
             this.uploadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("uploadToolStripMenuItem.Image")));
             this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
-            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
-            this.uploadToolStripMenuItem.Text = "Upload";
+            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(344, 40);
+            this.uploadToolStripMenuItem.Text = "上传";
             this.uploadToolStripMenuItem.Click += new System.EventHandler(this.uploadToolStripMenuItem_Click);
             // 
             // lineToolStripMenuItem
             // 
             this.lineToolStripMenuItem.Name = "lineToolStripMenuItem";
-            this.lineToolStripMenuItem.Size = new System.Drawing.Size(464, 6);
+            this.lineToolStripMenuItem.Size = new System.Drawing.Size(341, 6);
             // 
             // executeToolStripMenuItem
             // 
             this.executeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("executeToolStripMenuItem.Image")));
             this.executeToolStripMenuItem.Name = "executeToolStripMenuItem";
-            this.executeToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
-            this.executeToolStripMenuItem.Text = "Execute";
+            this.executeToolStripMenuItem.Size = new System.Drawing.Size(344, 40);
+            this.executeToolStripMenuItem.Text = "执行";
             this.executeToolStripMenuItem.Click += new System.EventHandler(this.executeToolStripMenuItem_Click);
             // 
             // renameToolStripMenuItem
             // 
             this.renameToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.textfield_rename;
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
-            this.renameToolStripMenuItem.Text = "Rename";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(344, 40);
+            this.renameToolStripMenuItem.Text = "重命名";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.delete;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(344, 40);
+            this.deleteToolStripMenuItem.Text = "删除";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // line2ToolStripMenuItem
             // 
             this.line2ToolStripMenuItem.Name = "line2ToolStripMenuItem";
-            this.line2ToolStripMenuItem.Size = new System.Drawing.Size(464, 6);
+            this.line2ToolStripMenuItem.Size = new System.Drawing.Size(341, 6);
             // 
             // addToStartupToolStripMenuItem
             // 
             this.addToStartupToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.application_add;
             this.addToStartupToolStripMenuItem.Name = "addToStartupToolStripMenuItem";
-            this.addToStartupToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
-            this.addToStartupToolStripMenuItem.Text = "Add to Startup";
+            this.addToStartupToolStripMenuItem.Size = new System.Drawing.Size(344, 40);
+            this.addToStartupToolStripMenuItem.Text = "添加到自启动";
             this.addToStartupToolStripMenuItem.Click += new System.EventHandler(this.addToStartupToolStripMenuItem_Click);
             // 
             // line3ToolStripMenuItem
             // 
             this.line3ToolStripMenuItem.Name = "line3ToolStripMenuItem";
-            this.line3ToolStripMenuItem.Size = new System.Drawing.Size(464, 6);
+            this.line3ToolStripMenuItem.Size = new System.Drawing.Size(341, 6);
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.refresh;
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
-            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(344, 40);
+            this.refreshToolStripMenuItem.Text = "刷新";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // openDirectoryInShellToolStripMenuItem
             // 
             this.openDirectoryInShellToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.terminal;
             this.openDirectoryInShellToolStripMenuItem.Name = "openDirectoryInShellToolStripMenuItem";
-            this.openDirectoryInShellToolStripMenuItem.Size = new System.Drawing.Size(467, 40);
-            this.openDirectoryInShellToolStripMenuItem.Text = "Open Directory in Remote Shell";
+            this.openDirectoryInShellToolStripMenuItem.Size = new System.Drawing.Size(344, 40);
+            this.openDirectoryInShellToolStripMenuItem.Text = "在远程终端中打开目录";
             this.openDirectoryInShellToolStripMenuItem.Click += new System.EventHandler(this.openDirectoryToolStripMenuItem_Click);
             // 
             // imgListDirectory
@@ -220,27 +220,27 @@ namespace Quasar.Server.Forms
             this.toolStripMenuItem1,
             this.clearToolStripMenuItem});
             this.contextMenuStripTransfers.Name = "ctxtMenu2";
-            this.contextMenuStripTransfers.Size = new System.Drawing.Size(269, 90);
+            this.contextMenuStripTransfers.Size = new System.Drawing.Size(201, 90);
             // 
             // cancelToolStripMenuItem
             // 
             this.cancelToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.cancel;
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(268, 40);
-            this.cancelToolStripMenuItem.Text = "Cancel";
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(200, 40);
+            this.cancelToolStripMenuItem.Text = "取消";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(265, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(197, 6);
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.broom;
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(268, 40);
-            this.clearToolStripMenuItem.Text = "Clear transfers";
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(200, 40);
+            this.clearToolStripMenuItem.Text = "清除传输";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
             // imgListTransfers

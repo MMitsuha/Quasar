@@ -32,7 +32,7 @@ namespace Quasar.Server.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistryEditor));
-            Quasar.Server.Utilities.ListViewColumnSorter listViewColumnSorter2 = new Quasar.Server.Utilities.ListViewColumnSorter();
+            Quasar.Server.Utilities.ListViewColumnSorter listViewColumnSorter1 = new Quasar.Server.Utilities.ListViewColumnSorter();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.tvRegistryDirectory = new Quasar.Server.Controls.RegistryTreeView();
@@ -114,7 +114,7 @@ namespace Quasar.Server.Forms
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 3;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
@@ -127,7 +127,7 @@ namespace Quasar.Server.Forms
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer.Location = new System.Drawing.Point(6, 56);
-            this.splitContainer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.splitContainer.Margin = new System.Windows.Forms.Padding(6);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -149,7 +149,7 @@ namespace Quasar.Server.Forms
             this.tvRegistryDirectory.ImageIndex = 0;
             this.tvRegistryDirectory.ImageList = this.imageRegistryDirectoryList;
             this.tvRegistryDirectory.Location = new System.Drawing.Point(0, 0);
-            this.tvRegistryDirectory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tvRegistryDirectory.Margin = new System.Windows.Forms.Padding(6);
             this.tvRegistryDirectory.Name = "tvRegistryDirectory";
             this.tvRegistryDirectory.SelectedImageIndex = 0;
             this.tvRegistryDirectory.Size = new System.Drawing.Size(518, 1016);
@@ -177,11 +177,11 @@ namespace Quasar.Server.Forms
             this.lstRegistryValues.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstRegistryValues.HideSelection = false;
             this.lstRegistryValues.Location = new System.Drawing.Point(0, 0);
-            listViewColumnSorter2.NeedNumberCompare = false;
-            listViewColumnSorter2.Order = System.Windows.Forms.SortOrder.None;
-            listViewColumnSorter2.SortColumn = 0;
-            this.lstRegistryValues.LvwColumnSorter = listViewColumnSorter2;
-            this.lstRegistryValues.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            listViewColumnSorter1.NeedNumberCompare = false;
+            listViewColumnSorter1.Order = System.Windows.Forms.SortOrder.None;
+            listViewColumnSorter1.SortColumn = 0;
+            this.lstRegistryValues.LvwColumnSorter = listViewColumnSorter1;
+            this.lstRegistryValues.Margin = new System.Windows.Forms.Padding(6);
             this.lstRegistryValues.Name = "lstRegistryValues";
             this.lstRegistryValues.Size = new System.Drawing.Size(1030, 1016);
             this.lstRegistryValues.SmallImageList = this.imageRegistryKeyTypeList;
@@ -194,18 +194,18 @@ namespace Quasar.Server.Forms
             // 
             // hName
             // 
-            this.hName.Text = "Name";
-            this.hName.Width = 173;
+            this.hName.Text = "名称";
+            this.hName.Width = 253;
             // 
             // hType
             // 
-            this.hType.Text = "Type";
-            this.hType.Width = 104;
+            this.hType.Text = "类型";
+            this.hType.Width = 176;
             // 
             // hValue
             // 
-            this.hValue.Text = "Value";
-            this.hValue.Width = 214;
+            this.hValue.Text = "值";
+            this.hValue.Width = 585;
             // 
             // imageRegistryKeyTypeList
             // 
@@ -242,7 +242,7 @@ namespace Quasar.Server.Forms
             this.editToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(418, 48);
+            this.menuStrip.Size = new System.Drawing.Size(412, 42);
             this.menuStrip.TabIndex = 2;
             // 
             // fileToolStripMenuItem
@@ -250,14 +250,14 @@ namespace Quasar.Server.Forms
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(82, 40);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(82, 38);
             this.fileToolStripMenuItem.Text = "文件";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(187, 44);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.exitToolStripMenuItem.Text = "退出";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.menuStripExit_Click);
             // 
             // editToolStripMenuItem
@@ -271,7 +271,7 @@ namespace Quasar.Server.Forms
             this.deleteToolStripMenuItem2,
             this.renameToolStripMenuItem2});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(82, 40);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(82, 38);
             this.editToolStripMenuItem.Text = "编辑";
             this.editToolStripMenuItem.DropDownOpening += new System.EventHandler(this.editToolStripMenuItem_DropDownOpening);
             // 
@@ -280,7 +280,7 @@ namespace Quasar.Server.Forms
             this.modifyToolStripMenuItem1.Enabled = false;
             this.modifyToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modifyToolStripMenuItem1.Name = "modifyToolStripMenuItem1";
-            this.modifyToolStripMenuItem1.Size = new System.Drawing.Size(383, 44);
+            this.modifyToolStripMenuItem1.Size = new System.Drawing.Size(333, 44);
             this.modifyToolStripMenuItem1.Text = "修改...";
             this.modifyToolStripMenuItem1.Visible = false;
             this.modifyToolStripMenuItem1.Click += new System.EventHandler(this.modifyRegistryValue_Click);
@@ -289,7 +289,7 @@ namespace Quasar.Server.Forms
             // 
             this.modifyBinaryDataToolStripMenuItem1.Enabled = false;
             this.modifyBinaryDataToolStripMenuItem1.Name = "modifyBinaryDataToolStripMenuItem1";
-            this.modifyBinaryDataToolStripMenuItem1.Size = new System.Drawing.Size(359, 44);
+            this.modifyBinaryDataToolStripMenuItem1.Size = new System.Drawing.Size(333, 44);
             this.modifyBinaryDataToolStripMenuItem1.Text = "修改二进制数据...";
             this.modifyBinaryDataToolStripMenuItem1.Visible = false;
             this.modifyBinaryDataToolStripMenuItem1.Click += new System.EventHandler(this.modifyBinaryDataRegistryValue_Click);
@@ -297,7 +297,7 @@ namespace Quasar.Server.Forms
             // modifyNewtoolStripSeparator
             // 
             this.modifyNewtoolStripSeparator.Name = "modifyNewtoolStripSeparator";
-            this.modifyNewtoolStripSeparator.Size = new System.Drawing.Size(380, 6);
+            this.modifyNewtoolStripSeparator.Size = new System.Drawing.Size(330, 6);
             this.modifyNewtoolStripSeparator.Visible = false;
             // 
             // newToolStripMenuItem2
@@ -312,53 +312,53 @@ namespace Quasar.Server.Forms
             this.multiStringValueToolStripMenuItem2,
             this.expandableStringValueToolStripMenuItem2});
             this.newToolStripMenuItem2.Name = "newToolStripMenuItem2";
-            this.newToolStripMenuItem2.Size = new System.Drawing.Size(359, 44);
+            this.newToolStripMenuItem2.Size = new System.Drawing.Size(333, 44);
             this.newToolStripMenuItem2.Text = "新建";
             // 
             // keyToolStripMenuItem2
             // 
             this.keyToolStripMenuItem2.Name = "keyToolStripMenuItem2";
-            this.keyToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.keyToolStripMenuItem2.Size = new System.Drawing.Size(369, 44);
             this.keyToolStripMenuItem2.Text = "建";
             this.keyToolStripMenuItem2.Click += new System.EventHandler(this.createNewRegistryKey_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(421, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(366, 6);
             // 
             // stringValueToolStripMenuItem2
             // 
             this.stringValueToolStripMenuItem2.Name = "stringValueToolStripMenuItem2";
-            this.stringValueToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.stringValueToolStripMenuItem2.Size = new System.Drawing.Size(369, 44);
             this.stringValueToolStripMenuItem2.Text = "字符串值";
             this.stringValueToolStripMenuItem2.Click += new System.EventHandler(this.createStringRegistryValue_Click);
             // 
             // binaryValueToolStripMenuItem2
             // 
             this.binaryValueToolStripMenuItem2.Name = "binaryValueToolStripMenuItem2";
-            this.binaryValueToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.binaryValueToolStripMenuItem2.Size = new System.Drawing.Size(369, 44);
             this.binaryValueToolStripMenuItem2.Text = "二进制值";
             this.binaryValueToolStripMenuItem2.Click += new System.EventHandler(this.createBinaryRegistryValue_Click);
             // 
             // dWORD32bitValueToolStripMenuItem2
             // 
             this.dWORD32bitValueToolStripMenuItem2.Name = "dWORD32bitValueToolStripMenuItem2";
-            this.dWORD32bitValueToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.dWORD32bitValueToolStripMenuItem2.Size = new System.Drawing.Size(369, 44);
             this.dWORD32bitValueToolStripMenuItem2.Text = "DWORD（32位）值";
             this.dWORD32bitValueToolStripMenuItem2.Click += new System.EventHandler(this.createDwordRegistryValue_Click);
             // 
             // qWORD64bitValueToolStripMenuItem2
             // 
             this.qWORD64bitValueToolStripMenuItem2.Name = "qWORD64bitValueToolStripMenuItem2";
-            this.qWORD64bitValueToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.qWORD64bitValueToolStripMenuItem2.Size = new System.Drawing.Size(369, 44);
             this.qWORD64bitValueToolStripMenuItem2.Text = "QWORD（64位）值";
             this.qWORD64bitValueToolStripMenuItem2.Click += new System.EventHandler(this.createQwordRegistryValue_Click);
             // 
             // multiStringValueToolStripMenuItem2
             // 
             this.multiStringValueToolStripMenuItem2.Name = "multiStringValueToolStripMenuItem2";
-            this.multiStringValueToolStripMenuItem2.Size = new System.Drawing.Size(424, 44);
+            this.multiStringValueToolStripMenuItem2.Size = new System.Drawing.Size(369, 44);
             this.multiStringValueToolStripMenuItem2.Text = "多字符串值";
             this.multiStringValueToolStripMenuItem2.Click += new System.EventHandler(this.createMultiStringRegistryValue_Click);
             // 
@@ -372,23 +372,24 @@ namespace Quasar.Server.Forms
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(380, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(330, 6);
             // 
             // deleteToolStripMenuItem2
             // 
             this.deleteToolStripMenuItem2.Enabled = false;
             this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
             this.deleteToolStripMenuItem2.ShortcutKeyDisplayString = "Del";
-            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(383, 44);
-            this.deleteToolStripMenuItem2.Text = "Delete";
+            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(359, 44);
+            this.deleteToolStripMenuItem2.Text = "删除";
             this.deleteToolStripMenuItem2.Click += new System.EventHandler(this.menuStripDelete_Click);
             // 
             // renameToolStripMenuItem2
             // 
             this.renameToolStripMenuItem2.Enabled = false;
             this.renameToolStripMenuItem2.Name = "renameToolStripMenuItem2";
-            this.renameToolStripMenuItem2.Size = new System.Drawing.Size(383, 44);
-            this.renameToolStripMenuItem2.Text = "Rename";
+            this.renameToolStripMenuItem2.ShortcutKeyDisplayString = "F2";
+            this.renameToolStripMenuItem2.Size = new System.Drawing.Size(359, 44);
+            this.renameToolStripMenuItem2.Text = "重命名";
             this.renameToolStripMenuItem2.Click += new System.EventHandler(this.menuStripRename_Click);
             // 
             // tv_ContextMenuStrip
@@ -627,7 +628,7 @@ namespace Quasar.Server.Forms
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmRegistryEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "注册表编辑器 []";

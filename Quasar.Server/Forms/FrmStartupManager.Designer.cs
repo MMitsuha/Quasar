@@ -49,22 +49,22 @@ namespace Quasar.Server.Forms
             this.addEntryToolStripMenuItem,
             this.removeEntryToolStripMenuItem});
             this.contextMenuStrip.Name = "ctxtMenu";
-            this.contextMenuStrip.Size = new System.Drawing.Size(265, 84);
+            this.contextMenuStrip.Size = new System.Drawing.Size(201, 84);
             // 
             // addEntryToolStripMenuItem
             // 
             this.addEntryToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.application_add;
             this.addEntryToolStripMenuItem.Name = "addEntryToolStripMenuItem";
-            this.addEntryToolStripMenuItem.Size = new System.Drawing.Size(264, 40);
-            this.addEntryToolStripMenuItem.Text = "Add Entry";
+            this.addEntryToolStripMenuItem.Size = new System.Drawing.Size(200, 40);
+            this.addEntryToolStripMenuItem.Text = "添加条目";
             this.addEntryToolStripMenuItem.Click += new System.EventHandler(this.addEntryToolStripMenuItem_Click);
             // 
             // removeEntryToolStripMenuItem
             // 
             this.removeEntryToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.application_delete;
             this.removeEntryToolStripMenuItem.Name = "removeEntryToolStripMenuItem";
-            this.removeEntryToolStripMenuItem.Size = new System.Drawing.Size(264, 40);
-            this.removeEntryToolStripMenuItem.Text = "Remove Entry";
+            this.removeEntryToolStripMenuItem.Size = new System.Drawing.Size(200, 40);
+            this.removeEntryToolStripMenuItem.Text = "移除条目";
             this.removeEntryToolStripMenuItem.Click += new System.EventHandler(this.removeEntryToolStripMenuItem_Click);
             // 
             // lstStartupItems
@@ -84,7 +84,7 @@ namespace Quasar.Server.Forms
             listViewColumnSorter1.Order = System.Windows.Forms.SortOrder.None;
             listViewColumnSorter1.SortColumn = 0;
             this.lstStartupItems.LvwColumnSorter = listViewColumnSorter1;
-            this.lstStartupItems.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lstStartupItems.Margin = new System.Windows.Forms.Padding(6);
             this.lstStartupItems.Name = "lstStartupItems";
             this.lstStartupItems.Size = new System.Drawing.Size(1302, 694);
             this.lstStartupItems.TabIndex = 0;
@@ -93,13 +93,13 @@ namespace Quasar.Server.Forms
             // 
             // hName
             // 
-            this.hName.Text = "Name";
-            this.hName.Width = 187;
+            this.hName.Text = "名称";
+            this.hName.Width = 303;
             // 
             // hPath
             // 
-            this.hPath.Text = "Path";
-            this.hPath.Width = 460;
+            this.hPath.Text = "路径";
+            this.hPath.Width = 969;
             // 
             // FrmStartupManager
             // 
@@ -109,7 +109,7 @@ namespace Quasar.Server.Forms
             this.Controls.Add(this.lstStartupItems);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MinimumSize = new System.Drawing.Size(1274, 729);
             this.Name = "FrmStartupManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -69,7 +69,7 @@ namespace Quasar.Server.Forms
             this.clearToolStripMenuItem,
             this.refreshToolStripMenuItem});
             this.contextMenuStrip.Name = "menuMain";
-            this.contextMenuStrip.Size = new System.Drawing.Size(312, 170);
+            this.contextMenuStrip.Size = new System.Drawing.Size(249, 170);
             // 
             // saveToFileToolStripMenuItem
             // 
@@ -78,8 +78,8 @@ namespace Quasar.Server.Forms
             this.saveSelectedToolStripMenuItem});
             this.saveToFileToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.save;
             this.saveToFileToolStripMenuItem.Name = "saveToFileToolStripMenuItem";
-            this.saveToFileToolStripMenuItem.Size = new System.Drawing.Size(311, 40);
-            this.saveToFileToolStripMenuItem.Text = "Save to File";
+            this.saveToFileToolStripMenuItem.Size = new System.Drawing.Size(248, 40);
+            this.saveToFileToolStripMenuItem.Text = "保存到文件";
             // 
             // saveAllToolStripMenuItem
             // 
@@ -102,8 +102,8 @@ namespace Quasar.Server.Forms
             this.copySelectedToolStripMenuItem});
             this.copyToClipboardToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.page_copy;
             this.copyToClipboardToolStripMenuItem.Name = "copyToClipboardToolStripMenuItem";
-            this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(311, 40);
-            this.copyToClipboardToolStripMenuItem.Text = "Copy to Clipboard";
+            this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(248, 40);
+            this.copyToClipboardToolStripMenuItem.Text = "复制到剪切板";
             // 
             // copyAllToolStripMenuItem
             // 
@@ -122,7 +122,7 @@ namespace Quasar.Server.Forms
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(308, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(245, 6);
             // 
             // clearToolStripMenuItem
             // 
@@ -131,8 +131,8 @@ namespace Quasar.Server.Forms
             this.clearSelectedToolStripMenuItem});
             this.clearToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.delete;
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(311, 40);
-            this.clearToolStripMenuItem.Text = "Clear";
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(248, 40);
+            this.clearToolStripMenuItem.Text = "清空";
             // 
             // clearAllToolStripMenuItem
             // 
@@ -152,8 +152,8 @@ namespace Quasar.Server.Forms
             // 
             this.refreshToolStripMenuItem.Image = global::Quasar.Server.Properties.Resources.refresh;
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(311, 40);
-            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(248, 40);
+            this.refreshToolStripMenuItem.Text = "刷新";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // groupBox1
@@ -163,9 +163,9 @@ namespace Quasar.Server.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.lstPasswords);
             this.groupBox1.Location = new System.Drawing.Point(24, 24);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(1098, 650);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -189,7 +189,7 @@ namespace Quasar.Server.Forms
             listViewColumnSorter1.Order = System.Windows.Forms.SortOrder.None;
             listViewColumnSorter1.SortColumn = 0;
             this.lstPasswords.LvwColumnSorter = listViewColumnSorter1;
-            this.lstPasswords.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lstPasswords.Margin = new System.Windows.Forms.Padding(6);
             this.lstPasswords.Name = "lstPasswords";
             this.lstPasswords.Size = new System.Drawing.Size(1070, 596);
             this.lstPasswords.TabIndex = 0;
@@ -198,23 +198,23 @@ namespace Quasar.Server.Forms
             // 
             // hIdentification
             // 
-            this.hIdentification.Text = "Identification";
-            this.hIdentification.Width = 107;
+            this.hIdentification.Text = "身份";
+            this.hIdentification.Width = 166;
             // 
             // hURL
             // 
-            this.hURL.Text = "URL / Location";
-            this.hURL.Width = 151;
+            this.hURL.Text = "URL / 地址";
+            this.hURL.Width = 315;
             // 
             // hUser
             // 
-            this.hUser.Text = "Username";
-            this.hUser.Width = 142;
+            this.hUser.Text = "用户名";
+            this.hUser.Width = 200;
             // 
             // hPass
             // 
-            this.hPass.Text = "Password";
-            this.hPass.Width = 130;
+            this.hPass.Text = "密码";
+            this.hPass.Width = 379;
             // 
             // groupBox2
             // 
@@ -223,9 +223,9 @@ namespace Quasar.Server.Forms
             this.groupBox2.Controls.Add(this.lblInfo);
             this.groupBox2.Controls.Add(this.txtFormat);
             this.groupBox2.Location = new System.Drawing.Point(24, 686);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox2.Size = new System.Drawing.Size(1098, 180);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
@@ -248,7 +248,7 @@ namespace Quasar.Server.Forms
             this.txtFormat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFormat.Location = new System.Drawing.Point(12, 38);
-            this.txtFormat.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtFormat.Margin = new System.Windows.Forms.Padding(6);
             this.txtFormat.Name = "txtFormat";
             this.txtFormat.Size = new System.Drawing.Size(1070, 37);
             this.txtFormat.TabIndex = 0;
@@ -264,7 +264,7 @@ namespace Quasar.Server.Forms
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MinimumSize = new System.Drawing.Size(1152, 729);
             this.Name = "FrmPasswordRecovery";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
