@@ -107,12 +107,12 @@ namespace Quasar.Server.Forms
         {
             RefreshLogsDirectory();
             btnGetLogs.Enabled = true;
-            stripLblStatus.Text = "Status: " + message;
+            stripLblStatus.Text = "状态: " + message;
         }
 
         private void FrmKeylogger_Load(object sender, EventArgs e)
         {
-            this.Text = WindowHelper.GetWindowTitle("Keylogger", _connectClient);
+            this.Text = WindowHelper.GetWindowTitle("键盘记录器", _connectClient);
 
             if (!Directory.Exists(_baseDownloadPath))
             {
@@ -132,7 +132,7 @@ namespace Quasar.Server.Forms
         private void btnGetLogs_Click(object sender, EventArgs e)
         {
             btnGetLogs.Enabled = false;
-            stripLblStatus.Text = "Status: Retrieving logs...";
+            stripLblStatus.Text = "状态：正在检索日志...";
             _keyloggerHandler.RetrieveLogs();
         }
 
@@ -154,7 +154,7 @@ namespace Quasar.Server.Forms
 
             foreach (FileInfo file in iFiles)
             {
-                lstLogs.Items.Add(new ListViewItem {Text = file.Name});
+                lstLogs.Items.Add(new ListViewItem { Text = file.Name });
             }
         }
     }

@@ -32,8 +32,8 @@ namespace Quasar.Server.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFileManager));
+            Quasar.Server.Utilities.ListViewColumnSorter listViewColumnSorter1 = new Quasar.Server.Utilities.ListViewColumnSorter();
             Quasar.Server.Utilities.ListViewColumnSorter listViewColumnSorter2 = new Quasar.Server.Utilities.ListViewColumnSorter();
-            Quasar.Server.Utilities.ListViewColumnSorter listViewColumnSorter3 = new Quasar.Server.Utilities.ListViewColumnSorter();
             this.contextMenuStripDirectory = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -258,7 +258,7 @@ namespace Quasar.Server.Forms
             this.TabControlFileManager.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControlFileManager.ItemSize = new System.Drawing.Size(44, 136);
             this.TabControlFileManager.Location = new System.Drawing.Point(0, 0);
-            this.TabControlFileManager.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TabControlFileManager.Margin = new System.Windows.Forms.Padding(6);
             this.TabControlFileManager.Multiline = true;
             this.TabControlFileManager.Name = "TabControlFileManager";
             this.TabControlFileManager.SelectedIndex = 0;
@@ -276,9 +276,9 @@ namespace Quasar.Server.Forms
             this.tabFileExplorer.Controls.Add(this.lblDrive);
             this.tabFileExplorer.Controls.Add(this.cmbDrives);
             this.tabFileExplorer.Location = new System.Drawing.Point(140, 4);
-            this.tabFileExplorer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabFileExplorer.Margin = new System.Windows.Forms.Padding(6);
             this.tabFileExplorer.Name = "tabFileExplorer";
-            this.tabFileExplorer.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabFileExplorer.Padding = new System.Windows.Forms.Padding(6);
             this.tabFileExplorer.Size = new System.Drawing.Size(1572, 907);
             this.tabFileExplorer.TabIndex = 0;
             this.tabFileExplorer.Text = "文件资源管理器";
@@ -290,7 +290,7 @@ namespace Quasar.Server.Forms
             this.btnRefresh.Image = global::Quasar.Server.Properties.Resources.refresh;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnRefresh.Location = new System.Drawing.Point(1364, 16);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(6);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(44, 44);
             this.btnRefresh.TabIndex = 5;
@@ -313,7 +313,7 @@ namespace Quasar.Server.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPath.Location = new System.Drawing.Point(720, 16);
-            this.txtPath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtPath.Margin = new System.Windows.Forms.Padding(6);
             this.txtPath.Name = "txtPath";
             this.txtPath.ReadOnly = true;
             this.txtPath.Size = new System.Drawing.Size(644, 37);
@@ -335,11 +335,11 @@ namespace Quasar.Server.Forms
             this.lstDirectory.GridLines = true;
             this.lstDirectory.HideSelection = false;
             this.lstDirectory.Location = new System.Drawing.Point(16, 70);
-            listViewColumnSorter2.NeedNumberCompare = false;
-            listViewColumnSorter2.Order = System.Windows.Forms.SortOrder.None;
-            listViewColumnSorter2.SortColumn = 0;
-            this.lstDirectory.LvwColumnSorter = listViewColumnSorter2;
-            this.lstDirectory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            listViewColumnSorter1.NeedNumberCompare = false;
+            listViewColumnSorter1.Order = System.Windows.Forms.SortOrder.None;
+            listViewColumnSorter1.SortColumn = 0;
+            this.lstDirectory.LvwColumnSorter = listViewColumnSorter1;
+            this.lstDirectory.Margin = new System.Windows.Forms.Padding(6);
             this.lstDirectory.Name = "lstDirectory";
             this.lstDirectory.Size = new System.Drawing.Size(1396, 811);
             this.lstDirectory.SmallImageList = this.imgListDirectory;
@@ -381,7 +381,7 @@ namespace Quasar.Server.Forms
             this.cmbDrives.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDrives.FormattingEnabled = true;
             this.cmbDrives.Location = new System.Drawing.Point(100, 16);
-            this.cmbDrives.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbDrives.Margin = new System.Windows.Forms.Padding(6);
             this.cmbDrives.Name = "cmbDrives";
             this.cmbDrives.Size = new System.Drawing.Size(420, 38);
             this.cmbDrives.TabIndex = 1;
@@ -393,9 +393,9 @@ namespace Quasar.Server.Forms
             this.tabTransfers.Controls.Add(this.btnOpenDLFolder);
             this.tabTransfers.Controls.Add(this.lstTransfers);
             this.tabTransfers.Location = new System.Drawing.Point(140, 4);
-            this.tabTransfers.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabTransfers.Margin = new System.Windows.Forms.Padding(6);
             this.tabTransfers.Name = "tabTransfers";
-            this.tabTransfers.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabTransfers.Padding = new System.Windows.Forms.Padding(6);
             this.tabTransfers.Size = new System.Drawing.Size(1572, 907);
             this.tabTransfers.TabIndex = 1;
             this.tabTransfers.Text = "传输";
@@ -403,11 +403,11 @@ namespace Quasar.Server.Forms
             // btnOpenDLFolder
             // 
             this.btnOpenDLFolder.Location = new System.Drawing.Point(16, 16);
-            this.btnOpenDLFolder.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnOpenDLFolder.Margin = new System.Windows.Forms.Padding(6);
             this.btnOpenDLFolder.Name = "btnOpenDLFolder";
             this.btnOpenDLFolder.Size = new System.Drawing.Size(290, 42);
             this.btnOpenDLFolder.TabIndex = 0;
-            this.btnOpenDLFolder.Text = "&Open Download Folder";
+            this.btnOpenDLFolder.Text = "打开下载文件夹";
             this.btnOpenDLFolder.UseVisualStyleBackColor = true;
             this.btnOpenDLFolder.Click += new System.EventHandler(this.btnOpenDLFolder_Click);
             // 
@@ -426,11 +426,11 @@ namespace Quasar.Server.Forms
             this.lstTransfers.GridLines = true;
             this.lstTransfers.HideSelection = false;
             this.lstTransfers.Location = new System.Drawing.Point(16, 70);
-            listViewColumnSorter3.NeedNumberCompare = false;
-            listViewColumnSorter3.Order = System.Windows.Forms.SortOrder.None;
-            listViewColumnSorter3.SortColumn = 0;
-            this.lstTransfers.LvwColumnSorter = listViewColumnSorter3;
-            this.lstTransfers.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            listViewColumnSorter2.NeedNumberCompare = false;
+            listViewColumnSorter2.Order = System.Windows.Forms.SortOrder.None;
+            listViewColumnSorter2.SortColumn = 0;
+            this.lstTransfers.LvwColumnSorter = listViewColumnSorter2;
+            this.lstTransfers.Margin = new System.Windows.Forms.Padding(6);
             this.lstTransfers.Name = "lstTransfers";
             this.lstTransfers.Size = new System.Drawing.Size(1392, 813);
             this.lstTransfers.SmallImageList = this.imgListTransfers;
@@ -445,18 +445,18 @@ namespace Quasar.Server.Forms
             // 
             // hTransferType
             // 
-            this.hTransferType.Text = "Transfer Type";
-            this.hTransferType.Width = 93;
+            this.hTransferType.Text = "传输类型";
+            this.hTransferType.Width = 175;
             // 
             // hStatus
             // 
-            this.hStatus.Text = "Status";
+            this.hStatus.Text = "状态";
             this.hStatus.Width = 173;
             // 
             // hFilename
             // 
-            this.hFilename.Text = "Filename";
-            this.hFilename.Width = 289;
+            this.hFilename.Text = "文件名";
+            this.hFilename.Width = 867;
             // 
             // FrmFileManager
             // 
@@ -468,7 +468,7 @@ namespace Quasar.Server.Forms
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MinimumSize = new System.Drawing.Size(1300, 683);
             this.Name = "FrmFileManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
